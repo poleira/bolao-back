@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using BolaoDaCopa.Aplicacao.Palpites.Servicos.Interfaces;
-using BolaoTeste.Data.Interfaces;
+using BolaoDaCopa.Infra.Repositorios.Boloes.Interfaces;
 using BolaoTeste.Data.Repositorios.Interfaces;
 using BolaoTeste.Dto;
 using BolaoTeste.Dto.JogosBr;
@@ -15,10 +15,10 @@ namespace BolaoTeste.Aplicacao.Palpites.Servicos
     {
         private readonly ISession session;
         private readonly IMapper mapper;
-        private readonly ICadastroRepositorio cadastroRepositorio;
+        private readonly IBoloesRepositorio cadastroRepositorio;
         private readonly IPalpiteRepositorio palpiteRepositorio;
 
-        public PalpiteServico(ISession session, IMapper mapper, ICadastroRepositorio cadastroRepositorio, IPalpiteRepositorio palpiteRepositorio)
+        public PalpiteServico(ISession session, IMapper mapper, IBoloesRepositorio cadastroRepositorio, IPalpiteRepositorio palpiteRepositorio)
         {
             this.session = session;
             this.mapper = mapper;

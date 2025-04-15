@@ -2,9 +2,11 @@
 {
     public class FaseSelecao
     {
-        public int Id { get; set; }
-        public Selecao Selecao { get; set; }
-        public Fase Fase { get; set; }
+        public virtual int Id { get; set; }
+        public virtual Selecao Selecao { get; set; }
+        public virtual Fase Fase { get; set; }
+
+        protected FaseSelecao() { }
 
     }
 }

@@ -1,4 +1,4 @@
-﻿using BolaoTeste.Aplicacao.Cadastros.Servicos.Interfaces;
+﻿using BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces;
 using BolaoTeste.Dto.Cadastros;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -14,8 +14,8 @@ namespace BolaoDaCopa.Controllers
     [EnableCors("MyCorsImplementationPolicy")]
     public class LoginController : Controller
     {
-        private readonly ICadastroServico cadastroServico;
-        public LoginController(ICadastroServico cadastroServico)
+        private readonly IBoloesServico cadastroServico;
+        public LoginController(IBoloesServico cadastroServico)
         {
             this.cadastroServico = cadastroServico;
         }

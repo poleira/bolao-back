@@ -2,9 +2,11 @@
 {
     public class GrupoSelecao
     {
-       public int Id { get; set; }
-        public Grupo Grupo { get; set; }
-        public Selecao Selecao { get; set; }
-        public int PontuacaoSelecao { get; set; }
+        public virtual int Id { get; set; }
+        public virtual Grupo Grupo { get; set; }
+        public virtual Selecao Selecao { get; set; }
+        public virtual int PontuacaoSelecao { get; set; }
+
+        protected GrupoSelecao() { }
     }
 }

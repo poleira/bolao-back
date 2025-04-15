@@ -1,25 +1,41 @@
-﻿
+﻿using System.Security.Cryptography;
+using System.Text;
 
-namespace BolaoTeste.Services
+namespace BolaoDaCopa.Services
 {
-    public static class TokenService
+
+    public static class CryptoHelper
     {
-        //public static string GenerateToken(Cadastro user)
-        //{
-        //    var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("bsdhfgskdj32njkndwj4odhdol3n2dk"));
-        //    var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
-        //    var tokeOptions = new JwtSecurityToken(
-        //        issuer: "https://localhost:7288",
-        //        audience: "https://localhost:7288",
-           
-        //        claims : new List<Claim>() { new Claim(ClaimTypes.Name, user.Usuario) },
-        //        expires: DateTime.Now.AddMinutes(50),
-        //        signingCredentials: signinCredentials
-        //        );
+        private static readonly string Key = "bol4o-da-cops-32-chavos0";
+        private static readonly string IV = "vet0r-da-cop416!";
 
-        //    var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
-        //    return tokenString;
+        public static string Encrypt(string plainText)
+        {
+            using var aes = Aes.Create();
+            aes.Key = Encoding.UTF8.GetBytes(Key);
+            aes.IV = Encoding.UTF8.GetBytes(IV);
 
-        //}
+            var encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
+            using var ms = new MemoryStream();
+            using var cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write);
+            using (var sw = new StreamWriter(cs))
+                sw.Write(plainText);
+            return Convert.ToBase64String(ms.ToArray());
+        }
+
+        public static string Decrypt(string cipherText)
+        {
+            using var aes = Aes.Create();
+            aes.Key = Encoding.UTF8.GetBytes(Key);
+            aes.IV = Encoding.UTF8.GetBytes(IV);
+
+            var decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+            var buffer = Convert.FromBase64String(cipherText);
+            using var ms = new MemoryStream(buffer);
+            using var cs = new CryptoStream(ms, decryptor, CryptoStreamMode.Read);
+            using var sr = new StreamReader(cs);
+            return sr.ReadToEnd();
+        }
     }
+
 }

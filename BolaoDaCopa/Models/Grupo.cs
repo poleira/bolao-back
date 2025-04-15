@@ -2,9 +2,11 @@
 {
     public class Grupo
     {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public IEnumerable<GrupoSelecao> Selecoes { get; set; }
+        public virtual int Id { get; set; }
+        public virtual string Nome { get; set; }
+        public virtual IEnumerable<GrupoSelecao> Selecoes { get; set; }
+
+        protected Grupo() { }
 
     }
 }

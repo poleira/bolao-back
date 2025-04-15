@@ -2,11 +2,13 @@
 {
     public class JogoGrupo
     {  
-        public int Id { get; set; }
-        public Grupo Grupo { get; set; }
-        public Selecao Selecao1 { get; set; }
-        public Selecao Selecao2 { get; set; }
-        public int PlacarSelecao1 { get; set; }
-        public int PlacarSelecao2 { get; set; }
+        public virtual int Id { get; set; }
+        public virtual Grupo Grupo { get; set; }
+        public virtual Selecao Selecao1 { get; set; }
+        public virtual Selecao Selecao2 { get; set; }
+        public virtual int PlacarSelecao1 { get; set; }
+        public virtual int PlacarSelecao2 { get; set; }
+
+        protected JogoGrupo() { }
     }
 }

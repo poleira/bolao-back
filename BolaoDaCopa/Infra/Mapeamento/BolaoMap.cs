@@ -10,11 +10,12 @@ namespace BolaoDaCopa.Infra.Mapeamento
             Schema("Bolao");
             Table("Bolao");
             Id(x => x.Id).Column("ID");
-            Map(x => x.Nome).Column("Nome");
-            Map(x => x.Logo).Column("Logo");
+            Map(x => x.Nome).Column("Nome").Not.Nullable();
+            Map(x => x.Logo).Column("Logo").Not.Nullable();
             Map(x => x.TokenAcesso).Column("TokenAcesso");
             Map(x => x.Aviso).Column("Aviso");
             References(x => x.UsuarioAdm).Column("IDUsuarioAdm").Not.Nullable();
+            Map(x => x.Senha).Column("Senha");
             HasManyToMany(x => x.Usuarios)
                 .Table("BolaoUsuario")
                 .ParentKeyColumn("IDBolao")

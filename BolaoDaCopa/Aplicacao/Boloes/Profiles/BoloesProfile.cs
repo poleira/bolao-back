@@ -3,11 +3,11 @@ using BolaoTeste.Data.Dto.Cadastros;
 using BolaoTeste.Dto.Cadastros;
 
 
-namespace BolaoTeste.Profiles
+namespace BolaoDaCopa.Aplicacao.Boloes.Profiles
 {
-    public class CadastroProfile : Profile
+    public class BoloesProfile : Profile
     {
-        public CadastroProfile()
+        public BoloesProfile()
         {
         }
     }

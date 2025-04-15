@@ -2,8 +2,10 @@
 {
     public class Fase
     {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public IEnumerable<FaseSelecao> Selecoes { get; set; }
+        public virtual int Id { get; set; }
+        public virtual string Nome { get; set; }
+        public virtual IEnumerable<FaseSelecao> Selecoes { get; set; }
+
+        protected Fase() { }
     }
 }

@@ -1,6 +1,4 @@
-﻿using BolaoTeste.Aplicacao.Cadastros.Servicos;
-using BolaoTeste.Aplicacao.Cadastros.Servicos.Interfaces;
-using BolaoTeste.Data.Dto.Cadastros;
+﻿using BolaoTeste.Data.Dto.Cadastros;
 using BolaoTeste.Dto.Rank;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;

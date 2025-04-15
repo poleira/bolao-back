@@ -1,17 +1,20 @@
+using BolaoDaCopa.Aplicacao.Boloes.Profiles;
+using BolaoDaCopa.Aplicacao.Boloes.Servicos;
+using BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces;
 using BolaoDaCopa.Aplicacao.HabilitarPalpites.Servicos;
 using BolaoDaCopa.Aplicacao.Palpites.Servicos.Interfaces;
 using BolaoDaCopa.Aplicacao.Rank.Servicos;
 using BolaoDaCopa.Aplicacao.Rank.Servicos.Interfaces;
 using BolaoDaCopa.Infra.Mapeamento;
+using BolaoDaCopa.Infra.Repositorios.Boloes;
+using BolaoDaCopa.Infra.Repositorios.Boloes.Interfaces;
+using BolaoDaCopa.Infra.Repositorios.Usuarios;
+using BolaoDaCopa.Infra.Repositorios.Usuarios.Interfaces;
 using BolaoTeste;
-using BolaoTeste.Aplicacao.Cadastros.Servicos;
-using BolaoTeste.Aplicacao.Cadastros.Servicos.Interfaces;
 using BolaoTeste.Aplicacao.HabilitarPalpites.Servicos.Interfaces;
 using BolaoTeste.Aplicacao.Palpites.Servicos;
-using BolaoTeste.Data.Interfaces;
 using BolaoTeste.Data.Repositorios;
 using BolaoTeste.Data.Repositorios.Interfaces;
-using BolaoTeste.Profiles;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -48,7 +51,7 @@ builder.Services.AddAuthentication(opt => {
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddAutoMapper(typeof(CadastroProfile));
+builder.Services.AddAutoMapper(typeof(BoloesProfile));
 
 
 builder.Services.AddCors(options =>
@@ -74,11 +77,11 @@ builder.Services.AddSingleton<ISessionFactory>(factory =>
 
 builder.Services.AddSingleton<ISession>(factory => factory.GetService<ISessionFactory>()!.OpenSession());
 
-builder.Services.AddSingleton<ICadastroRepositorio, CadastroRepositorio>();
+builder.Services.AddSingleton<IBoloesRepositorio, BoloesRepositorio>();
 builder.Services.AddSingleton<IPalpiteRepositorio, PalpiteRepositorio>();
-builder.Services.AddSingleton<ICampeonatoRepositorio, CampeonatoRepositorio>();
+builder.Services.AddSingleton<IUsuariosRepositorio, UsuariosRepositorio>();
 builder.Services.AddSingleton<IHabilitarPalpiteRepositorio, HabilitarPalpiteRepositorio>();
-builder.Services.AddSingleton<ICadastroServico, CadastroServico>();
+builder.Services.AddSingleton<IBoloesServico, BoloesServico>();
 builder.Services.AddSingleton<IHabilitarPalpiteServico, HabilitarPalpiteServico>();
 builder.Services.AddSingleton<IRankServico, RankServico>();
 builder.Services.AddSingleton<IPalpiteServico, PalpiteServico>();

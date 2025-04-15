@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using BolaoDaCopa.Aplicacao.Rank.Servicos.Interfaces;
-using BolaoTeste.Data.Interfaces;
-using BolaoTeste.Data.Repositorios.Interfaces;
+using BolaoDaCopa.Infra.Repositorios.Boloes.Interfaces;
+using BolaoDaCopa.Infra.Repositorios.Usuarios.Interfaces;
 using BolaoTeste.Dto.ListarPalpite;
 using BolaoTeste.Dto.Rank;
 using ISession = NHibernate.ISession;
@@ -12,10 +12,10 @@ namespace BolaoDaCopa.Aplicacao.Rank.Servicos
     {
         private readonly ISession session;
         private readonly IMapper mapper;
-        private readonly ICadastroRepositorio cadastroRepositorio;
-        private readonly ICampeonatoRepositorio campeonatoRepositorio;
+        private readonly IBoloesRepositorio cadastroRepositorio;
+        private readonly IUsuariosRepositorio campeonatoRepositorio;
 
-        public RankServico(ISession session, IMapper mapper, ICadastroRepositorio cadastroRepositorio, ICampeonatoRepositorio campeonatoRepositorio)
+        public RankServico(ISession session, IMapper mapper, IBoloesRepositorio cadastroRepositorio, IUsuariosRepositorio campeonatoRepositorio)
         {
             this.session = session;
             this.mapper = mapper;
