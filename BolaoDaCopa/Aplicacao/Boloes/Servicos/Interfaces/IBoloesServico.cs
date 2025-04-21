@@ -1,14 +1,17 @@
-﻿using BolaoDaCopa.Dto.Boloes;
-using BolaoTeste.Data.Dto.Cadastros;
-using BolaoTeste.Dto.Cadastros;
+﻿using BolaoDaCopa.Dto.Boloes.Requests;
+using BolaoDaCopa.Dto.Boloes.Responses;
+using BolaoDaCopa.Models;
 
 namespace BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces
 {
     public interface IBoloesServico
     {
-        ChecarUsuarioResponse Login(ChecarUsuarioRequest usuario);
-        IList<CreateCadastroResponse> ListarTodos();
         void CriarBolao(CriarBolaoRequest inserirRequest);
-
+        Bolao Recuperar(string hashBolao);
+        void AssociarUsuarioBolao(AssociarUsuarioRequest request);
+        void InserirRegrasBolao(InserirRegrasBolaoRequest[] request);
+        IList<Regra> ListarRegras();
+        IList<BolaoRegraResponse> ListarRegrasBolao(string hashBolao);
+        void DesassociarUsuarioBolao(AssociarUsuarioRequest request);
     }
 }

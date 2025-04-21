@@ -12,7 +12,7 @@ namespace BolaoDaCopa.Infra.Mapeamento
             Id(x => x.Id).Column("ID");
             References(x => x.Grupo).Column("IDGrupo").Not.Nullable();
             References(x => x.Selecao).Column("IDSelecao").Not.Nullable();
-            Map(x => x.PontuacaoSelecao).Column("PontuacaoSelecao").Not.Nullable();
+            Map(x => x.PontuacaoSelecao).Column("PontuacaoSelecao").Nullable();
 
         }
     }

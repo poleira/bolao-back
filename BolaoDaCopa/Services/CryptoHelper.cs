@@ -3,7 +3,6 @@ using System.Text;
 
 namespace BolaoDaCopa.Services
 {
-
     public static class CryptoHelper
     {
         private static readonly string Key = "bol4o-da-cops-32-chavos0";

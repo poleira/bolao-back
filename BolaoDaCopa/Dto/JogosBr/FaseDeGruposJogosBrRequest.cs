@@ -1,5 +1,4 @@
-﻿using BolaoTeste.Dto.Cadastros;
-
+﻿
 namespace BolaoTeste.Dto.JogosBr
 {
     public class FaseDeGruposJogosBrRequest

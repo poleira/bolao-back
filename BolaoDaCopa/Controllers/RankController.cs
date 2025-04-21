@@ -1,5 +1,4 @@
-﻿using BolaoTeste.Data.Dto.Cadastros;
-using BolaoTeste.Dto.Rank;
+﻿using BolaoTeste.Dto.Rank;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;

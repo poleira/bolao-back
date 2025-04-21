@@ -8,5 +8,12 @@
         public virtual Regra Regra { get; set; }
 
         protected BolaoRegra() { }
+
+        public BolaoRegra(int pontuacao, Bolao bolao, Regra regra)
+        {
+            Pontuacao = pontuacao;
+            Bolao = bolao;
+            Regra = regra;
+        }
     }
 }

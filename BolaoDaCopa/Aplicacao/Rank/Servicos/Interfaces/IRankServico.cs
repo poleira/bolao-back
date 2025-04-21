@@ -1,5 +1,4 @@
-﻿using BolaoTeste.Data.Dto.Cadastros;
-using BolaoTeste.Dto.Rank;
+﻿using BolaoTeste.Dto.Rank;
 
 namespace BolaoDaCopa.Aplicacao.Rank.Servicos.Interfaces
 {

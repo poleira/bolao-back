@@ -1,0 +1,10 @@
+﻿namespace BolaoDaCopa.Dto.Boloes.Responses
+{
+    public class BolaoRegraResponse
+    {
+        public int Id { get; set; }
+        public string Descricao { get; set; }
+        public string Explicacao { get; set; }
+        public int Pontuacao { get; set; }
+    }
+}

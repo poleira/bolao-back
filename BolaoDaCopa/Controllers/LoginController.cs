@@ -1,5 +1,4 @@
 ﻿using BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces;
-using BolaoTeste.Dto.Cadastros;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using NHibernate.Mapping;
@@ -20,21 +19,21 @@ namespace BolaoDaCopa.Controllers
             this.cadastroServico = cadastroServico;
         }
 
-        [HttpPost]
-        public ActionResult Login([FromBody] ChecarUsuarioRequest loginDto)
-        {
+        //[HttpPost]
+        //public ActionResult Login([FromBody] ChecarUsuarioRequest loginDto)
+        //{
  
-            var retorno = cadastroServico.Login(loginDto);
+        //    var retorno = cadastroServico.Login(loginDto);
             
-            if (retorno == null) 
-            {
-                return Unauthorized();
-            }
-            return Ok(retorno);
+        //    if (retorno == null) 
+        //    {
+        //        return Unauthorized();
+        //    }
+        //    return Ok(retorno);
             
 
             
-        }
+        //}
 
         
 

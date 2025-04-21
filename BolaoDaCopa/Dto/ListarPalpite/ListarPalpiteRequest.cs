@@ -1,5 +1,4 @@
-﻿using BolaoTeste.Dto.Cadastros;
-
+﻿
 namespace BolaoTeste.Dto.ListarPalpite
 {
     public class ListarPalpiteRequest

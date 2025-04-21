@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using BolaoTeste.Data.Dto.Cadastros;
-using BolaoTeste.Dto.Cadastros;
 using BolaoTeste.Dto.ListarPalpite;
 using BolaoTeste.Dto.Rank;
 

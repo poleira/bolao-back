@@ -5,16 +5,18 @@ using BolaoDaCopa.Aplicacao.HabilitarPalpites.Servicos;
 using BolaoDaCopa.Aplicacao.Palpites.Servicos.Interfaces;
 using BolaoDaCopa.Aplicacao.Rank.Servicos;
 using BolaoDaCopa.Aplicacao.Rank.Servicos.Interfaces;
+using BolaoDaCopa.Aplicacao.Selecoes.Servicos.Interfaces;
 using BolaoDaCopa.Infra.Mapeamento;
 using BolaoDaCopa.Infra.Repositorios.Boloes;
 using BolaoDaCopa.Infra.Repositorios.Boloes.Interfaces;
+using BolaoDaCopa.Infra.Repositorios.BoloesUsuarios;
+using BolaoDaCopa.Infra.Repositorios.BoloesUsuarios.Interfaces;
+using BolaoDaCopa.Infra.Repositorios.Selecoes;
+using BolaoDaCopa.Infra.Repositorios.Selecoes.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.Usuarios;
 using BolaoDaCopa.Infra.Repositorios.Usuarios.Interfaces;
 using BolaoTeste;
-using BolaoTeste.Aplicacao.HabilitarPalpites.Servicos.Interfaces;
 using BolaoTeste.Aplicacao.Palpites.Servicos;
-using BolaoTeste.Data.Repositorios;
-using BolaoTeste.Data.Repositorios.Interfaces;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -78,11 +80,11 @@ builder.Services.AddSingleton<ISessionFactory>(factory =>
 builder.Services.AddSingleton<ISession>(factory => factory.GetService<ISessionFactory>()!.OpenSession());
 
 builder.Services.AddSingleton<IBoloesRepositorio, BoloesRepositorio>();
-builder.Services.AddSingleton<IPalpiteRepositorio, PalpiteRepositorio>();
+builder.Services.AddSingleton<ISelecoesRepositorio, SelecoesRepositorio>();
 builder.Services.AddSingleton<IUsuariosRepositorio, UsuariosRepositorio>();
-builder.Services.AddSingleton<IHabilitarPalpiteRepositorio, HabilitarPalpiteRepositorio>();
+builder.Services.AddSingleton<IBoloesUsuariosRepositorio, BoloesUsuariosRepositorio>();
 builder.Services.AddSingleton<IBoloesServico, BoloesServico>();
-builder.Services.AddSingleton<IHabilitarPalpiteServico, HabilitarPalpiteServico>();
+builder.Services.AddSingleton<ISelecoesServico, SelecoesServico>();
 builder.Services.AddSingleton<IRankServico, RankServico>();
 builder.Services.AddSingleton<IPalpiteServico, PalpiteServico>();
 

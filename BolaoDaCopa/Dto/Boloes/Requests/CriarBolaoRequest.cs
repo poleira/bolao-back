@@ -1,4 +1,4 @@
-﻿namespace BolaoDaCopa.Dto.Boloes
+﻿namespace BolaoDaCopa.Dto.Boloes.Requests
 {
     public class CriarBolaoRequest
     {

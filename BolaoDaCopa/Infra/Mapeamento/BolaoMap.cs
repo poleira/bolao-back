@@ -15,7 +15,7 @@ namespace BolaoDaCopa.Infra.Mapeamento
             Map(x => x.TokenAcesso).Column("TokenAcesso");
             Map(x => x.Aviso).Column("Aviso");
             References(x => x.UsuarioAdm).Column("IDUsuarioAdm").Not.Nullable();
-            Map(x => x.Senha).Column("Senha");
+            Map(x => x.Senha).Column("Senha").Nullable();
             HasManyToMany(x => x.Usuarios)
                 .Table("BolaoUsuario")
                 .ParentKeyColumn("IDBolao")

@@ -1,5 +1,4 @@
 ﻿using BolaoDaCopa.Aplicacao.Palpites.Servicos.Interfaces;
-using BolaoTeste.Dto.Cadastros;
 using BolaoTeste.Dto.ListarPalpite;
 using BolaoTeste.Dto.Rank;
 using Microsoft.AspNetCore.Authorization;
