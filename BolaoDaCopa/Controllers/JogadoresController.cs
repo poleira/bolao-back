@@ -10,10 +10,10 @@ namespace BolaoDaCopa.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [EnableCors("MyCorsImplementationPolicy")]
-    public class PainelController : Controller
+    public class JogadoresController : Controller
     {
-        private readonly IPalpiteServico palpiteServico;
-        public PainelController(IPalpiteServico palpite)
+        private readonly IPalpitesServico palpiteServico;
+        public JogadoresController(IPalpitesServico palpite)
         {
             palpiteServico = palpite;
         }

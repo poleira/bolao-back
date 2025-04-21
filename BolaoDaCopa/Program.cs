@@ -2,15 +2,23 @@ using BolaoDaCopa.Aplicacao.Boloes.Profiles;
 using BolaoDaCopa.Aplicacao.Boloes.Servicos;
 using BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces;
 using BolaoDaCopa.Aplicacao.HabilitarPalpites.Servicos;
+using BolaoDaCopa.Aplicacao.Jogadores.Servicos;
+using BolaoDaCopa.Aplicacao.Jogadores.Servicos.Interfaces;
 using BolaoDaCopa.Aplicacao.Palpites.Servicos.Interfaces;
 using BolaoDaCopa.Aplicacao.Rank.Servicos;
 using BolaoDaCopa.Aplicacao.Rank.Servicos.Interfaces;
 using BolaoDaCopa.Aplicacao.Selecoes.Servicos.Interfaces;
+using BolaoDaCopa.Aplicacao.Usuarios.Servicos;
+using BolaoDaCopa.Aplicacao.Usuarios.Servicos.Interfaces;
 using BolaoDaCopa.Infra.Mapeamento;
 using BolaoDaCopa.Infra.Repositorios.Boloes;
 using BolaoDaCopa.Infra.Repositorios.Boloes.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.BoloesUsuarios;
 using BolaoDaCopa.Infra.Repositorios.BoloesUsuarios.Interfaces;
+using BolaoDaCopa.Infra.Repositorios.Jogadores;
+using BolaoDaCopa.Infra.Repositorios.NovaPasta.Interfaces;
+using BolaoDaCopa.Infra.Repositorios.Palpites;
+using BolaoDaCopa.Infra.Repositorios.Palpites.Interface;
 using BolaoDaCopa.Infra.Repositorios.Selecoes;
 using BolaoDaCopa.Infra.Repositorios.Selecoes.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.Usuarios;
@@ -86,7 +94,12 @@ builder.Services.AddSingleton<IBoloesUsuariosRepositorio, BoloesUsuariosReposito
 builder.Services.AddSingleton<IBoloesServico, BoloesServico>();
 builder.Services.AddSingleton<ISelecoesServico, SelecoesServico>();
 builder.Services.AddSingleton<IRankServico, RankServico>();
-builder.Services.AddSingleton<IPalpiteServico, PalpiteServico>();
+builder.Services.AddSingleton<IPalpitesServico, PalpitesServico>();
+builder.Services.AddSingleton<IJogadoresServico, JogadoresServico>();
+builder.Services.AddSingleton<IJogadoresRepositorio, JogadoresRepositorio>();
+builder.Services.AddSingleton<IPalpitesRepositorio, PalpitesRepositorio>();
+builder.Services.AddSingleton<IUsuariosServico, UsuariosServico>();
+
 
 
 

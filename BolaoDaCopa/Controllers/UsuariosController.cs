@@ -11,10 +11,10 @@ namespace BolaoDaCopa.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [EnableCors("MyCorsImplementationPolicy")]
-    public class LoginController : Controller
+    public class UsuariosController : Controller
     {
         private readonly IBoloesServico cadastroServico;
-        public LoginController(IBoloesServico cadastroServico)
+        public UsuariosController(IBoloesServico cadastroServico)
         {
             this.cadastroServico = cadastroServico;
         }

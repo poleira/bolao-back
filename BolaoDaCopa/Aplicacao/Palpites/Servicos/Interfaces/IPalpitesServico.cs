@@ -5,7 +5,7 @@ using BolaoTeste.Dto.Palpites;
 
 namespace BolaoDaCopa.Aplicacao.Palpites.Servicos.Interfaces
 {
-    public interface IPalpiteServico
+    public interface IPalpitesServico
     {
         OkResponse EditaCampeao(CampeaoEditarRequest request);
 

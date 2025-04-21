@@ -11,14 +11,14 @@ using ISession = NHibernate.ISession;
 
 namespace BolaoTeste.Aplicacao.Palpites.Servicos
 {
-    public class PalpiteServico : IPalpiteServico
+    public class PalpitesServico : IPalpitesServico
     {
         private readonly ISession session;
         private readonly IMapper mapper;
         private readonly IBoloesRepositorio cadastroRepositorio;
         private readonly ISelecoesRepositorio palpiteRepositorio;
 
-        public PalpiteServico(ISession session, IMapper mapper, IBoloesRepositorio cadastroRepositorio, ISelecoesRepositorio palpiteRepositorio)
+        public PalpitesServico(ISession session, IMapper mapper, IBoloesRepositorio cadastroRepositorio, ISelecoesRepositorio palpiteRepositorio)
         {
             this.session = session;
             this.mapper = mapper;
