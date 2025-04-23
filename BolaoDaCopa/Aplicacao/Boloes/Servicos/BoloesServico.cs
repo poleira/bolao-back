@@ -36,9 +36,9 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             {
                 var usuario = usuariosRepositorio.Recuperar(inserirRequest.IdUsuario);
                 var bolao = new Bolao(inserirRequest.Nome, inserirRequest.Logo, inserirRequest.Aviso, inserirRequest.Senha, usuario);
-                bolao.Id = boloesRepositorio.Inserir(bolao);
+                boloesRepositorio.Inserir(bolao);
                 string token = CryptoHelper.Encrypt(bolao.Id.ToString());
-                boloesRepositorio.InserirTokenAcesso(bolao, token);
+                bolao.SetTokenAcesso(token);
 
                 if (transacao.IsActive)
                     transacao.Commit();

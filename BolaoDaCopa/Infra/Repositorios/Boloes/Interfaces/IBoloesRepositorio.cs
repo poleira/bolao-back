@@ -1,12 +1,10 @@
-﻿using BolaoDaCopa.Models;
+﻿using BolaoDaCopa.Bibliotecas.Repositorios.Interfaces;
+using BolaoDaCopa.Models;
 
 namespace BolaoDaCopa.Infra.Repositorios.Boloes.Interfaces
 {
-    public interface IBoloesRepositorio
+    public interface IBoloesRepositorio : IRepositorioNHibernate<Bolao>
     {
-        int Inserir(Bolao bolao);
-        void InserirTokenAcesso(Bolao bolao, string token);
-        Bolao Recuperar(int idBolao);
         void InserirRegra(BolaoRegra bolaoRegra);
         void DeletarRegras(int bolaoId);
         Regra RecuperarRegra(int idRegra);

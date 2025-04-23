@@ -1,4 +1,5 @@
-﻿using BolaoDaCopa.Dto.Boloes.Comandos;
+﻿using BolaoDaCopa.Bibliotecas.Repositorios;
+using BolaoDaCopa.Dto.Boloes.Comandos;
 using BolaoDaCopa.Infra.Repositorios.Boloes.Interfaces;
 using BolaoDaCopa.Models;
 using Dapper;
@@ -7,33 +8,16 @@ using ISession = NHibernate.ISession;
 
 namespace BolaoDaCopa.Infra.Repositorios.Boloes
 {
-    public class BoloesRepositorio : IBoloesRepositorio
+    public class BoloesRepositorio : RepositorioNHibernate<Bolao>, IBoloesRepositorio
     {
         private readonly ISession session;
         
-        public BoloesRepositorio(ISession session)
-        {
-            this.session = session;
-        }
+        public BoloesRepositorio(ISession session) : base(session) { }
 
         private readonly string sqlDeletarRegrasBolao =
             @"DELETE FROM bolaoregra
             WHERE IDBolao = @idBolao;";
 
-        public int Inserir(Bolao bolao)
-        {
-            var id = (int)session.Save(bolao);
-            return id;
-        }
-        public void InserirTokenAcesso(Bolao bolao, string token)
-        {
-            bolao.TokenAcesso = token;
-            session.Update(bolao);
-        }
-        public Bolao Recuperar(int idBolao)
-        {
-            return session.Get<Bolao>(idBolao);
-        }
         public void InserirRegra(BolaoRegra bolaoRegra)
         {
             session.Save(bolaoRegra);

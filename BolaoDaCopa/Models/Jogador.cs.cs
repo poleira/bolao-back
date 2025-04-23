@@ -2,7 +2,7 @@
 {
     public class Jogador
     {
-        public int Id { get; set; }
-        public string Nome { get; set; }
+        public virtual int Id { get; protected set; }
+        public virtual string Nome { get; protected set; }
     }
 }

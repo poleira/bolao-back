@@ -2,10 +2,10 @@
 {
     public class BolaoRegra
     {
-        public virtual int Id { get; set; }
-        public virtual int Pontuacao { get; set; }
-        public virtual Bolao Bolao { get; set; }
-        public virtual Regra Regra { get; set; }
+        public virtual int Id { get; protected set; }
+        public virtual int Pontuacao { get; protected set; }
+        public virtual Bolao Bolao { get; protected set; }
+        public virtual Regra Regra { get; protected set; }
 
         protected BolaoRegra() { }
 

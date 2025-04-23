@@ -10,11 +10,13 @@ namespace BolaoDaCopa.Infra.Mapeamento
 
             Schema("Bolao");
             Table("Usuario");
+            
             Id(x => x.Id).Column("ID");
             Map(x => x.Nome).Column("Nome");
-            Map(x => x.Senha).Column("Senha");
+            Map(x => x.FirebaseUid).Column("FirebaseUid");
             Map(x => x.Email).Column("Email");
             Map(x => x.Logo).Column("Logo");
+            
             HasManyToMany(x => x.Boloes)
                 .Table("BolaoUsuario")
                 .ParentKeyColumn("IDUsuario")

@@ -1,10 +1,10 @@
 ﻿using BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces;
+using BolaoDaCopa.Aplicacao.Usuarios.Servicos.Interfaces;
+using BolaoDaCopa.Dto.Usuarios.Requests;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using NHibernate.Mapping;
 using System.Net;
-
-
 
 namespace BolaoDaCopa.Controllers
 {
@@ -13,31 +13,18 @@ namespace BolaoDaCopa.Controllers
     [EnableCors("MyCorsImplementationPolicy")]
     public class UsuariosController : Controller
     {
-        private readonly IBoloesServico cadastroServico;
-        public UsuariosController(IBoloesServico cadastroServico)
+        private readonly IUsuariosServico _usuariosServico;
+        public UsuariosController(IUsuariosServico _usuariosServico)
         {
-            this.cadastroServico = cadastroServico;
+            this._usuariosServico = _usuariosServico;
         }
 
-        //[HttpPost]
-        //public ActionResult Login([FromBody] ChecarUsuarioRequest loginDto)
-        //{
- 
-        //    var retorno = cadastroServico.Login(loginDto);
-            
-        //    if (retorno == null) 
-        //    {
-        //        return Unauthorized();
-        //    }
-        //    return Ok(retorno);
-            
+        [HttpPost]
+        public ActionResult Inserir([FromBody] UsuarioRequest request)
+        {
+            var response = _usuariosServico.Inserir(request);
 
-            
-        //}
-
-        
-
-
-
+            return Ok(response);
+        }
     }
 }
