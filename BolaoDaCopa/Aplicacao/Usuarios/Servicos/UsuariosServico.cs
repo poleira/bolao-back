@@ -3,9 +3,13 @@ using BolaoDaCopa.Aplicacao.Comum.Repositorios;
 using BolaoDaCopa.Aplicacao.Usuarios.Servicos.Interfaces;
 using BolaoDaCopa.Bibliotecas.Transacoes.Interfaces;
 using BolaoDaCopa.Dto.Autenticacao.Responses;
+using BolaoDaCopa.Dto.Usuarios;
 using BolaoDaCopa.Dto.Usuarios.Requests;
 using BolaoDaCopa.Infra.Repositorios.Usuarios.Interfaces;
 using BolaoDaCopa.Models;
+using FirebaseAdmin;
+using FirebaseAdmin.Auth;
+using Google.Apis.Auth.OAuth2;
 
 namespace BolaoDaCopa.Aplicacao.Usuarios.Servicos
 {
@@ -22,6 +26,14 @@ namespace BolaoDaCopa.Aplicacao.Usuarios.Servicos
             this._unitOfWork = _unitOfWork;
             this._jwtTokenGenerator = _jwtTokenGenerator;
             this._usuariosRepositorio = _usuariosRepositorio;
+
+            if (FirebaseApp.DefaultInstance == null)
+            {
+                FirebaseApp.Create(new AppOptions()
+                {
+                    Credential = GoogleCredential.FromFile(@"C:\Github\Backend\bolao-back\BolaoDaCopa\generic-application-firebase-adminsdk.json")
+                });
+            }
         }
 
         public AutenticacaoResponse Inserir(UsuarioRequest request)
@@ -37,7 +49,7 @@ namespace BolaoDaCopa.Aplicacao.Usuarios.Servicos
                 var token = _jwtTokenGenerator.GerarToken(usuario);
 
                 _unitOfWork.Commit();
- 
+
                 var response = new AutenticacaoResponse { Token = token };
 
                 return response;
@@ -47,6 +59,45 @@ namespace BolaoDaCopa.Aplicacao.Usuarios.Servicos
                 _unitOfWork.Rollback();
                 throw;
             }
+        }
+
+        public async Task<AutenticacaoResponse> Autenticar(LoginRequest request)
+        {
+            try
+            {
+                FirebaseToken decodedToken = await FirebaseAuth.DefaultInstance.VerifyIdTokenAsync(request.Token);
+
+                var uid = decodedToken.Uid;
+
+                Usuario? usuario = RecuperarUsuarioPorFirebaseUid(uid);
+
+                string? token = _jwtTokenGenerator.GerarToken(usuario);
+
+                AutenticacaoResponse response = new AutenticacaoResponse
+                {
+                    Usuario = new UsuarioResponse
+                    {
+                        Id = usuario.Id,
+                        Nome = usuario.Nome,
+                        Email = usuario.Email,
+                        FirebaseUid = usuario.FirebaseUid,
+                    },
+                    Token = token
+                };
+
+                return response;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public Usuario? RecuperarUsuarioPorFirebaseUid(string uid)
+        {
+            var query = _usuariosRepositorio.Query();
+
+            return query.Where(x => x.FirebaseUid == uid).FirstOrDefault();
         }
     }
 }
