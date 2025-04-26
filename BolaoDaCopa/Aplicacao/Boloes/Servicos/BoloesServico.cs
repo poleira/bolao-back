@@ -34,7 +34,7 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             var transacao = session.BeginTransaction();            
             try
             {
-                var usuario = usuariosRepositorio.Recuperar(inserirRequest.IdUsuario);
+                var usuario = usuariosRepositorio.RecuperarPorHash(inserirRequest.HashUsuario);
                 var bolao = new Bolao(inserirRequest.Nome, inserirRequest.Logo, inserirRequest.Aviso, inserirRequest.Senha, usuario);
                 boloesRepositorio.Inserir(bolao);
                 string token = CryptoHelper.Encrypt(bolao.Id.ToString());
@@ -70,11 +70,12 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             try
             {
                 int idBolao = int.Parse(CryptoHelper.Decrypt(request.HashBolao));
-                var bolao = boloesRepositorio.Recuperar(idBolao) ?? throw new Exception("Bolão não encontrado.");
+                Bolao bolao = boloesRepositorio.Recuperar(idBolao) ?? throw new Exception("Bolão não encontrado.");
+                Usuario usuario = usuariosRepositorio.RecuperarPorHash(request.HashUsuario) ?? throw new Exception("Usuário não encontrado.");
 
                 if (request.Senha == bolao.Senha)
                 {
-                    var comando = new BolaoUsuarioComando(request.IdUsuario, idBolao);
+                    var comando = new BolaoUsuarioComando(usuario.Id, idBolao);
                     boloesUsuariosRepositorio.Inserir(comando);
                 }
                 else
@@ -94,16 +95,18 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             try
             {
                 int idBolao = int.Parse(CryptoHelper.Decrypt(request.HashBolao));
-                var bolao = boloesRepositorio.Recuperar(idBolao) ?? throw new Exception("Bolão não encontrado.");
+                Bolao bolao = boloesRepositorio.Recuperar(idBolao) ?? throw new Exception("Bolão não encontrado.");
+                var usuarioASerDeletado = usuariosRepositorio.RecuperarPorHash(request.HashUsuario) ?? throw new Exception("Usuário não encontrado.");
+                var usuarioLogado = usuariosRepositorio.RecuperarPorHash(request.HashUsuarioLogado) ?? throw new Exception("Usuário logado não encontrado.");
 
-                if (bolao.Usuarios.Any(x => x.Id == request.IdUsuario))
+                if (bolao.Usuarios.Any(x => x.Id == usuarioASerDeletado.Id) && (usuarioLogado.Id == usuarioASerDeletado.Id || bolao.UsuarioAdm.Id == usuarioLogado.Id))
                 {
-                    var comando = new BolaoUsuarioComando(request.IdUsuario, idBolao);
+                    var comando = new BolaoUsuarioComando(usuarioASerDeletado.Id, idBolao);
                     boloesUsuariosRepositorio.Deletar(comando);
                 }
                 else
                 {
-                    throw new Exception("Usuario nao encontrado");
+                    throw new Exception("Usuario nao encontrado no bolão ou te falta permissão.");
                 }
             }
             catch (Exception ex)

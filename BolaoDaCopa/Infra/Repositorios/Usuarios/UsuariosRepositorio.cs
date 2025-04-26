@@ -10,5 +10,10 @@ namespace BolaoDaCopa.Infra.Repositorios.Usuarios
 
         public UsuariosRepositorio(ISession session) : base(session) { }
 
+        public Usuario RecuperarPorHash(string hash)
+        {
+            return session.Query<Usuario>().FirstOrDefault(x => x.FirebaseUid == hash);
+        }
+
     }
 }

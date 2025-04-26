@@ -5,5 +5,6 @@ namespace BolaoDaCopa.Infra.Repositorios.Usuarios.Interfaces
 {
     public interface IUsuariosRepositorio : IRepositorioNHibernate<Usuario>
     {
+        Usuario RecuperarPorHash(string hash);
     }
 }
