@@ -2,10 +2,10 @@
 {
     public class PalpiteFaseSelecao
     {
-        public virtual int Id { get; set; }
-        public virtual Fase Fase { get; set; }
-        public virtual Selecao Selecao { get; set; }
-        public virtual BolaoUsuario BolaoUsuario { get; set; }
+        public virtual int Id { get; protected set; }
+        public virtual Fase Fase { get; protected set; }
+        public virtual Selecao Selecao { get; protected set; }
+        public virtual BolaoUsuario BolaoUsuario { get; protected set; }
 
         protected PalpiteFaseSelecao() { }
     }

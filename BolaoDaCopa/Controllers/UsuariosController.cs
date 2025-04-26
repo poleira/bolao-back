@@ -1,10 +1,8 @@
-﻿using BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces;
+﻿using BolaoDaCopa.Aplicacao.Usuarios.Servicos.Interfaces;
+using BolaoDaCopa.Dto.Autenticacao.Responses;
+using BolaoDaCopa.Dto.Usuarios.Requests;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using NHibernate.Mapping;
-using System.Net;
-
-
 
 namespace BolaoDaCopa.Controllers
 {
@@ -13,31 +11,29 @@ namespace BolaoDaCopa.Controllers
     [EnableCors("MyCorsImplementationPolicy")]
     public class UsuariosController : Controller
     {
-        private readonly IBoloesServico cadastroServico;
-        public UsuariosController(IBoloesServico cadastroServico)
+        private readonly IUsuariosServico _usuariosServico;
+
+        public UsuariosController(IUsuariosServico _usuariosServico)
         {
-            this.cadastroServico = cadastroServico;
+            this._usuariosServico = _usuariosServico;
         }
 
-        //[HttpPost]
-        //public ActionResult Login([FromBody] ChecarUsuarioRequest loginDto)
-        //{
- 
-        //    var retorno = cadastroServico.Login(loginDto);
-            
-        //    if (retorno == null) 
-        //    {
-        //        return Unauthorized();
-        //    }
-        //    return Ok(retorno);
-            
+        [HttpPost]
+        [Route("inserir")]
+        public ActionResult<AutenticacaoResponse> Inserir([FromBody] UsuarioRequest request)
+        {
+            AutenticacaoResponse? response = _usuariosServico.Inserir(request);
 
-            
-        //}
+            return Ok(response);
+        }
 
-        
+        [HttpPost]
+        [Route("autenticar")]
+        public async Task<ActionResult<AutenticacaoResponse>> Autenticar([FromBody] LoginRequest request)
+        {
+            AutenticacaoResponse response = await _usuariosServico.Autenticar(request);
 
-
-
+            return Ok(response);
+        }
     }
 }

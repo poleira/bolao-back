@@ -1,27 +1,14 @@
-﻿using BolaoDaCopa.Infra.Repositorios.Usuarios.Interfaces;
+﻿using BolaoDaCopa.Bibliotecas.Repositorios;
+using BolaoDaCopa.Infra.Repositorios.Usuarios.Interfaces;
 using BolaoDaCopa.Models;
 using ISession = NHibernate.ISession;
 
 namespace BolaoDaCopa.Infra.Repositorios.Usuarios
 {
-    public class UsuariosRepositorio : IUsuariosRepositorio
+    public class UsuariosRepositorio : RepositorioNHibernate<Usuario>, IUsuariosRepositorio
     {
-        private readonly ISession session;
 
-        public UsuariosRepositorio(ISession session)
-        {
-            this.session = session;
-        }
+        public UsuariosRepositorio(ISession session) : base(session) { }
 
-        //public IQueryable<Campeonato> Query()
-        //{
-        //    session.Clear();
-        //    return session.Query<Campeonato>();
-        //}
-
-        public Usuario Recuperar(int id)
-        {
-            return session.Get<Usuario>(id);
-        }
     }
 }

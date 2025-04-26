@@ -1,9 +1,9 @@
-﻿using BolaoDaCopa.Models;
+﻿using BolaoDaCopa.Bibliotecas.Repositorios.Interfaces;
+using BolaoDaCopa.Models;
 
 namespace BolaoDaCopa.Infra.Repositorios.Usuarios.Interfaces
 {
-    public interface IUsuariosRepositorio
+    public interface IUsuariosRepositorio : IRepositorioNHibernate<Usuario>
     {
-        Usuario Recuperar(int id);
     }
 }

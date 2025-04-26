@@ -2,9 +2,9 @@
 {
     public class BolaoUsuario
     {
-        public virtual int Id { get; set; }
-        public virtual Usuario Usuario { get; set; }
-        public virtual Bolao Bolao { get; set; }
+        public virtual int Id { get; protected set; }
+        public virtual Usuario Usuario { get; protected set; }
+        public virtual Bolao Bolao { get; protected set; }
 
         protected BolaoUsuario() { }
 
