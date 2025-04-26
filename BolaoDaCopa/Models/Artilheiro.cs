@@ -2,7 +2,9 @@
 {
     public class Artilheiro
     {
-        public int Id { get; set; }
-        public Jogador Jogador { get; set; }
+        public virtual int Id { get; set; }
+        public virtual Jogador Jogador { get; set; }
+
+        protected Artilheiro() { }
     }
 }

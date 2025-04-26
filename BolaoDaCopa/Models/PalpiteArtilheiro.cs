@@ -2,8 +2,10 @@
 {
     public class PalpiteArtilheiro
     {
-        public int Id { get; set; }
-        public Jogador Jogador { get; set; }
-        public BolaoUsuario BolaoUsuario { get; set; }
+        public virtual int Id { get; set; }
+        public virtual Jogador Jogador { get; set; }
+        public virtual BolaoUsuario BolaoUsuario { get; set; }
+
+        protected PalpiteArtilheiro() { }
     }
 }

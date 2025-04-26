@@ -1,8 +1,6 @@
-﻿using BolaoTeste.Dto.Palpites;
-using ISession = NHibernate.ISession;
+﻿using ISession = NHibernate.ISession;
 using Dapper;
 using NHibernate;
-using BolaoTeste.Dto.JogosBr;
 using BolaoDaCopa.Infra.Repositorios.Selecoes.Interfaces;
 using BolaoDaCopa.Models;
 

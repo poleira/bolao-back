@@ -3,9 +3,7 @@ using BolaoDaCopa.Aplicacao.Palpites.Servicos.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.Boloes.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.Selecoes.Interfaces;
 using BolaoTeste.Dto;
-using BolaoTeste.Dto.JogosBr;
 using BolaoTeste.Dto.ListarPalpite;
-using BolaoTeste.Dto.Palpites;
 using Microsoft.AspNetCore.Mvc;
 using ISession = NHibernate.ISession;
 
@@ -26,28 +24,28 @@ namespace BolaoTeste.Aplicacao.Palpites.Servicos
             this.palpiteRepositorio = palpiteRepositorio;
         }
 
-        public OkResponse EditaCampeao(CampeaoEditarRequest request)
-        {
+        //public OkResponse EditaCampeao(CampeaoEditarRequest request)
+        //{
 
-            var transacao = session.BeginTransaction();
-            try
-            {
+        //    var transacao = session.BeginTransaction();
+        //    try
+        //    {
 
 
-                if (transacao.IsActive)
-                    transacao.Commit();
-                return new OkResponse { Ok = "Ok" };
+        //        if (transacao.IsActive)
+        //            transacao.Commit();
+        //        return new OkResponse { Ok = "Ok" };
 
-                return null;
+        //        return null;
 
-            }
-            catch
-            {
-                if (transacao.IsActive)
-                    transacao.Rollback();
-                return null;
-            }
-        }
+        //    }
+        //    catch
+        //    {
+        //        if (transacao.IsActive)
+        //            transacao.Rollback();
+        //        return null;
+        //    }
+        //}
 
 
     }

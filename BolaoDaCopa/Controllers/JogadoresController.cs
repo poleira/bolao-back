@@ -1,4 +1,6 @@
-﻿using BolaoDaCopa.Aplicacao.Palpites.Servicos.Interfaces;
+﻿using BolaoDaCopa.Aplicacao.Jogadores.Servicos.Interfaces;
+using BolaoDaCopa.Aplicacao.Palpites.Servicos.Interfaces;
+using BolaoDaCopa.Dto.Jogadores.Requests;
 using BolaoTeste.Dto.ListarPalpite;
 using BolaoTeste.Dto.Rank;
 using Microsoft.AspNetCore.Authorization;
@@ -12,17 +14,17 @@ namespace BolaoDaCopa.Controllers
     [EnableCors("MyCorsImplementationPolicy")]
     public class JogadoresController : Controller
     {
-        private readonly IPalpitesServico palpiteServico;
-        public JogadoresController(IPalpitesServico palpite)
+        private readonly IJogadoresServico jogadoresServico;
+        public JogadoresController(IJogadoresServico jogadoresServico)
         {
-            palpiteServico = palpite;
+            this.jogadoresServico = jogadoresServico;
         }
 
-        [HttpPost]
-        public ActionResult<ListarPalpiteResponse> ListarPalpites([FromBody] ListarPalpiteRequest request)
+        [HttpGet]
+        public ActionResult<ListarPalpiteResponse> ListarPalpites([FromQuery] JogadoresListarRequest request)
         {
-            //var retorno = palpiteServico.ListarPalpites(request);
-            return Ok(null);
+            var retorno = jogadoresServico.ListarJogadores(request);
+            return Ok(retorno);
         }
     }
 }

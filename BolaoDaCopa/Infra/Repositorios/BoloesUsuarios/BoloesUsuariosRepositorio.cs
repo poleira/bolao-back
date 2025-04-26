@@ -2,7 +2,6 @@
 using BolaoDaCopa.Dto.Boloes.Requests;
 using BolaoDaCopa.Infra.Repositorios.BoloesUsuarios.Interfaces;
 using BolaoDaCopa.Models;
-using BolaoTeste.Dto.JogosBr;
 using Dapper;
 using ISession = NHibernate.ISession;
 

@@ -1,14 +1,9 @@
-﻿using AutoMapper;
-using BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces;
+﻿using BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces;
 using BolaoDaCopa.Dto.Boloes.Requests;
 using BolaoDaCopa.Dto.Boloes.Responses;
-using BolaoDaCopa.Dto.Selecoes.Requests;
-using BolaoDaCopa.Dto.Selecoes.Responses;
 using BolaoDaCopa.Models;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-
-
 
 namespace BolaoDaCopa.Controllers
 {
