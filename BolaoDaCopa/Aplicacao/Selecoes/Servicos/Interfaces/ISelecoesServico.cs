@@ -6,6 +6,6 @@ namespace BolaoDaCopa.Aplicacao.Selecoes.Servicos.Interfaces
 {
     public interface ISelecoesServico
     {
-        IList<GrupoSelecaoResponse> ListarGruposSelecoes(GrupoSelecaoRequest request);
+        IList<GrupoSelecaoResponse> ListarSelecoes(GrupoSelecaoRequest request);
     }
 }

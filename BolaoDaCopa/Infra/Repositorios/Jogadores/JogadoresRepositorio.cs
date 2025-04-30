@@ -15,7 +15,7 @@ namespace BolaoDaCopa.Infra.Repositorios.Jogadores
         {
             return session.Query<Jogador>();
         }
-        public Jogador ObterPorId(int id)
+        public Jogador Recuperar(int id)
         {
             return session.Get<Jogador>(id);
         }

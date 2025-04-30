@@ -16,7 +16,7 @@ namespace BolaoDaCopa.Infra.Repositorios.BoloesUsuarios
             this.session = session;
         }
 
-        private readonly string sqlInserir = 
+        private readonly string sqlInserir =
             @"INSERT INTO bolaousuario (IDUsuario, IDBolao)
             VALUES (@idUsuario, @idBolao);";
 
@@ -40,6 +40,14 @@ namespace BolaoDaCopa.Infra.Repositorios.BoloesUsuarios
             parameters.Add("@idUsuario", bolaoUsuario.IdUsuario);
             parameters.Add("@idBolao", bolaoUsuario.IdBolao);
             session.Connection.Execute(sqlDeletar, parameters);
+        }
+
+        public BolaoUsuario Recuperar(int idBolao, int idUsuario)
+        {
+            DynamicParameters parameters = new();
+            parameters.Add("@idBolao", idBolao);
+            parameters.Add("@idUsuario", idUsuario);
+            return session.Connection.QuerySingleOrDefault<BolaoUsuario>(@"SELECT * FROM bolaousuario WHERE IDBolao = @idBolao AND IDUsuario = @idUsuario", parameters);
         }
     }
 }

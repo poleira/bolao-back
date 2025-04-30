@@ -40,6 +40,7 @@
 
   <ItemGroup>
     <Folder Include="Dto\Jogadores\Responses\" />
+    <Folder Include="Dto\Palpite\Responses\" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>

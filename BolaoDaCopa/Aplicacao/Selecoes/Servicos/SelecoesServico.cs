@@ -22,9 +22,9 @@ namespace BolaoDaCopa.Aplicacao.HabilitarPalpites.Servicos
             this.mapper = mapper;
             this.selecoesRepositorio = selecoesRepositorio;
         }
-        public IList<GrupoSelecaoResponse> ListarGruposSelecoes(GrupoSelecaoRequest request)
+        public IList<GrupoSelecaoResponse> ListarSelecoes(GrupoSelecaoRequest request)
         {
-            var query = selecoesRepositorio.QueryGrupoSelecao();
+            IQueryable<Selecao> query = selecoesRepositorio.QuerySelecao();
 
             if (!string.IsNullOrEmpty(request.Grupo))
             {
@@ -35,10 +35,10 @@ namespace BolaoDaCopa.Aplicacao.HabilitarPalpites.Servicos
                 .Select(x => new GrupoSelecaoResponse
                 {
                     Id = x.Id,
-                    Nome = x.Selecao.Nome,
+                    Nome = x.Nome,
                     Grupo = x.Grupo.Nome,
-                    Logo = x.Selecao.Logo,
-                    Abreviacao = x.Selecao.Abreviacao,
+                    Logo = x.Logo,
+                    Abreviacao = x.Abreviacao,
                     Pontuacao = x.PontuacaoSelecao,
                 });
 

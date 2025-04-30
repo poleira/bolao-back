@@ -7,5 +7,11 @@
         public virtual BolaoUsuario BolaoUsuario { get; set; }
 
         protected PalpiteArtilheiro() { }
+
+        public PalpiteArtilheiro(Jogador jogador, BolaoUsuario bolaoUsuario)
+        {
+            Jogador = jogador;
+            BolaoUsuario = bolaoUsuario;
+        }
     }
 }

@@ -24,10 +24,9 @@ namespace BolaoDaCopa.Controllers
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("grupos-selecoes")]
-        public ActionResult<IList<GrupoSelecaoResponse>> ListarGruposSelecoes([FromQuery] GrupoSelecaoRequest request)
+        public ActionResult<IList<GrupoSelecaoResponse>> ListarSelecoes([FromQuery] GrupoSelecaoRequest request)
         {
-            var retorno = habilitarPalpiteServico.ListarGruposSelecoes(request);
+            var retorno = habilitarPalpiteServico.ListarSelecoes(request);
             return Ok(retorno);
         }
     }
