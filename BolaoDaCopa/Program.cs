@@ -11,8 +11,6 @@ using BolaoDaCopa.Aplicacao.Rank.Servicos.Interfaces;
 using BolaoDaCopa.Aplicacao.Selecoes.Servicos.Interfaces;
 using BolaoDaCopa.Aplicacao.Usuarios.Servicos;
 using BolaoDaCopa.Aplicacao.Usuarios.Servicos.Interfaces;
-using BolaoDaCopa.Bibliotecas.Repositorios;
-using BolaoDaCopa.Bibliotecas.Repositorios.Interfaces;
 using BolaoDaCopa.Bibliotecas.Transacoes;
 using BolaoDaCopa.Bibliotecas.Transacoes.Interfaces;
 using BolaoDaCopa.Infra;
@@ -72,7 +70,7 @@ builder.Services.AddSingleton<ISessionFactory>(factory =>
 });
 
 
-builder.Services.AddSingleton<ISession>(factory => factory.GetService<ISessionFactory>()!.OpenSession());
+builder.Services.AddScoped<ISession>(factory => factory.GetService<ISessionFactory>()!.OpenSession());
 
 builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 builder.Services.AddScoped<IBoloesRepositorio, BoloesRepositorio>();
