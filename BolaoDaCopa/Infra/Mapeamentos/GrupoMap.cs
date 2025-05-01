@@ -11,9 +11,6 @@ namespace BolaoDaCopa.Infra.Mapeamento
             Table("Grupo");
             Id(x => x.Id).Column("ID");
             Map(x => x.Nome).Column("Nome");
-            HasMany(x => x.Selecoes).KeyColumn("IDGrupo")
-                .Cascade.All()
-                .Inverse();
         }
     }
 }

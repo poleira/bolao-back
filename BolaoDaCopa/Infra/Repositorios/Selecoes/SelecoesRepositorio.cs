@@ -28,11 +28,7 @@ namespace BolaoDaCopa.Infra.Repositorios.Selecoes
             session.Clear();
             return session.Query<Selecao>();
         }
-        public IQueryable<GrupoSelecao> QueryGrupoSelecao()
-        {
-            session.Clear();
-            return session.Query<GrupoSelecao>();
-        }
+
 
         public Selecao Recuperar(int id)
         {
