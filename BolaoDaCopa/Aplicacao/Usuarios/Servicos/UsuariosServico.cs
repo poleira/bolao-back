@@ -31,7 +31,7 @@ namespace BolaoDaCopa.Aplicacao.Usuarios.Servicos
             {
                 FirebaseApp.Create(new AppOptions()
                 {
-                    Credential = GoogleCredential.FromFile(@"C:\Github\Backend\bolao-back\BolaoDaCopa\generic-application-firebase-adminsdk.json")
+                    Credential = GoogleCredential.FromFile(@"C:\Github\Backend\bolao-back\BolaoDaCopa\bolao-33185-firebase-adminsdk-fbsvc-fb8ec571f6.json")
                 });
             }
         }

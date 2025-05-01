@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BolaoDaCopa.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/usuario")]
     [EnableCors("MyCorsImplementationPolicy")]
     public class UsuariosController : Controller
     {
