@@ -1,6 +1,6 @@
 ﻿namespace BolaoDaCopa.Dto.Boloes.Requests
 {
-    public class InserirRegrasBolaoRequest
+    public class InserirRegraBolaoRequest
     {
         public int IdRegra { get; set; }
         public string HashBolao { get; set; }

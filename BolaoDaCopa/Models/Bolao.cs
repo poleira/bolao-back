@@ -8,6 +8,7 @@
         public virtual string TokenAcesso { get; protected set; }
         public virtual string Aviso { get; protected set; }
         public virtual string? Senha { get; protected set; }
+        public virtual bool Privado { get; protected set; }
         public virtual Usuario UsuarioAdm { get; protected set; }
         public virtual IEnumerable<Usuario> Usuarios { get; protected set; }
         public virtual IEnumerable<BolaoRegra> Regras { get; protected set; }

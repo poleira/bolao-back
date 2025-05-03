@@ -43,6 +43,19 @@ namespace BolaoDaCopa.Controllers
         }
 
         /// <summary>
+        /// Recupera boloes que um usuario esta associado
+        /// </summary>
+        /// <param name="hash"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("usuario/{hash}")]
+        public ActionResult<IList<BolaoResponse>> RecuperarBoloesUsuario([FromRoute] string hash)
+        {
+            var retorno = boloesServico.RecuperarBoloesPorUsuario(hash);
+            return Ok(retorno);
+        }
+
+        /// <summary>
         /// Associar Usuario a um Bolao
         /// </summary>
         /// <returns></returns>
@@ -72,7 +85,7 @@ namespace BolaoDaCopa.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("regras-bolao")]
-        public ActionResult InserirRegrasBolao([FromBody] InserirRegrasBolaoRequest[] request)
+        public ActionResult InserirRegrasBolao([FromBody] InserirRegraBolaoRequest[] request)
         {
             boloesServico.InserirRegrasBolao(request);
             return Ok();
@@ -102,6 +115,32 @@ namespace BolaoDaCopa.Controllers
             var retorno = boloesServico.ListarRegrasBolao(hash);
             return Ok(retorno);
         }
+
+        /// <summary>
+        /// Listar Regras de um Bolao
+        /// </summary>
+        /// <param name="hash"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("premios-boloes/{hash}")]
+        public ActionResult<IList<PremioResponse>> ListarPremiosBolao([FromRoute] string hash)
+        {
+            var retorno = boloesServico.ListarPremiosBolao(hash);
+            return Ok(retorno);
+        }
+
+        /// <summary>
+        /// Inserir premios a um Bolao
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("premios-bolao")]
+        public ActionResult InserirPremiosBolao([FromBody] InserirPremioBolaoRequest[] request)
+        {
+            boloesServico.InserirPremiosBolao(request);
+            return Ok();
+        }
+
     }
 }
 

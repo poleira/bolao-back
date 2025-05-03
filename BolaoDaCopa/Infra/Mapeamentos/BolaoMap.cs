@@ -14,6 +14,7 @@ namespace BolaoDaCopa.Infra.Mapeamento
             Map(x => x.Logo).Column("Logo").Not.Nullable();
             Map(x => x.TokenAcesso).Column("TokenAcesso");
             Map(x => x.Aviso).Column("Aviso");
+            Map(x => x.Privado).Column("Privacidade").CustomType(typeof(NHibernate.Type.BooleanType)).Not.Nullable();
             References(x => x.UsuarioAdm).Column("IDUsuarioAdm").Not.Nullable();
             Map(x => x.Senha).Column("Senha").Nullable();
             HasManyToMany(x => x.Usuarios)

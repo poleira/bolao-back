@@ -8,5 +8,6 @@ namespace BolaoDaCopa.Infra.Repositorios.BoloesUsuarios.Interfaces
         void Inserir(BolaoUsuarioComando bolaoUsuario);
         void Deletar(BolaoUsuarioComando bolaoUsuario);
         BolaoUsuario Recuperar(int idBolao, int idUsuario);
+        IQueryable<BolaoUsuario> Query();
     }
 }

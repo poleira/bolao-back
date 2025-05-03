@@ -3,15 +3,17 @@ using FluentNHibernate.Mapping;
 
 namespace BolaoDaCopa.Infra.Mapeamentos
 {
-    public class RegraMap : ClassMap<Regra>
+
+    public class PremioMap : ClassMap<Premio>
     {
-        public RegraMap()
+        public PremioMap()
         {
             Schema("Bolao");
-            Table("Regra");
+            Table("Premio");
             Id(x => x.Id).Column("ID");
             Map(x => x.Descricao).Column("Descricao");
-            Map(x => x.Explicacao).Column("Explicacao");
+            Map(x => x.Colocacao).Column("Explicacao");
+            References(x => x.Bolao).Column("IDBolao").Not.Nullable().Cascade.None();
         }
     }
 }

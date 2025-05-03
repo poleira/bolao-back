@@ -65,6 +65,30 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             }
         }
 
+        public IList<BolaoResponse> RecuperarBoloesPorUsuario(string hashUsuario)
+        {
+            try
+            {
+                var usuario = usuariosRepositorio.RecuperarPorHash(hashUsuario) ?? throw new Exception("Usuário não encontrado.");
+                var query = boloesUsuariosRepositorio.Query().Where(x => x.Usuario.Id == usuario.Id);
+                var projecao = query.Select(x => new BolaoResponse
+                {
+                    Id = x.Id,
+                    Nome = x.Bolao.Nome,
+                    Logo = x.Bolao.Logo,
+                    TokenAcesso = x.Bolao.TokenAcesso,
+                    Aviso = x.Bolao.Aviso,
+                    Senha = x.Bolao.Senha
+                });
+
+                return projecao.ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao recuperar o bolão usuario.", ex);
+            }
+        }
+
         public void AssociarUsuarioBolao(AssociarUsuarioRequest request)
         {
             try
@@ -116,14 +140,14 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             }
         }
 
-        public void InserirRegrasBolao(InserirRegrasBolaoRequest[] request)
+        public void InserirRegrasBolao(InserirRegraBolaoRequest[] request)
         {
             try
             {
                 int idBolao = int.Parse(CryptoHelper.Decrypt(request.First().HashBolao));
                 var bolao = boloesRepositorio.Recuperar(idBolao) ?? throw new Exception("Bolão não encontrado.");
 
-                boloesRepositorio.DeletarRegras(idBolao);
+                boloesRepositorio.DeletarRegrasBolao(idBolao);
             
                 foreach (var item in request)
                 {
@@ -135,6 +159,27 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             catch (Exception ex)
             {
                 throw new Exception("Erro ao inserir regras no bolão.", ex);
+            }
+        }
+
+        public void InserirPremiosBolao(InserirPremioBolaoRequest[] request)
+        {
+            try
+            {
+                int idBolao = int.Parse(CryptoHelper.Decrypt(request.First().HashBolao));
+                var bolao = boloesRepositorio.Recuperar(idBolao) ?? throw new Exception("Bolão não encontrado.");
+
+                boloesRepositorio.DeletarPremiosBolao(idBolao);
+
+                foreach (var item in request)
+                {
+                    var premio = new Premio(item.Descricao, bolao, item.Colocacao);
+                    boloesRepositorio.InserirPremio(premio);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao inserir Premios no bolão.", ex);
             }
         }
 
@@ -154,6 +199,20 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
                 Descricao = x.Regra.Descricao,
                 Explicacao = x.Regra.Explicacao,
                 Pontuacao = x.Pontuacao
+            });
+
+            return projecao.ToList();
+        }
+
+        public IList<PremioResponse> ListarPremiosBolao(string hashBolao)
+        {
+            int idBolao = int.Parse(CryptoHelper.Decrypt(hashBolao));
+            var query = boloesRepositorio.QueryPremio().Where(x => x.Bolao.Id == idBolao);
+            var projecao = query.Select(x => new PremioResponse
+            {
+                Id = x.Id,
+                Descricao = x.Descricao,
+                Colocacao = x.Colocacao,
             });
 
             return projecao.ToList();

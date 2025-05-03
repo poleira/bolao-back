@@ -9,9 +9,12 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces
         void CriarBolao(CriarBolaoRequest inserirRequest);
         Bolao Recuperar(string hashBolao);
         void AssociarUsuarioBolao(AssociarUsuarioRequest request);
-        void InserirRegrasBolao(InserirRegrasBolaoRequest[] request);
+        void InserirRegrasBolao(InserirRegraBolaoRequest[] request);
         IList<Regra> ListarRegras();
         IList<BolaoRegraResponse> ListarRegrasBolao(string hashBolao);
         void DesassociarUsuarioBolao(AssociarUsuarioRequest request);
+        IList<BolaoResponse> RecuperarBoloesPorUsuario(string hashUsuario);
+        void InserirPremiosBolao(InserirPremioBolaoRequest[] request);
+        IList<PremioResponse> ListarPremiosBolao(string hashBolao);
     }
 }

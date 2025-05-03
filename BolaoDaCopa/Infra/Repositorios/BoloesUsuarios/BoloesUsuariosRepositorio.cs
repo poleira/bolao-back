@@ -49,5 +49,10 @@ namespace BolaoDaCopa.Infra.Repositorios.BoloesUsuarios
             parameters.Add("@idUsuario", idUsuario);
             return session.Connection.QuerySingleOrDefault<BolaoUsuario>(@"SELECT * FROM bolaousuario WHERE IDBolao = @idBolao AND IDUsuario = @idUsuario", parameters);
         }
+
+        public IQueryable<BolaoUsuario> Query()
+        {
+            return session.Query<BolaoUsuario>();
+        }
     }
 }
