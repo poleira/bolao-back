@@ -15,13 +15,14 @@
 
         protected Bolao() { }
 
-        public Bolao(string nome, string logo, string aviso, string senha, Usuario usuarioAdm)
+        public Bolao(string nome, string logo, string aviso, string senha, Usuario usuarioAdm, bool privado)
         {
             Nome = nome;
             Logo = logo;
             Aviso = aviso;
             Senha = senha;
             UsuarioAdm = usuarioAdm;
+            Privado = privado;
         }
 
         public virtual void SetTokenAcesso(string tokenAcesso)

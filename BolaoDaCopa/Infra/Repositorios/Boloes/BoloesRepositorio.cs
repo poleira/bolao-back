@@ -12,7 +12,10 @@ namespace BolaoDaCopa.Infra.Repositorios.Boloes
     {
         private readonly ISession session;
         
-        public BoloesRepositorio(ISession session) : base(session) { }
+        public BoloesRepositorio(ISession session) : base(session) 
+        {
+            this.session = session;
+        }
 
         private readonly string sqlDeletarRegrasBolao =
             @"DELETE FROM bolaoregra

@@ -7,8 +7,11 @@ namespace BolaoDaCopa.Infra.Repositorios.Usuarios
 {
     public class UsuariosRepositorio : RepositorioNHibernate<Usuario>, IUsuariosRepositorio
     {
-
-        public UsuariosRepositorio(ISession session) : base(session) { }
+        private readonly ISession session;
+        public UsuariosRepositorio(ISession session) : base(session) 
+        {
+            this.session = session;
+        }
 
         public Usuario RecuperarPorHash(string hash)
         {

@@ -35,10 +35,21 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             try
             {
                 var usuario = usuariosRepositorio.RecuperarPorHash(inserirRequest.HashUsuario);
-                var bolao = new Bolao(inserirRequest.Nome, inserirRequest.Logo, inserirRequest.Aviso, inserirRequest.Senha, usuario);
+                var bolao = new Bolao(inserirRequest.Nome, inserirRequest.Logo, inserirRequest.Aviso, inserirRequest.Senha, usuario, inserirRequest.Privado);
                 boloesRepositorio.Inserir(bolao);
                 string token = CryptoHelper.Encrypt(bolao.Id.ToString());
                 bolao.SetTokenAcesso(token);
+                boloesRepositorio.Editar(bolao);
+
+                if (inserirRequest.InserirRegraBolaoRequests.Any())
+                {
+                    InserirRegrasBolao(inserirRequest.InserirRegraBolaoRequests);
+                }
+
+                if (inserirRequest.InserirPremioBolaoRequests.Any())
+                {
+                    InserirPremiosBolao(inserirRequest.InserirPremioBolaoRequests);
+                }
 
                 if (transacao.IsActive)
                     transacao.Commit();

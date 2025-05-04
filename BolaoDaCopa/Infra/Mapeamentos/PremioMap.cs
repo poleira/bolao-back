@@ -12,7 +12,7 @@ namespace BolaoDaCopa.Infra.Mapeamentos
             Table("Premio");
             Id(x => x.Id).Column("ID");
             Map(x => x.Descricao).Column("Descricao");
-            Map(x => x.Colocacao).Column("Explicacao");
+            Map(x => x.Colocacao).Column("Colocacao");
             References(x => x.Bolao).Column("IDBolao").Not.Nullable().Cascade.None();
         }
     }
