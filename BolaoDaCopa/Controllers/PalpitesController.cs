@@ -23,9 +23,9 @@ namespace BolaoDaCopa.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("artilheiros")]
-        public ActionResult CriarPalpiteArtilheiro([FromBody] CriarPalpiteArtilheiroRequest request)
+        public async Task<ActionResult> CriarPalpiteArtilheiroAsync([FromBody] CriarPalpiteArtilheiroRequest request)
         {
-            palpitesServico.CriarPalpiteArtilheiro(request);
+            await palpitesServico.CriarPalpiteArtilheiro(request);
             return Ok();
         }
 
