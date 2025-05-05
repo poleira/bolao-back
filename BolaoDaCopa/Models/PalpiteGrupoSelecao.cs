@@ -9,5 +9,13 @@
         public virtual BolaoUsuario BolaoUsuario { get; protected set; }
 
         protected PalpiteGrupoSelecao() { }
+
+        public PalpiteGrupoSelecao(Grupo grupo, Selecao selecao, int pontuacaoSelecao, BolaoUsuario bolaoUsuario)
+        {
+            Grupo = grupo;
+            Selecao = selecao;
+            PontuacaoSelecao = pontuacaoSelecao;
+            BolaoUsuario = bolaoUsuario;
+        }
     }
 }

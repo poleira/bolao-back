@@ -7,5 +7,11 @@
         public virtual IEnumerable<FaseSelecao> Selecoes { get; protected set; }
 
         protected Fase() { }
+
+        public Fase(int id, string nome)
+        {
+            Id = id;
+            Nome = nome;
+        }
     }
 }

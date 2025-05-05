@@ -2,7 +2,6 @@
 using BolaoDaCopa.Aplicacao.Rank.Servicos.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.Boloes.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.Usuarios.Interfaces;
-using BolaoTeste.Dto.ListarPalpite;
 using BolaoTeste.Dto.Rank;
 using ISession = NHibernate.ISession;
 

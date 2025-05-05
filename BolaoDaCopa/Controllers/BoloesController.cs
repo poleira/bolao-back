@@ -29,29 +29,29 @@ namespace BolaoDaCopa.Controllers
             return Ok();
         }
 
-        /// <summary>
-        /// Recupera info Bolao
-        /// </summary>
-        /// <param name="hash"></param>
-        /// <returns></returns>
-        [HttpGet]
-        [Route("{hash}")]
-        public ActionResult<Bolao> Recuperar([FromRoute] string hash)
-        {
-            var retorno = boloesServico.Recuperar(hash);
-            return Ok(retorno);
-        }
+        ///// <summary>
+        ///// Recupera info Bolao
+        ///// </summary>
+        ///// <param name="hash"></param>
+        ///// <returns></returns>
+        //[HttpGet]
+        //[Route("{hash}")]
+        //public ActionResult<Bolao> Recuperar([FromRoute] string hash)
+        //{
+        //    var retorno = boloesServico.Recuperar(hash);
+        //    return Ok(retorno);
+        //}
 
         /// <summary>
         /// Recupera boloes que um usuario esta associado
         /// </summary>
-        /// <param name="hash"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("usuario/{hash}")]
-        public ActionResult<IList<BolaoResponse>> RecuperarBoloesUsuario([FromRoute] string hash)
+        [Route("usuarios")]
+        public ActionResult<IList<BolaoResponse>> RecuperarBoloesUsuario([FromQuery] HashBolaoRequest request)
         {
-            var retorno = boloesServico.RecuperarBoloesPorUsuario(hash);
+            var retorno = boloesServico.RecuperarBoloesPorUsuario(request.HashBolao);
             return Ok(retorno);
         }
 
@@ -106,26 +106,26 @@ namespace BolaoDaCopa.Controllers
         /// <summary>
         /// Listar Regras de um Bolao
         /// </summary>
-        /// <param name="hash"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("regras-boloes/{hash}")]
-        public ActionResult<IList<BolaoRegraResponse>> ListarRegrasBolao([FromRoute] string hash)
+        [Route("regras-boloes")]
+        public ActionResult<IList<BolaoRegraResponse>> ListarRegrasBolao([FromQuery] HashBolaoRequest request)
         {
-            var retorno = boloesServico.ListarRegrasBolao(hash);
+            var retorno = boloesServico.ListarRegrasBolao(request.HashBolao);
             return Ok(retorno);
         }
 
         /// <summary>
         /// Listar Regras de um Bolao
         /// </summary>
-        /// <param name="hash"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("premios-boloes/{hash}")]
-        public ActionResult<IList<PremioResponse>> ListarPremiosBolao([FromRoute] string hash)
+        [Route("premios-boloes")]
+        public ActionResult<IList<PremioResponse>> ListarPremiosBolao([FromQuery] HashBolaoRequest request)
         {
-            var retorno = boloesServico.ListarPremiosBolao(hash);
+            var retorno = boloesServico.ListarPremiosBolao(request.HashBolao);
             return Ok(retorno);
         }
 

@@ -35,6 +35,16 @@ namespace BolaoDaCopa.Infra.Repositorios.Selecoes
             return session.Get<Selecao>(id);
         }
 
+        public IQueryable<Fase> RecuperarQueryFasePorId(int idFase)
+        {
+            return session.Query<Fase>()
+                .Where(x => x.Id == idFase);
+        }
+        public async Task<Grupo> RecuperarGrupo(int id)
+        {
+            return await session.GetAsync<Grupo>(id);
+        }
+
         //public void EditarGa(GaEditarRequest request, string Idg, string g, string primeiro, string segundo)
         //{
 

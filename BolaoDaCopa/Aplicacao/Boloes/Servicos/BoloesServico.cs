@@ -34,6 +34,12 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             var transacao = session.BeginTransaction();            
             try
             {
+                var query = boloesRepositorio.Query().Where(x => x.Nome == inserirRequest.Nome);
+                if (query.Any())
+                {
+                    throw new Exception("Nome do Bolão já existe.");
+                }
+
                 var usuario = usuariosRepositorio.RecuperarPorHash(inserirRequest.HashUsuario);
                 var bolao = new Bolao(inserirRequest.Nome, inserirRequest.Logo, inserirRequest.Aviso, inserirRequest.Senha, usuario, inserirRequest.Privado);
                 boloesRepositorio.Inserir(bolao);

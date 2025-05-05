@@ -8,5 +8,12 @@
         public virtual BolaoUsuario BolaoUsuario { get; protected set; }
 
         protected PalpiteFaseSelecao() { }
+
+        public PalpiteFaseSelecao(Fase fase, Selecao selecao, BolaoUsuario bolaoUsuario)
+        {
+            Fase = fase;
+            Selecao = selecao;
+            BolaoUsuario = bolaoUsuario;
+        }
     }
 }

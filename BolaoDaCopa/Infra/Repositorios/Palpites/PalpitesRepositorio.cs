@@ -24,10 +24,10 @@ namespace BolaoDaCopa.Infra.Repositorios.Palpites
             await session.SaveAsync(palpiteArtilheiro);
         }
 
-        public async Task DeletarPalpiteGrupoSelecaoPorUsuario(PalpiteGrupoSelecao palpiteGrupoSelecao)
+        public async Task DeletarPalpiteGrupoSelecaoPorBolaoUsuario(int bolaoUsuarioId)
         {
             var palpites = await session.Query<PalpiteGrupoSelecao>()
-                .Where(x => x.BolaoUsuario.Id == palpiteGrupoSelecao.BolaoUsuario.Id)
+                .Where(x => x.BolaoUsuario.Id == bolaoUsuarioId)
                 .ToListAsync();
 
             foreach (var palpite in palpites)
@@ -41,10 +41,10 @@ namespace BolaoDaCopa.Infra.Repositorios.Palpites
             await session.SaveAsync(palpiteGrupoSelecao);
         }
 
-        public async Task DeletarPalpiteFaseSelecaoPorUsuario(PalpiteFaseSelecao palpiteFaseSelecao)
+        public async Task DeletarPalpiteFaseSelecaoPorBolaoUsuario(int bolaoUsuarioId)
         {
             var palpites = await session.Query<PalpiteFaseSelecao>()
-                .Where(x => x.BolaoUsuario.Id == palpiteFaseSelecao.BolaoUsuario.Id)
+                .Where(x => x.BolaoUsuario.Id == bolaoUsuarioId)
                 .ToListAsync();
 
             foreach (var palpite in palpites)
@@ -58,10 +58,10 @@ namespace BolaoDaCopa.Infra.Repositorios.Palpites
             await session.SaveAsync(palpiteFaseSelecao);
         }
 
-        public async Task DeletarPalpiteJogoGrupoPorUsuario(PalpiteJogoGrupo palpiteJogoGrupo)
+        public async Task DeletarPalpiteJogoGrupoPorBolaoUsuario(int bolaoUsuarioId)
         {
             var palpites = await session.Query<PalpiteJogoGrupo>()
-                .Where(x => x.BolaoUsuario.Id == palpiteJogoGrupo.BolaoUsuario.Id)
+                .Where(x => x.BolaoUsuario.Id == bolaoUsuarioId)
                 .ToListAsync();
 
             foreach (var palpite in palpites)
@@ -75,5 +75,25 @@ namespace BolaoDaCopa.Infra.Repositorios.Palpites
             await session.SaveAsync(palpiteJogoGrupo);
         }
 
+        public IQueryable<PalpiteArtilheiro> RecuperarQueryPalpiteArtilheiroPorBolaoUsuarioId(int idBolaoUsuario)
+        {
+            return session.Query<PalpiteArtilheiro>()
+                .Where(x => x.BolaoUsuario.Id == idBolaoUsuario);
+        }
+        public IQueryable<PalpiteFaseSelecao> RecuperarQueryPalpiteFaseSelecaoPorBolaoUsuarioId(int idBolaoUsuario)
+        {
+            return session.Query<PalpiteFaseSelecao>()
+                .Where(x => x.BolaoUsuario.Id == idBolaoUsuario);
+        }
+        public IQueryable<PalpiteGrupoSelecao> RecuperarQueryPalpiteGrupoSelecaoPorBolaoUsuarioId(int idBolaoUsuario)
+        {
+            return session.Query<PalpiteGrupoSelecao>()
+                .Where(x => x.BolaoUsuario.Id == idBolaoUsuario);
+        }
+        public IQueryable<PalpiteJogoGrupo> RecuperarQueryPalpiteJogoGrupoPorBolaoUsuarioId(int idBolaoUsuario)
+        {
+            return session.Query<PalpiteJogoGrupo>()
+                .Where(x => x.BolaoUsuario.Id == idBolaoUsuario);
+        }
     }
 }

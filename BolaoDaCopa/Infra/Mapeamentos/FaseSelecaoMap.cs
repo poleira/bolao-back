@@ -10,7 +10,6 @@ namespace BolaoDaCopa.Infra.Mapeamento
                 Schema("Bolao");
                 Table("FaseSelecao");
                 Id(x => x.Id).Column("ID");
-                References(x => x.Fase).Column("IDFase").Not.Nullable();
                 References(x => x.Selecao).Column("IDSelecao").Not.Nullable();
             }
         }

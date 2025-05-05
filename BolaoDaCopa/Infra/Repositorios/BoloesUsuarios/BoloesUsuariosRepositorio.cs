@@ -3,6 +3,7 @@ using BolaoDaCopa.Dto.Boloes.Requests;
 using BolaoDaCopa.Infra.Repositorios.BoloesUsuarios.Interfaces;
 using BolaoDaCopa.Models;
 using Dapper;
+using NHibernate.Linq;
 using ISession = NHibernate.ISession;
 
 namespace BolaoDaCopa.Infra.Repositorios.BoloesUsuarios
@@ -42,12 +43,9 @@ namespace BolaoDaCopa.Infra.Repositorios.BoloesUsuarios
             session.Connection.Execute(sqlDeletar, parameters);
         }
 
-        public BolaoUsuario Recuperar(int idBolao, int idUsuario)
+        public async Task<BolaoUsuario> RecuperarAsync(int idBolao, int idUsuario)
         {
-            DynamicParameters parameters = new();
-            parameters.Add("@idBolao", idBolao);
-            parameters.Add("@idUsuario", idUsuario);
-            return session.Connection.QuerySingleOrDefault<BolaoUsuario>(@"SELECT * FROM bolaousuario WHERE IDBolao = @idBolao AND IDUsuario = @idUsuario", parameters);
+            return (await session.Query<BolaoUsuario>().Where(x => x.Bolao.Id == idBolao && x.Usuario.Id == idUsuario).ToListAsync()).FirstOrDefault();
         }
 
         public IQueryable<BolaoUsuario> Query()

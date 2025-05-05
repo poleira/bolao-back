@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using BolaoTeste.Dto.ListarPalpite;
 
 namespace BolaoTeste.Aplicacao.Palpites.Profiles
 {
