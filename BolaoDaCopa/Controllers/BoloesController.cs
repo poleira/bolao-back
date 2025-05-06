@@ -1,7 +1,6 @@
 ﻿using BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces;
 using BolaoDaCopa.Dto.Boloes.Requests;
 using BolaoDaCopa.Dto.Boloes.Responses;
-using BolaoDaCopa.Models;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,7 +10,7 @@ namespace BolaoDaCopa.Controllers
     [Route("api/boloes")]
     [EnableCors("MyCorsImplementationPolicy")]
     public class BoloesController : Controller
-    {     
+    {
         private readonly IBoloesServico boloesServico;
         public BoloesController(IBoloesServico boloesServico)
         {
@@ -101,7 +100,7 @@ namespace BolaoDaCopa.Controllers
         public ActionResult<IList<RegraResponse>> ListarRegras()
         {
             IList<RegraResponse>? response = boloesServico.ListarRegras();
-            
+
             return Ok(response);
         }
 
