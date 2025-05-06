@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BolaoDaCopa.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/boloes")]
     [EnableCors("MyCorsImplementationPolicy")]
     public class BoloesController : Controller
     {     
@@ -23,10 +23,11 @@ namespace BolaoDaCopa.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult CriarBolao([FromBody] CriarBolaoRequest request)
+        public ActionResult<BolaoResponse> CriarBolao([FromBody] CriarBolaoRequest request)
         {
-            boloesServico.CriarBolao(request);
-            return Ok();
+            BolaoResponse? response = boloesServico.CriarBolao(request);
+
+            return Ok(response);
         }
 
         ///// <summary>
@@ -97,10 +98,11 @@ namespace BolaoDaCopa.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("regras")]
-        public ActionResult<IList<Regra>> ListarRegras()
+        public ActionResult<IList<RegraResponse>> ListarRegras()
         {
-            var retorno = boloesServico.ListarRegras();
-            return Ok(retorno);
+            IList<RegraResponse>? response = boloesServico.ListarRegras();
+            
+            return Ok(response);
         }
 
         /// <summary>

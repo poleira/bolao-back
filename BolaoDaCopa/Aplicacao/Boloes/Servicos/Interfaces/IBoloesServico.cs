@@ -6,11 +6,11 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces
 {
     public interface IBoloesServico
     {
-        void CriarBolao(CriarBolaoRequest inserirRequest);
+        BolaoResponse CriarBolao(CriarBolaoRequest inserirRequest);
         Bolao Recuperar(string hashBolao);
         void AssociarUsuarioBolao(AssociarUsuarioRequest request);
         void InserirRegrasBolao(InserirRegraBolaoRequest[] request);
-        IList<Regra> ListarRegras();
+        IList<RegraResponse> ListarRegras();
         IList<BolaoRegraResponse> ListarRegrasBolao(string hashBolao);
         void DesassociarUsuarioBolao(AssociarUsuarioRequest request);
         IList<BolaoResponse> RecuperarBoloesPorUsuario(string hashUsuario);

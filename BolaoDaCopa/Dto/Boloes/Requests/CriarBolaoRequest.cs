@@ -2,14 +2,14 @@
 {
     public class CriarBolaoRequest
     {
-        public string Nome { get; set; }
-        public string Logo { get; set; }
-        public string Aviso { get; set; }
-        public string HashUsuario { get; set; }
-        public string Senha { get; set; } 
-        public bool Privado { get; set; }
-        public InserirRegraBolaoRequest[] InserirRegraBolaoRequests { get; set; }
-        public InserirPremioBolaoRequest[] InserirPremioBolaoRequests { get; set; }
+        public string Nome { get; set; } = string.Empty;
+        public string Logo { get; set; } = string.Empty;
+        public string Aviso { get; set; } = string.Empty;
+        public string HashUsuario { get; set; } = string.Empty;
+        public string Senha { get; set; } = string.Empty;
+        public bool Privado { get; set; } = false;
+        public InserirRegraBolaoRequest[] InserirRegrasBoloes { get; set; } = Array.Empty<InserirRegraBolaoRequest>();
+        public InserirPremioBolaoRequest[] InserirPremiosBoloes { get; set; } = Array.Empty<InserirPremioBolaoRequest>();
 
     }
 }

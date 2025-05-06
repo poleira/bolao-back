@@ -1,69 +1,80 @@
 ﻿using AutoMapper;
-using ISession = NHibernate.ISession;
 using BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces;
-using BolaoDaCopa.Infra.Repositorios.Boloes.Interfaces;
-using BolaoDaCopa.Models;
-using BolaoDaCopa.Infra.Repositorios.Usuarios.Interfaces;
-using BolaoDaCopa.Services;
-using BolaoDaCopa.Dto.Boloes.Requests;
-using BolaoDaCopa.Infra.Repositorios.BoloesUsuarios.Interfaces;
+using BolaoDaCopa.Bibliotecas.Transacoes.Interfaces;
 using BolaoDaCopa.Dto.Boloes.Comandos;
+using BolaoDaCopa.Dto.Boloes.Requests;
 using BolaoDaCopa.Dto.Boloes.Responses;
+using BolaoDaCopa.Infra.Repositorios.Boloes.Interfaces;
+using BolaoDaCopa.Infra.Repositorios.BoloesUsuarios.Interfaces;
+using BolaoDaCopa.Infra.Repositorios.Usuarios.Interfaces;
+using BolaoDaCopa.Models;
+using BolaoDaCopa.Services;
 
 namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
 {
     public class BoloesServico : IBoloesServico
     {
-        private readonly ISession session;
+        private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
         private readonly IBoloesRepositorio boloesRepositorio;
         private readonly IUsuariosRepositorio usuariosRepositorio;
         private readonly IBoloesUsuariosRepositorio boloesUsuariosRepositorio;
 
-        public BoloesServico(ISession session, IMapper mapper, IBoloesRepositorio boloesRepositorio, IUsuariosRepositorio usuariosRepositorio, IBoloesUsuariosRepositorio boloesUsuariosRepositorio)
+        public BoloesServico(IUnitOfWork unitOfWork, IMapper mapper, IBoloesRepositorio boloesRepositorio, IUsuariosRepositorio usuariosRepositorio, IBoloesUsuariosRepositorio boloesUsuariosRepositorio)
         {
-            this.session = session;
+            this.unitOfWork = unitOfWork;
             this.mapper = mapper;
             this.boloesRepositorio = boloesRepositorio;
             this.usuariosRepositorio = usuariosRepositorio;
             this.boloesUsuariosRepositorio = boloesUsuariosRepositorio;
         }
 
-        public void CriarBolao(CriarBolaoRequest inserirRequest)
+        public BolaoResponse CriarBolao(CriarBolaoRequest inserirRequest)
         {
-            var transacao = session.BeginTransaction();            
             try
             {
                 var query = boloesRepositorio.Query().Where(x => x.Nome == inserirRequest.Nome);
+
                 if (query.Any())
                 {
                     throw new Exception("Nome do Bolão já existe.");
                 }
 
                 var usuario = usuariosRepositorio.RecuperarPorHash(inserirRequest.HashUsuario);
+
+                unitOfWork.BeginTransaction();
+
                 var bolao = new Bolao(inserirRequest.Nome, inserirRequest.Logo, inserirRequest.Aviso, inserirRequest.Senha, usuario, inserirRequest.Privado);
+
                 boloesRepositorio.Inserir(bolao);
+
                 string token = CryptoHelper.Encrypt(bolao.Id.ToString());
+
                 bolao.SetTokenAcesso(token);
+
                 boloesRepositorio.Editar(bolao);
 
-                if (inserirRequest.InserirRegraBolaoRequests.Any())
+                if (inserirRequest.InserirRegrasBoloes.Any())
                 {
-                    InserirRegrasBolao(inserirRequest.InserirRegraBolaoRequests);
+                    inserirRequest.InserirRegrasBoloes[0].HashBolao = token;
+                    InserirRegrasBolao(inserirRequest.InserirRegrasBoloes);
                 }
 
-                if (inserirRequest.InserirPremioBolaoRequests.Any())
+                if (inserirRequest.InserirPremiosBoloes.Any())
                 {
-                    InserirPremiosBolao(inserirRequest.InserirPremioBolaoRequests);
+                    inserirRequest.InserirPremiosBoloes[0].HashBolao = token;
+                    InserirPremiosBolao(inserirRequest.InserirPremiosBoloes);
                 }
 
-                if (transacao.IsActive)
-                    transacao.Commit();
+                unitOfWork.Rollback();
+
+                BolaoResponse? response = mapper.Map<BolaoResponse>(bolao);
+
+                return response;
             }
             catch (Exception ex)
             {
-                if (transacao.IsActive)
-                    transacao.Rollback();
+                unitOfWork.Rollback();
                 throw new Exception("Erro ao criar o bolão.", ex);
             }
         }
@@ -165,7 +176,7 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
                 var bolao = boloesRepositorio.Recuperar(idBolao) ?? throw new Exception("Bolão não encontrado.");
 
                 boloesRepositorio.DeletarRegrasBolao(idBolao);
-            
+
                 foreach (var item in request)
                 {
                     var regra = boloesRepositorio.RecuperarRegra(item.IdRegra) ?? throw new Exception("Regra não encontrada.");
@@ -200,10 +211,13 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             }
         }
 
-        public IList<Regra> ListarRegras()
+        public IList<RegraResponse> ListarRegras()
         {
             var query = boloesRepositorio.QueryRegra();
-            return query.ToList();
+
+            var response = mapper.Map<IList<RegraResponse>>(query);
+            
+            return response;
         }
 
         public IList<BolaoRegraResponse> ListarRegrasBolao(string hashBolao)
