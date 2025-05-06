@@ -66,10 +66,13 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
                     InserirPremiosBolao(inserirRequest.InserirPremiosBoloes);
                 }
 
-                unitOfWork.Rollback();
+                BolaoUsuario bolaoUsuario = new BolaoUsuario(usuario, bolao);
+                boloesUsuariosRepositorio.Inserir(bolaoUsuario);
+
+                unitOfWork.Commit();
 
                 BolaoResponse? response = mapper.Map<BolaoResponse>(bolao);
-
+                
                 return response;
             }
             catch (Exception ex)
@@ -93,28 +96,15 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             }
         }
 
-        public IList<BolaoResponse> RecuperarBoloesPorUsuario(string hashUsuario)
+        public IEnumerable<BolaoUsuarioResponse> RecuperarBoloesPorUsuario(string hashUsuario)
         {
-            try
-            {
-                var usuario = usuariosRepositorio.RecuperarPorHash(hashUsuario) ?? throw new Exception("Usuário não encontrado.");
-                var query = boloesUsuariosRepositorio.Query().Where(x => x.Usuario.Id == usuario.Id);
-                var projecao = query.Select(x => new BolaoResponse
-                {
-                    Id = x.Id,
-                    Nome = x.Bolao.Nome,
-                    Logo = x.Bolao.Logo,
-                    TokenAcesso = x.Bolao.TokenAcesso,
-                    Aviso = x.Bolao.Aviso,
-                    Senha = x.Bolao.Senha
-                });
+            Usuario usuario = usuariosRepositorio.RecuperarPorHash(hashUsuario) ?? throw new Exception("Usuário não encontrado.");
 
-                return projecao.ToList();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Erro ao recuperar o bolão usuario.", ex);
-            }
+            IQueryable<BolaoUsuario> boloesUsuarios = boloesUsuariosRepositorio.Query().Where(x => x.Usuario.Id == usuario.Id);
+
+            IEnumerable<BolaoUsuarioResponse>? response = mapper.Map<IEnumerable<BolaoUsuarioResponse>>(boloesUsuarios);
+
+            return response;
         }
 
         public void AssociarUsuarioBolao(AssociarUsuarioRequest request)
@@ -128,7 +118,8 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
                 if (request.Senha == bolao.Senha)
                 {
                     var comando = new BolaoUsuarioComando(usuario.Id, idBolao);
-                    boloesUsuariosRepositorio.Inserir(comando);
+                    BolaoUsuario bolaoUsuario = new(usuario, bolao);
+                    boloesUsuariosRepositorio.Inserir(bolaoUsuario);
                 }
                 else
                 {
@@ -153,8 +144,8 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
 
                 if (bolao.Usuarios.Any(x => x.Id == usuarioASerDeletado.Id) && (usuarioLogado.Id == usuarioASerDeletado.Id || bolao.UsuarioAdm.Id == usuarioLogado.Id))
                 {
-                    var comando = new BolaoUsuarioComando(usuarioASerDeletado.Id, idBolao);
-                    boloesUsuariosRepositorio.Deletar(comando);
+                    BolaoUsuario bolaoUsuario = boloesUsuariosRepositorio.Query().Where(x => x.Usuario.Id == usuarioASerDeletado.Id && x.Bolao.Id == idBolao).FirstOrDefault() ?? throw new Exception("Usuario não encontrado no bolão.");
+                    boloesUsuariosRepositorio.Remover(bolaoUsuario);
                 }
                 else
                 {

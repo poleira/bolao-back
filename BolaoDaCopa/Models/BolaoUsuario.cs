@@ -8,5 +8,20 @@
 
         protected BolaoUsuario() { }
 
+        public BolaoUsuario(Usuario usuario, Bolao bolao)
+        {
+            SetUsuario(usuario);
+            SetBolao(bolao);
+        }
+
+        private void SetUsuario(Usuario usuario)
+        {
+            Usuario = usuario;
+        }
+
+        private void SetBolao(Bolao bolao)
+        {
+            Bolao = bolao;
+        }
     }
 }

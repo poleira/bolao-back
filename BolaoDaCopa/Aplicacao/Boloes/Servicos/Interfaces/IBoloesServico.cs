@@ -13,7 +13,7 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces
         IList<RegraResponse> ListarRegras();
         IList<BolaoRegraResponse> ListarRegrasBolao(string hashBolao);
         void DesassociarUsuarioBolao(AssociarUsuarioRequest request);
-        IList<BolaoResponse> RecuperarBoloesPorUsuario(string hashUsuario);
+        IEnumerable<BolaoUsuarioResponse> RecuperarBoloesPorUsuario(string hashUsuario);
         void InserirPremiosBolao(InserirPremioBolaoRequest[] request);
         IList<PremioResponse> ListarPremiosBolao(string hashBolao);
     }

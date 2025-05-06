@@ -22,7 +22,12 @@ namespace BolaoDaCopa.Infra.Mapeamento
                 .ParentKeyColumn("IDBolao")
                 .ChildKeyColumn("IDUsuario")
                 .Cascade.All();
+            
             HasMany(x => x.Regras)
+                .KeyColumn("IDBolao")
+                .Cascade.All();
+
+            HasMany(x => x.Premios)
                 .KeyColumn("IDBolao")
                 .Cascade.All();
         }

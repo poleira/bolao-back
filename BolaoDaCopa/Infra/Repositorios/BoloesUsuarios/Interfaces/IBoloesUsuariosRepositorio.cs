@@ -1,12 +1,10 @@
-﻿using BolaoDaCopa.Dto.Boloes.Comandos;
+﻿using BolaoDaCopa.Bibliotecas.Repositorios.Interfaces;
 using BolaoDaCopa.Models;
 
 namespace BolaoDaCopa.Infra.Repositorios.BoloesUsuarios.Interfaces
 {
-    public interface IBoloesUsuariosRepositorio
+    public interface IBoloesUsuariosRepositorio : IRepositorioNHibernate<BolaoUsuario>
     {
-        void Inserir(BolaoUsuarioComando bolaoUsuario);
-        void Deletar(BolaoUsuarioComando bolaoUsuario);
         Task<BolaoUsuario> RecuperarAsync(int idBolao, int idUsuario);
         IQueryable<BolaoUsuario> Query();
     }

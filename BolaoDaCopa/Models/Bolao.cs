@@ -12,6 +12,7 @@
         public virtual Usuario UsuarioAdm { get; protected set; }
         public virtual IEnumerable<Usuario> Usuarios { get; protected set; }
         public virtual IEnumerable<BolaoRegra> Regras { get; protected set; }
+        public virtual IEnumerable<Premio> Premios { get; protected set; }
 
         protected Bolao() { }
 

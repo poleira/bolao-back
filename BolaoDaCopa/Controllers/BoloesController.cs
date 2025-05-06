@@ -49,9 +49,9 @@ namespace BolaoDaCopa.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("usuarios")]
-        public ActionResult<IList<BolaoResponse>> RecuperarBoloesUsuario([FromQuery] HashBolaoRequest request)
+        public ActionResult<IEnumerable<BolaoUsuarioResponse>> RecuperarBoloesUsuario([FromQuery] HashBolaoRequest request)
         {
-            var retorno = boloesServico.RecuperarBoloesPorUsuario(request.HashBolao);
+            IEnumerable<BolaoUsuarioResponse>? retorno = boloesServico.RecuperarBoloesPorUsuario(request.HashBolao);
             return Ok(retorno);
         }
 

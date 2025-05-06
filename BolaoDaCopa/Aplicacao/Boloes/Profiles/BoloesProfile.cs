@@ -9,7 +9,6 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Profiles
     {
         public BoloesProfile()
         {
-            CreateMap<Regra, RegraResponse>();
             CreateMap<Bolao, BolaoResponse>();
         }
     }
