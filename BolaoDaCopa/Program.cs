@@ -1,6 +1,8 @@
 using BolaoDaCopa.Aplicacao.Boloes.Profiles;
 using BolaoDaCopa.Aplicacao.Boloes.Servicos;
 using BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces;
+using BolaoDaCopa.Aplicacao.BoloesUsuarios.Servicos;
+using BolaoDaCopa.Aplicacao.BoloesUsuarios.Servicos.Interfaces;
 using BolaoDaCopa.Aplicacao.Comum.Repositorios;
 using BolaoDaCopa.Aplicacao.HabilitarPalpites.Servicos;
 using BolaoDaCopa.Aplicacao.Jogadores.Servicos;
@@ -75,6 +77,7 @@ builder.Services.AddScoped<ISession>(factory => factory.GetService<ISessionFacto
 builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 builder.Services.AddScoped<IBoloesRepositorio, BoloesRepositorio>();
 builder.Services.AddScoped<ISelecoesRepositorio, SelecoesRepositorio>();
+builder.Services.AddScoped<IBoloesUsuariosServico, BoloesUsuariosServico>();
 builder.Services.AddScoped<IBoloesUsuariosRepositorio, BoloesUsuariosRepositorio>();
 builder.Services.AddScoped<IBoloesServico, BoloesServico>();
 builder.Services.AddScoped<ISelecoesServico, SelecoesServico>();

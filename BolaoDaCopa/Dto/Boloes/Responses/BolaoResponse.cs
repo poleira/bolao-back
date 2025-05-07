@@ -1,4 +1,6 @@
-﻿namespace BolaoDaCopa.Dto.Boloes.Responses
+﻿using BolaoDaCopa.Dto.BoloesRegras.Responses;
+
+namespace BolaoDaCopa.Dto.Boloes.Responses
 {
     public class BolaoResponse
     {

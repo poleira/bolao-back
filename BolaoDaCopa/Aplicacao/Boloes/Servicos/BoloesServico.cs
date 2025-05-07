@@ -4,6 +4,7 @@ using BolaoDaCopa.Bibliotecas.Transacoes.Interfaces;
 using BolaoDaCopa.Dto.Boloes.Comandos;
 using BolaoDaCopa.Dto.Boloes.Requests;
 using BolaoDaCopa.Dto.Boloes.Responses;
+using BolaoDaCopa.Dto.BoloesRegras.Responses;
 using BolaoDaCopa.Infra.Repositorios.Boloes.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.BoloesUsuarios.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.Usuarios.Interfaces;
@@ -94,17 +95,6 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             {
                 throw new Exception("Erro ao recuperar o bolão.", ex);
             }
-        }
-
-        public IEnumerable<BolaoUsuarioResponse> RecuperarBoloesPorUsuario(string hashUsuario)
-        {
-            Usuario usuario = usuariosRepositorio.RecuperarPorHash(hashUsuario) ?? throw new Exception("Usuário não encontrado.");
-
-            IQueryable<BolaoUsuario> boloesUsuarios = boloesUsuariosRepositorio.Query().Where(x => x.Usuario.Id == usuario.Id);
-
-            IEnumerable<BolaoUsuarioResponse>? response = mapper.Map<IEnumerable<BolaoUsuarioResponse>>(boloesUsuarios);
-
-            return response;
         }
 
         public void AssociarUsuarioBolao(AssociarUsuarioRequest request)

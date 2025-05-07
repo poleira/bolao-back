@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BolaoDaCopa.Dto.Boloes.Responses;
+using BolaoDaCopa.Dto.BoloesRegras.Responses;
 using BolaoDaCopa.Models;
 
 namespace BolaoDaCopa.Aplicacao.BolaoRegras.Profiles

@@ -1,6 +1,7 @@
 ﻿using BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces;
 using BolaoDaCopa.Dto.Boloes.Requests;
 using BolaoDaCopa.Dto.Boloes.Responses;
+using BolaoDaCopa.Dto.BoloesRegras.Responses;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
@@ -45,15 +46,8 @@ namespace BolaoDaCopa.Controllers
         /// <summary>
         /// Recupera boloes que um usuario esta associado
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="hashUsuario"></param>
         /// <returns></returns>
-        [HttpGet]
-        [Route("usuarios")]
-        public ActionResult<IEnumerable<BolaoUsuarioResponse>> RecuperarBoloesUsuario([FromQuery] HashBolaoRequest request)
-        {
-            IEnumerable<BolaoUsuarioResponse>? retorno = boloesServico.RecuperarBoloesPorUsuario(request.HashBolao);
-            return Ok(retorno);
-        }
 
         /// <summary>
         /// Associar Usuario a um Bolao

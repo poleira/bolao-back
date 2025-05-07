@@ -1,6 +1,7 @@
-﻿using BolaoDaCopa.Dto.Usuarios;
+﻿using BolaoDaCopa.Dto.Boloes.Responses;
+using BolaoDaCopa.Dto.Usuarios;
 
-namespace BolaoDaCopa.Dto.Boloes.Responses
+namespace BolaoDaCopa.Dto.BoloesUsuarios.Responses
 {
     public class BolaoUsuarioResponse
     {
