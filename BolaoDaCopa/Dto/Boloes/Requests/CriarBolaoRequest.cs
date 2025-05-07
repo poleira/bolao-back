@@ -10,6 +10,5 @@
         public bool Privado { get; set; } = false;
         public InserirRegraBolaoRequest[] InserirRegrasBoloes { get; set; } = Array.Empty<InserirRegraBolaoRequest>();
         public InserirPremioBolaoRequest[] InserirPremiosBoloes { get; set; } = Array.Empty<InserirPremioBolaoRequest>();
-
     }
 }

@@ -83,6 +83,58 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             }
         }
 
+        public BolaoResponse EditarBolao(EditarBolaoRequest editarRequest)
+        {
+            try
+            {
+                var query = boloesRepositorio.Query().Where(x => x.Nome == editarRequest.Nome);
+
+                if (query.Any())
+                {
+                    throw new Exception("Nome do Bolão já existe.");
+                }
+
+                var usuario = usuariosRepositorio.RecuperarPorHash(editarRequest.HashUsuario);
+
+                int idBolao = int.Parse(CryptoHelper.Decrypt(editarRequest.HashBolao));
+                Bolao bolao = boloesRepositorio.Recuperar(idBolao) ?? throw new Exception("Bolão não encontrado.");
+
+                if (editarRequest.HashUsuario != bolao.UsuarioAdm.FirebaseUid)
+                {
+                    throw new Exception("Usuario não tem permissao para isso.");
+                }
+
+                unitOfWork.BeginTransaction();
+
+                Bolao bolaoEditado = new(bolao.Id, editarRequest.Nome, editarRequest.Logo, bolao.TokenAcesso, editarRequest.Aviso, editarRequest.Senha, editarRequest.Privado, usuario);
+
+                boloesRepositorio.Editar(bolaoEditado);
+
+                if (editarRequest.InserirRegrasBoloes.Any())
+                {
+                    editarRequest.InserirRegrasBoloes[0].HashBolao = editarRequest.HashBolao;
+                    InserirRegrasBolao(editarRequest.InserirRegrasBoloes);
+                }
+
+                if (editarRequest.InserirPremiosBoloes.Any())
+                {
+                    editarRequest.InserirPremiosBoloes[0].HashBolao = editarRequest.HashBolao;
+                    InserirPremiosBolao(editarRequest.InserirPremiosBoloes);
+                }
+
+                unitOfWork.Commit();
+
+                BolaoResponse? response = mapper.Map<BolaoResponse>(bolao);
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                unitOfWork.Rollback();
+                throw new Exception("Erro ao criar o bolão.", ex);
+            }
+        }
+
         public Bolao Recuperar(string hashBolao)
         {
             try

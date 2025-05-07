@@ -30,6 +30,17 @@ namespace BolaoDaCopa.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Edita Bolao
+        /// </summary>
+        /// <returns></returns>
+        [HttpPut]
+        public ActionResult EditarBolao([FromBody] EditarBolaoRequest request)
+        {
+            boloesServico.EditarBolao(request);
+            return Ok();
+        }
+
         ///// <summary>
         ///// Recupera info Bolao
         ///// </summary>

@@ -26,6 +26,18 @@
             Privado = privado;
         }
 
+        public Bolao(int id, string nome, string logo, string tokenAcesso, string aviso, string? senha, bool privado, Usuario usuarioAdm)
+        {
+            Id = id;
+            Nome = nome;
+            Logo = logo;
+            TokenAcesso = tokenAcesso;
+            Aviso = aviso;
+            Senha = senha;
+            Privado = privado;
+            UsuarioAdm = usuarioAdm;
+        }
+
         public virtual void SetTokenAcesso(string tokenAcesso)
         {
             TokenAcesso = tokenAcesso;
