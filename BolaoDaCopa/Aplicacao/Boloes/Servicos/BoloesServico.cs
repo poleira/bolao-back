@@ -10,6 +10,7 @@ using BolaoDaCopa.Infra.Repositorios.BoloesUsuarios.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.Usuarios.Interfaces;
 using BolaoDaCopa.Models;
 using BolaoDaCopa.Services;
+using FluentNHibernate.Conventions;
 
 namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
 {
@@ -58,13 +59,13 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
                 if (inserirRequest.InserirRegrasBoloes.Any())
                 {
                     inserirRequest.InserirRegrasBoloes[0].HashBolao = token;
-                    InserirRegrasBolao(inserirRequest.InserirRegrasBoloes);
+                    InserirRegrasBolao(inserirRequest.InserirRegrasBoloes, bolao);
                 }
 
                 if (inserirRequest.InserirPremiosBoloes.Any())
                 {
                     inserirRequest.InserirPremiosBoloes[0].HashBolao = token;
-                    InserirPremiosBolao(inserirRequest.InserirPremiosBoloes);
+                    InserirPremiosBolao(inserirRequest.InserirPremiosBoloes, bolao);
                 }
 
                 BolaoUsuario bolaoUsuario = new BolaoUsuario(usuario, bolao);
@@ -106,20 +107,25 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
 
                 unitOfWork.BeginTransaction();
 
-                Bolao bolaoEditado = new(bolao.Id, editarRequest.Nome, editarRequest.Logo, bolao.TokenAcesso, editarRequest.Aviso, editarRequest.Senha, editarRequest.Privado, usuario);
+                bolao.Nome = editarRequest.Nome;
+                bolao.Logo = editarRequest.Logo;
+                bolao.Aviso = editarRequest.Aviso;
+                bolao.Senha = editarRequest.Senha;
+                bolao.Privado = editarRequest.Privado;
+                bolao.UsuarioAdm = usuario;
 
-                boloesRepositorio.Editar(bolaoEditado);
+                boloesRepositorio.Editar(bolao);
 
                 if (editarRequest.InserirRegrasBoloes.Any())
                 {
                     editarRequest.InserirRegrasBoloes[0].HashBolao = editarRequest.HashBolao;
-                    InserirRegrasBolao(editarRequest.InserirRegrasBoloes);
+                    InserirRegrasBolao(editarRequest.InserirRegrasBoloes, bolao);
                 }
 
                 if (editarRequest.InserirPremiosBoloes.Any())
                 {
                     editarRequest.InserirPremiosBoloes[0].HashBolao = editarRequest.HashBolao;
-                    InserirPremiosBolao(editarRequest.InserirPremiosBoloes);
+                    InserirPremiosBolao(editarRequest.InserirPremiosBoloes, bolao);
                 }
 
                 unitOfWork.Commit();
@@ -135,13 +141,14 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             }
         }
 
-        public Bolao Recuperar(string hashBolao)
+        public BolaoResponse Recuperar(string hashBolao)
         {
             try
             {
                 int idBolao = int.Parse(CryptoHelper.Decrypt(hashBolao));
+                BolaoResponse? response = mapper.Map<BolaoResponse>(boloesRepositorio.Recuperar(idBolao));
 
-                return boloesRepositorio.Recuperar(idBolao);
+                return response;
             }
             catch (Exception ex)
             {
@@ -201,14 +208,22 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             }
         }
 
-        public void InserirRegrasBolao(InserirRegraBolaoRequest[] request)
+        public void InserirRegrasBolao(InserirRegraBolaoRequest[] request, Bolao? bolaoParametro)
         {
             try
             {
-                int idBolao = int.Parse(CryptoHelper.Decrypt(request.First().HashBolao));
-                var bolao = boloesRepositorio.Recuperar(idBolao) ?? throw new Exception("Bolão não encontrado.");
+                Bolao bolao = new();
+                if (bolaoParametro == null)
+                {
+                    int idBolao = int.Parse(CryptoHelper.Decrypt(request.First().HashBolao));
+                    bolao = boloesRepositorio.Recuperar(idBolao) ?? throw new Exception("Bolão não encontrado.");
+                }
+                else
+                {
+                    bolao = bolaoParametro;
+                }
 
-                boloesRepositorio.DeletarRegrasBolao(idBolao);
+                    boloesRepositorio.DeletarRegrasBolao(bolao.Id);
 
                 foreach (var item in request)
                 {
@@ -223,14 +238,22 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             }
         }
 
-        public void InserirPremiosBolao(InserirPremioBolaoRequest[] request)
+        public void InserirPremiosBolao(InserirPremioBolaoRequest[] request, Bolao? bolaoParametro)
         {
             try
             {
-                int idBolao = int.Parse(CryptoHelper.Decrypt(request.First().HashBolao));
-                var bolao = boloesRepositorio.Recuperar(idBolao) ?? throw new Exception("Bolão não encontrado.");
+                Bolao bolao = new();
+                if (bolaoParametro == null)
+                {
+                    int idBolao = int.Parse(CryptoHelper.Decrypt(request.First().HashBolao));
+                    bolao = boloesRepositorio.Recuperar(idBolao) ?? throw new Exception("Bolão não encontrado.");
+                }
+                else
+                {
+                    bolao = bolaoParametro;
+                }
 
-                boloesRepositorio.DeletarPremiosBolao(idBolao);
+                boloesRepositorio.DeletarPremiosBolao(bolao.Id);
 
                 foreach (var item in request)
                 {

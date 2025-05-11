@@ -41,18 +41,17 @@ namespace BolaoDaCopa.Controllers
             return Ok();
         }
 
-        ///// <summary>
-        ///// Recupera info Bolao
-        ///// </summary>
-        ///// <param name="hash"></param>
-        ///// <returns></returns>
-        //[HttpGet]
-        //[Route("{hash}")]
-        //public ActionResult<Bolao> Recuperar([FromRoute] string hash)
-        //{
-        //    var retorno = boloesServico.Recuperar(hash);
-        //    return Ok(retorno);
-        //}
+        /// <summary>
+        /// Recupera info Bolao
+        /// </summary>
+        /// <param name="hash"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult<BolaoResponse> Recuperar([FromQuery] HashBolaoRequest request)
+        {
+            var retorno = boloesServico.Recuperar(request.HashBolao);
+            return Ok(retorno);
+        }
 
         /// <summary>
         /// Recupera boloes que um usuario esta associado
@@ -92,7 +91,7 @@ namespace BolaoDaCopa.Controllers
         [Route("regras-bolao")]
         public ActionResult InserirRegrasBolao([FromBody] InserirRegraBolaoRequest[] request)
         {
-            boloesServico.InserirRegrasBolao(request);
+            boloesServico.InserirRegrasBolao(request, null);
             return Ok();
         }
 
@@ -143,7 +142,7 @@ namespace BolaoDaCopa.Controllers
         [Route("premios-bolao")]
         public ActionResult InserirPremiosBolao([FromBody] InserirPremioBolaoRequest[] request)
         {
-            boloesServico.InserirPremiosBolao(request);
+            boloesServico.InserirPremiosBolao(request, null);
             return Ok();
         }
 

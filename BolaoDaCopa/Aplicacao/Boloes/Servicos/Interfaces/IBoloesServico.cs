@@ -8,14 +8,14 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces
     public interface IBoloesServico
     {
         BolaoResponse CriarBolao(CriarBolaoRequest inserirRequest);
-        Bolao Recuperar(string hashBolao);
         void AssociarUsuarioBolao(AssociarUsuarioRequest request);
-        void InserirRegrasBolao(InserirRegraBolaoRequest[] request);
+        void InserirRegrasBolao(InserirRegraBolaoRequest[] request, Bolao? bolao);
         IList<RegraResponse> ListarRegras();
         IList<BolaoRegraResponse> ListarRegrasBolao(string hashBolao);
         void DesassociarUsuarioBolao(AssociarUsuarioRequest request);
-        void InserirPremiosBolao(InserirPremioBolaoRequest[] request);
         IList<PremioResponse> ListarPremiosBolao(string hashBolao);
         BolaoResponse EditarBolao(EditarBolaoRequest editarRequest);
+        BolaoResponse Recuperar(string hashBolao);
+        void InserirPremiosBolao(InserirPremioBolaoRequest[] request, Bolao? bolaoParametro);
     }
 }
