@@ -1,11 +1,13 @@
 ﻿using BolaoDaCopa.Aplicacao.Usuarios.Servicos.Interfaces;
 using BolaoDaCopa.Dto.Autenticacao.Responses;
 using BolaoDaCopa.Dto.Usuarios.Requests;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BolaoDaCopa.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/usuario")]
     [EnableCors("MyCorsImplementationPolicy")]
@@ -18,6 +20,7 @@ namespace BolaoDaCopa.Controllers
             this._usuariosServico = _usuariosServico;
         }
 
+        [AllowAnonymous]
         [HttpPost]
         [Route("inserir")]
         public ActionResult<AutenticacaoResponse> Inserir([FromBody] UsuarioRequest request)
@@ -27,6 +30,7 @@ namespace BolaoDaCopa.Controllers
             return Ok(response);
         }
 
+        [AllowAnonymous]
         [HttpPost]
         [Route("autenticar")]
         public async Task<ActionResult<AutenticacaoResponse>> Autenticar([FromBody] LoginRequest request)

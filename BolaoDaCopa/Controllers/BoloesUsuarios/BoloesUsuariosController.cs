@@ -1,10 +1,12 @@
 ﻿using BolaoDaCopa.Aplicacao.BoloesUsuarios.Servicos.Interfaces;
 using BolaoDaCopa.Dto.BoloesUsuarios.Responses;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BolaoDaCopa.Controllers.BoloesUsuarios
 {
+    [Authorize]
     [ApiController]
     [Route("api/boloes-usuarios")]
     [EnableCors("MyCorsImplementationPolicy")]

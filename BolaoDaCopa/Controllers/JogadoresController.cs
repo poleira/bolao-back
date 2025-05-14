@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BolaoDaCopa.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     [EnableCors("MyCorsImplementationPolicy")]

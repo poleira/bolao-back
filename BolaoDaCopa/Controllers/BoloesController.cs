@@ -2,11 +2,14 @@
 using BolaoDaCopa.Dto.Boloes.Requests;
 using BolaoDaCopa.Dto.Boloes.Responses;
 using BolaoDaCopa.Dto.BoloesRegras.Responses;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace BolaoDaCopa.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/boloes")]
     [EnableCors("MyCorsImplementationPolicy")]
@@ -25,6 +28,8 @@ namespace BolaoDaCopa.Controllers
         [HttpPost]
         public ActionResult<BolaoResponse> CriarBolao([FromBody] CriarBolaoRequest request)
         {
+            var idUsuario = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
             BolaoResponse? response = boloesServico.CriarBolao(request);
 
             return Ok(response);
@@ -37,6 +42,8 @@ namespace BolaoDaCopa.Controllers
         [HttpPut]
         public ActionResult EditarBolao([FromBody] EditarBolaoRequest request)
         {
+            var idUsuario = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
             boloesServico.EditarBolao(request);
             return Ok();
         }
@@ -54,12 +61,6 @@ namespace BolaoDaCopa.Controllers
         }
 
         /// <summary>
-        /// Recupera boloes que um usuario esta associado
-        /// </summary>
-        /// <param name="hashUsuario"></param>
-        /// <returns></returns>
-
-        /// <summary>
         /// Associar Usuario a um Bolao
         /// </summary>
         /// <returns></returns>
@@ -67,6 +68,8 @@ namespace BolaoDaCopa.Controllers
         [Route("boloes-usuarios")]
         public ActionResult AssociarUsuarioBolao([FromBody] AssociarUsuarioRequest request)
         {
+            var idUsuario = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
             boloesServico.AssociarUsuarioBolao(request);
             return Ok();
         }
@@ -79,6 +82,7 @@ namespace BolaoDaCopa.Controllers
         [Route("usuarios")]
         public ActionResult DesassociarUsuarioBolao([FromBody] AssociarUsuarioRequest request)
         {
+            var idUsuario = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             boloesServico.DesassociarUsuarioBolao(request);
             return Ok();
         }

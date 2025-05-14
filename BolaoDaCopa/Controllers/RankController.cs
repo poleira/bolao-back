@@ -6,6 +6,7 @@ using BolaoDaCopa.Aplicacao.Rank.Servicos.Interfaces;
 
 namespace BolaoDaCopa.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     [EnableCors("MyCorsImplementationPolicy")]

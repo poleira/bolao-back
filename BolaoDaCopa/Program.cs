@@ -33,6 +33,7 @@ using BolaoDaCopa.Infra.Repositorios.Usuarios;
 using BolaoDaCopa.Infra.Repositorios.Usuarios.Interfaces;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
+using Microsoft.OpenApi.Models;
 using NHibernate;
 using ISession = NHibernate.ISession;
 
@@ -45,7 +46,7 @@ builder.Services.AddControllers();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+//builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(BoloesProfile));
 
 
@@ -91,6 +92,37 @@ builder.Services.AddScoped<IUsuariosServico, UsuariosServico>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo { Title = "Bolao Api", Version = "v1" });
+
+    // Adiciona a configuração do token
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Description = "Informe o token no formato: Bearer {seu token JWT}"
+    });
+
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
+});
+
 
 var app = builder.Build();
 
@@ -104,8 +136,6 @@ app.UseHttpsRedirection();
 app.UseCors("MyCorsImplementationPolicy");
 app.UseAuthentication();
 app.UseAuthorization();
-
-
 
 app.MapControllers();
 

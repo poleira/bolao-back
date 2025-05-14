@@ -77,10 +77,8 @@ namespace BolaoDaCopa.Aplicacao.Usuarios.Servicos
                 {
                     Usuario = new UsuarioResponse
                     {
-                        Id = usuario.Id,
                         Nome = usuario.Nome,
                         Email = usuario.Email,
-                        FirebaseUid = usuario.FirebaseUid,
                     },
                     Token = token
                 };

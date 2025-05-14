@@ -5,10 +5,16 @@ using BolaoDaCopa.Dto.Boloes.Requests;
 using BolaoDaCopa.Dto.Boloes.Responses;
 using BolaoDaCopa.Dto.Palpite.Requests;
 using BolaoDaCopa.Dto.Palpite.Responses;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BolaoDaCopa.Controllers
 {
+    [Authorize]
+    [ApiController]
+    [Route("api/[controller]")]
+    [EnableCors("MyCorsImplementationPolicy")]
     public class PalpitesController : Controller
     {
         private readonly IPalpitesServico palpitesServico;

@@ -2,11 +2,13 @@
 using BolaoDaCopa.Dto.Selecoes.Requests;
 using BolaoDaCopa.Dto.Selecoes.Responses;
 using BolaoDaCopa.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BolaoDaCopa.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     [EnableCors("MyCorsImplementationPolicy")]
