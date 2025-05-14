@@ -3,6 +3,7 @@ using BolaoDaCopa.Dto.BoloesUsuarios.Responses;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace BolaoDaCopa.Controllers.BoloesUsuarios
 {
@@ -19,11 +20,20 @@ namespace BolaoDaCopa.Controllers.BoloesUsuarios
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<BolaoUsuarioResponse>> ListarBoloesUsuario([FromQuery] string hashUsuario)
+        public ActionResult<IEnumerable<BolaoUsuarioResponse>> ListarBoloesPorUsuario()
         {
-            IEnumerable<BolaoUsuarioResponse>? retorno = boloesUsuariosServico.ListarBoloesUsuario(hashUsuario);
+            var idClaim = User.FindFirst(ClaimTypes.NameIdentifier);
 
-            return Ok(retorno);
+            if (idClaim != null && int.TryParse(idClaim.Value, out int idUsuario))
+            {
+                IEnumerable<BolaoUsuarioResponse>? retorno = boloesUsuariosServico.ListarBoloesPorUsuario(idUsuario);
+
+                return Ok(retorno);
+            }
+            else
+            {
+                throw new UnauthorizedAccessException("ID do usuário inválido ou ausente.");
+            }
         }
 
         [HttpGet]

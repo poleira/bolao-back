@@ -24,11 +24,21 @@ namespace BolaoDaCopa.Controllers
         /// <summary>
         /// Cria Bolao
         /// </summary>
+        /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
         public ActionResult<BolaoResponse> CriarBolao([FromBody] CriarBolaoRequest request)
         {
-            var idUsuario = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var idClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+
+            if (idClaim != null && int.TryParse(idClaim.Value, out int idUsuario))
+            {
+                request.IdUsuario = idUsuario;
+            }
+            else
+            {
+                throw new UnauthorizedAccessException("ID do usuário inválido ou ausente.");
+            }
 
             BolaoResponse? response = boloesServico.CriarBolao(request);
 
@@ -38,11 +48,21 @@ namespace BolaoDaCopa.Controllers
         /// <summary>
         /// Edita Bolao
         /// </summary>
+        /// <param name="request"></param>
         /// <returns></returns>
         [HttpPut]
         public ActionResult EditarBolao([FromBody] EditarBolaoRequest request)
         {
-            var idUsuario = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var idClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+
+            if (idClaim != null && int.TryParse(idClaim.Value, out int idUsuario))
+            {
+                request.IdUsuario = idUsuario;
+            }
+            else
+            {
+                throw new UnauthorizedAccessException("ID do usuário inválido ou ausente.");
+            }
 
             boloesServico.EditarBolao(request);
             return Ok();
@@ -51,7 +71,7 @@ namespace BolaoDaCopa.Controllers
         /// <summary>
         /// Recupera info Bolao
         /// </summary>
-        /// <param name="hash"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
         [HttpGet]
         public ActionResult<BolaoResponse> Recuperar([FromQuery] HashBolaoRequest request)
@@ -63,12 +83,22 @@ namespace BolaoDaCopa.Controllers
         /// <summary>
         /// Associar Usuario a um Bolao
         /// </summary>
+        /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
         [Route("boloes-usuarios")]
         public ActionResult AssociarUsuarioBolao([FromBody] AssociarUsuarioRequest request)
         {
-            var idUsuario = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var idClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+
+            if (idClaim != null && int.TryParse(idClaim.Value, out int idUsuario))
+            {
+                request.IdUsuario = idUsuario;
+            }
+            else
+            {
+                throw new UnauthorizedAccessException("ID do usuário inválido ou ausente.");
+            }
 
             boloesServico.AssociarUsuarioBolao(request);
             return Ok();
@@ -77,12 +107,22 @@ namespace BolaoDaCopa.Controllers
         /// <summary>
         /// Desassociar Usuario a um Bolao
         /// </summary>
+        /// <param name="request"></param>
         /// <returns></returns>
         [HttpDelete]
         [Route("usuarios")]
         public ActionResult DesassociarUsuarioBolao([FromBody] AssociarUsuarioRequest request)
         {
-            var idUsuario = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var idClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+
+            if (idClaim != null && int.TryParse(idClaim.Value, out int idUsuario))
+            {
+                request.IdUsuario = idUsuario;
+            }
+            else
+            {
+                throw new UnauthorizedAccessException("ID do usuário inválido ou ausente.");
+            }
             boloesServico.DesassociarUsuarioBolao(request);
             return Ok();
         }
@@ -90,6 +130,7 @@ namespace BolaoDaCopa.Controllers
         /// <summary>
         /// Inserir regras a um Bolao
         /// </summary>
+        /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
         [Route("regras-bolao")]
@@ -141,6 +182,7 @@ namespace BolaoDaCopa.Controllers
         /// <summary>
         /// Inserir premios a um Bolao
         /// </summary>
+        /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
         [Route("premios-bolao")]

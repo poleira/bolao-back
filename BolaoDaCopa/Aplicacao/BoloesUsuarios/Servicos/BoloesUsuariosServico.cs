@@ -29,9 +29,9 @@ namespace BolaoDaCopa.Aplicacao.BoloesUsuarios.Servicos
             return response;
         }
 
-        public IEnumerable<BolaoUsuarioResponse> ListarBoloesUsuario(string hashUsuario)
+        public IEnumerable<BolaoUsuarioResponse> ListarBoloesPorUsuario(int idUsuario)
         {
-            Usuario usuario = usuariosRepositorio.RecuperarPorHash(hashUsuario) ?? throw new Exception("Usuário não encontrado.");
+            Usuario usuario = usuariosRepositorio.Recuperar(idUsuario) ?? throw new Exception("Usuário não encontrado.");
 
             IQueryable<BolaoUsuario> boloesUsuarios = boloesUsuariosRepositorio.Query().Where(x => x.Usuario.Id == usuario.Id);
 
