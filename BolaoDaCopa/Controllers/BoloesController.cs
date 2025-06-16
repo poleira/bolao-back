@@ -71,12 +71,13 @@ namespace BolaoDaCopa.Controllers
         /// <summary>
         /// Recupera info Bolao
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="hashBolao"></param>
         /// <returns></returns>
         [HttpGet]
-        public ActionResult<BolaoResponse> Recuperar([FromQuery] HashBolaoRequest request)
+        [Route("{hashBolao}")]
+        public ActionResult<BolaoResponse> Recuperar(string hashBolao)
         {
-            var retorno = boloesServico.Recuperar(request.HashBolao);
+            var retorno = boloesServico.Recuperar(hashBolao);
             return Ok(retorno);
         }
 

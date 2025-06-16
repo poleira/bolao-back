@@ -9,7 +9,8 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Profiles
     {
         public BoloesProfile()
         {
-            CreateMap<Bolao, BolaoResponse>();
+            CreateMap<Bolao, BolaoResponse>()
+                .ForMember(x => x.Administrador, y => y.MapFrom(z => z.UsuarioAdm.Nome));
         }
     }
 }

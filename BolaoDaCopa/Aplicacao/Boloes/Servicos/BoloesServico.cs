@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Web;
+using AutoMapper;
 using BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces;
 using BolaoDaCopa.Bibliotecas.Transacoes.Interfaces;
 using BolaoDaCopa.Dto.Boloes.Comandos;
@@ -10,7 +11,6 @@ using BolaoDaCopa.Infra.Repositorios.BoloesUsuarios.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.Usuarios.Interfaces;
 using BolaoDaCopa.Models;
 using BolaoDaCopa.Services;
-using FluentNHibernate.Conventions;
 
 namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
 {
@@ -74,7 +74,7 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
                 unitOfWork.Commit();
 
                 BolaoResponse? response = mapper.Map<BolaoResponse>(bolao);
-                
+
                 return response;
             }
             catch (Exception ex)
@@ -88,7 +88,9 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
         {
             try
             {
-                var query = boloesRepositorio.Query().Where(x => x.Nome == editarRequest.Nome);
+                var query = boloesRepositorio.Query()
+                    .Where(x => x.TokenAcesso != editarRequest.HashBolao)
+                    .Where(x => x.Nome == editarRequest.Nome);
 
                 if (query.Any())
                 {
@@ -145,7 +147,10 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
         {
             try
             {
-                int idBolao = int.Parse(CryptoHelper.Decrypt(hashBolao));
+                string hash = HttpUtility.UrlDecode(hashBolao).Replace(" ", "+");
+
+                int idBolao = int.Parse(CryptoHelper.Decrypt(hash));
+
                 BolaoResponse? response = mapper.Map<BolaoResponse>(boloesRepositorio.Recuperar(idBolao));
 
                 return response;
@@ -164,6 +169,14 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
                 Bolao bolao = boloesRepositorio.Recuperar(idBolao) ?? throw new Exception("Bolão não encontrado.");
                 Usuario usuario = usuariosRepositorio.Recuperar(request.IdUsuario.Value) ?? throw new Exception("Usuário não encontrado.");
 
+                bool usuarioJaAssociado = boloesUsuariosRepositorio.Query()
+                    .Any(x => x.Bolao.Id == idBolao && x.Usuario.Id == usuario.Id);
+
+                if (usuarioJaAssociado)
+                {
+                    throw new Exception("Usuário já está associado a este bolão.");
+                }
+
                 if (request.Senha == bolao.Senha)
                 {
                     var comando = new BolaoUsuarioComando(usuario.Id, idBolao);
@@ -175,10 +188,9 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
                     throw new Exception("Senha inválida.");
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                throw new Exception("Erro ao associar o usuário ao bolão.", ex);
-
+                throw;
             }
         }
 
@@ -223,7 +235,7 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
                     bolao = bolaoParametro;
                 }
 
-                    boloesRepositorio.DeletarRegrasBolao(bolao.Id);
+                boloesRepositorio.DeletarRegrasBolao(bolao.Id);
 
                 foreach (var item in request)
                 {
@@ -272,7 +284,7 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             var query = boloesRepositorio.QueryRegra();
 
             var response = mapper.Map<IList<RegraResponse>>(query);
-            
+
             return response;
         }
 
