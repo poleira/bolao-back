@@ -17,5 +17,6 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces
         BolaoResponse EditarBolao(EditarBolaoRequest editarRequest);
         BolaoResponse Recuperar(string hashBolao);
         void InserirPremiosBolao(InserirPremioBolaoRequest[] request, Bolao? bolaoParametro);
+        IList<BolaoListarResponse> ListarBoloes(BolaoListarRequest request);
     }
 }

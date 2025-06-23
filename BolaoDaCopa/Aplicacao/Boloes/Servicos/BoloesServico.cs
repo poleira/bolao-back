@@ -200,8 +200,8 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             {
                 int idBolao = int.Parse(CryptoHelper.Decrypt(request.HashBolao));
                 Bolao bolao = boloesRepositorio.Recuperar(idBolao) ?? throw new Exception("Bolão não encontrado.");
-                var usuarioASerDeletado = usuariosRepositorio.Recuperar(request.IdUsuario.Value) ?? throw new Exception("Usuário não encontrado.");
-                var usuarioLogado = usuariosRepositorio.RecuperarPorHash(request.HashUsuarioLogado) ?? throw new Exception("Usuário logado não encontrado.");
+                var usuarioASerDeletado = usuariosRepositorio.RecuperarPorHash(request.HashUsuarioASerDeletado) ?? throw new Exception("Usuário não encontrado.");
+                var usuarioLogado = usuariosRepositorio.Recuperar(request.IdUsuario.Value) ?? throw new Exception("Usuário logado não encontrado.");
 
                 if (bolao.Usuarios.Any(x => x.Id == usuarioASerDeletado.Id) && (usuarioLogado.Id == usuarioASerDeletado.Id || bolao.UsuarioAdm.Id == usuarioLogado.Id))
                 {
@@ -312,6 +312,28 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
                 Id = x.Id,
                 Descricao = x.Descricao,
                 Colocacao = x.Colocacao,
+            });
+
+            return projecao.ToList();
+        }
+
+        public IList<BolaoListarResponse> ListarBoloes(BolaoListarRequest request)
+        {
+            var query = boloesRepositorio.Query();
+
+            if (!string.IsNullOrEmpty(request.Nome))
+            {
+                query = query.Where(x => x.Nome.Contains(request.Nome));
+            }
+            query = query.Where(x => x.Usuarios.All(y => y.Id != request.IdUsuario));
+
+            var projecao = query.Select(x => new BolaoListarResponse
+            {
+                Nome = x.Nome,
+                Privado = x.Privado,
+                Usuario = x.UsuarioAdm != null ? x.UsuarioAdm.Nome : "Unknown",
+                Premio = x.Premios.Where(p => p.Colocacao == 1).Select(p => p.Descricao).ToArray(),
+                TemSenha = x.Senha != null && x.Senha.Trim().Length > 0
             });
 
             return projecao.ToList();

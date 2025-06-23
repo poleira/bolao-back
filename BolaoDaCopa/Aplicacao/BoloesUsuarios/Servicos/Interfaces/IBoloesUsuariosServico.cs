@@ -1,4 +1,5 @@
-﻿using BolaoDaCopa.Dto.BoloesUsuarios.Responses;
+﻿using BolaoDaCopa.Dto.Boloes.Requests;
+using BolaoDaCopa.Dto.BoloesUsuarios.Responses;
 
 namespace BolaoDaCopa.Aplicacao.BoloesUsuarios.Servicos.Interfaces
 {
@@ -6,5 +7,6 @@ namespace BolaoDaCopa.Aplicacao.BoloesUsuarios.Servicos.Interfaces
     {
         BolaoUsuarioResponse Recuperar(int id);
         IEnumerable<BolaoUsuarioResponse> ListarBoloesPorUsuario(int idUsuario);
+        void AssociarUsuarioBolaoViaHub(AssociarBolaoUsuarioViaHubRequest request);
     }
 }

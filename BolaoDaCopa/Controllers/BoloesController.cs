@@ -181,6 +181,28 @@ namespace BolaoDaCopa.Controllers
         }
 
         /// <summary>
+        /// Listar Boloes
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult<IList<BolaoListarResponse>> ListarBoloes([FromQuery] BolaoListarRequest request)
+        {
+            var idClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+
+            if (idClaim != null && int.TryParse(idClaim.Value, out int idUsuario))
+            {
+                request.IdUsuario = idUsuario;
+            }
+            else
+            {
+                throw new UnauthorizedAccessException("ID do usuário inválido ou ausente.");
+            }
+            var retorno = boloesServico.ListarBoloes(request);
+            return Ok(retorno);
+        }
+
+        /// <summary>
         /// Inserir premios a um Bolao
         /// </summary>
         /// <param name="request"></param>

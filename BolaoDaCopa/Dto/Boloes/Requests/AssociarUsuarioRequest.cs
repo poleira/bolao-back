@@ -6,6 +6,6 @@ namespace BolaoDaCopa.Dto.Boloes.Requests
         public int? IdUsuario { get; set; }
         public string HashBolao { get; set; }
         public string Senha { get; set; }
-        public string? HashUsuarioLogado { get; set; } //Necessario para desassociar o usuario do bolao
+        public string? HashUsuarioASerDeletado { get; set; } //Necessario para desassociar o usuario do bolao
     }
 }

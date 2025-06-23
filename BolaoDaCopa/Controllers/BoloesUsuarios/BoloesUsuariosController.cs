@@ -1,4 +1,6 @@
-﻿using BolaoDaCopa.Aplicacao.BoloesUsuarios.Servicos.Interfaces;
+﻿using BolaoDaCopa.Aplicacao.Boloes.Servicos;
+using BolaoDaCopa.Aplicacao.BoloesUsuarios.Servicos.Interfaces;
+using BolaoDaCopa.Dto.Boloes.Requests;
 using BolaoDaCopa.Dto.BoloesUsuarios.Responses;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -43,6 +45,29 @@ namespace BolaoDaCopa.Controllers.BoloesUsuarios
             BolaoUsuarioResponse retorno = boloesUsuariosServico.Recuperar(id);
 
             return Ok(retorno);
+        }
+
+        /// <summary>
+        /// Associar Usuario a um Bolao via hub
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult AssociarUsuarioBolaoViaHub([FromBody] AssociarBolaoUsuarioViaHubRequest request)
+        {
+            var idClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+
+            if (idClaim != null && int.TryParse(idClaim.Value, out int idUsuario))
+            {
+                request.IdUsuario = idUsuario;
+            }
+            else
+            {
+                throw new UnauthorizedAccessException("ID do usuário inválido ou ausente.");
+            }
+
+            boloesUsuariosServico.AssociarUsuarioBolaoViaHub(request);
+            return Ok();
         }
     }
 }
