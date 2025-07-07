@@ -47,11 +47,6 @@ namespace BolaoDaCopa.Controllers.BoloesUsuarios
             return Ok(retorno);
         }
 
-        /// <summary>
-        /// Associar Usuario a um Bolao via hub
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
         [HttpPost]
         public ActionResult AssociarUsuarioBolaoViaHub([FromBody] AssociarBolaoUsuarioViaHubRequest request)
         {
@@ -63,11 +58,19 @@ namespace BolaoDaCopa.Controllers.BoloesUsuarios
             }
             else
             {
-                throw new UnauthorizedAccessException("ID do usuário inválido ou ausente.");
+                return Unauthorized("ID do usuário inválido ou ausente.");
             }
 
-            boloesUsuariosServico.AssociarUsuarioBolaoViaHub(request);
-            return Ok();
+            try
+            {
+                boloesUsuariosServico.AssociarUsuarioBolaoViaHub(request);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
+
     }
 }

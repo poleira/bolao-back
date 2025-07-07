@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using BolaoDaCopa.Aplicacao.BoloesUsuarios.Servicos.Interfaces;
+using BolaoDaCopa.Aplicacao.Notificacoes.Servicos.Interfaces;
+using BolaoDaCopa.Bibliotecas.Transacoes.Interfaces;
 using BolaoDaCopa.Dto.Boloes.Comandos;
 using BolaoDaCopa.Dto.Boloes.Requests;
 using BolaoDaCopa.Dto.BoloesUsuarios.Responses;
@@ -8,6 +10,7 @@ using BolaoDaCopa.Infra.Repositorios.Boloes.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.BoloesUsuarios.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.Usuarios.Interfaces;
 using BolaoDaCopa.Models;
+using BolaoDaCopa.Models.Enums;
 using BolaoDaCopa.Services;
 
 namespace BolaoDaCopa.Aplicacao.BoloesUsuarios.Servicos
@@ -18,13 +21,17 @@ namespace BolaoDaCopa.Aplicacao.BoloesUsuarios.Servicos
         private readonly IUsuariosRepositorio usuariosRepositorio;
         private readonly IBoloesUsuariosRepositorio boloesUsuariosRepositorio;
         private readonly IBoloesRepositorio boloesRepositorio;
+        private readonly INotificacoesServico notificacoesServico;
+        private readonly IUnitOfWork unitOfWork;
 
-        public BoloesUsuariosServico(IMapper mapper, IUsuariosRepositorio usuariosRepositorio, IBoloesUsuariosRepositorio boloesUsuariosRepositorio, IBoloesRepositorio boloesRepositorio)
+        public BoloesUsuariosServico(IMapper mapper, IUsuariosRepositorio usuariosRepositorio, IBoloesUsuariosRepositorio boloesUsuariosRepositorio, IBoloesRepositorio boloesRepositorio, INotificacoesServico notificacoesServico, IUnitOfWork unitOfWork)
         {
             this.mapper = mapper;
             this.usuariosRepositorio = usuariosRepositorio;
             this.boloesUsuariosRepositorio = boloesUsuariosRepositorio;
             this.boloesRepositorio = boloesRepositorio;
+            this.notificacoesServico = notificacoesServico;
+            this.unitOfWork = unitOfWork;
         }
 
         public BolaoUsuarioResponse Recuperar(int id)
@@ -51,6 +58,7 @@ namespace BolaoDaCopa.Aplicacao.BoloesUsuarios.Servicos
         {
             try
             {
+                unitOfWork.BeginTransaction();
                 Bolao bolao = boloesRepositorio.Query().FirstOrDefault(x => x.Nome == request.NomeBolao) ?? throw new Exception("Bolão não encontrado.");
                 Usuario usuario = usuariosRepositorio.Recuperar(request.IdUsuario.Value) ?? throw new Exception("Usuário não encontrado.");
 
@@ -59,6 +67,7 @@ namespace BolaoDaCopa.Aplicacao.BoloesUsuarios.Servicos
 
                 if (usuarioJaAssociado)
                 {
+                    unitOfWork.Rollback();
                     throw new Exception("Usuário já está associado a este bolão.");
                 }
                 if (!bolao.Privado)
@@ -71,17 +80,22 @@ namespace BolaoDaCopa.Aplicacao.BoloesUsuarios.Servicos
                     }
                     else
                     {
+                        unitOfWork.Rollback();
                         throw new Exception("Senha inválida.");
                     }
                 }
                 else
                 {
-                    //logica pra enviar solicitação de associação pro adm
+                    string mensagem = $"O usuario {usuario.Nome} quer fazer parte do seu bolao {bolao.Nome}. Clique para interagir.";
+                    Notificacao notificacao = new(mensagem, TipoMensagemEnum.Solicitacao, false, bolao.UsuarioAdm, usuario, bolao.TokenAcesso);
+                    notificacoesServico.CriarNotificacao(notificacao);
                 }
+                unitOfWork.Commit();
             }
-            catch
+            catch (Exception)
             {
-                throw new Exception();
+                unitOfWork.Rollback();
+                throw;
             }
         }
     }

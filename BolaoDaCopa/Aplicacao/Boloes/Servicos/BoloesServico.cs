@@ -172,6 +172,8 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
                 bool usuarioJaAssociado = boloesUsuariosRepositorio.Query()
                     .Any(x => x.Bolao.Id == idBolao && x.Usuario.Id == usuario.Id);
 
+                unitOfWork.BeginTransaction();
+
                 if (usuarioJaAssociado)
                 {
                     throw new Exception("Usuário já está associado a este bolão.");
@@ -185,11 +187,15 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
                 }
                 else
                 {
+                    unitOfWork.Rollback();
                     throw new Exception("Senha inválida.");
                 }
+
+                unitOfWork.Commit();
             }
-            catch
+            catch(Exception)
             {
+                unitOfWork.Rollback();
                 throw;
             }
         }
@@ -203,6 +209,8 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
                 var usuarioASerDeletado = usuariosRepositorio.RecuperarPorHash(request.HashUsuarioASerDeletado) ?? throw new Exception("Usuário não encontrado.");
                 var usuarioLogado = usuariosRepositorio.Recuperar(request.IdUsuario.Value) ?? throw new Exception("Usuário logado não encontrado.");
 
+                unitOfWork.BeginTransaction();
+
                 if (bolao.Usuarios.Any(x => x.Id == usuarioASerDeletado.Id) && (usuarioLogado.Id == usuarioASerDeletado.Id || bolao.UsuarioAdm.Id == usuarioLogado.Id))
                 {
                     BolaoUsuario bolaoUsuario = boloesUsuariosRepositorio.Query().Where(x => x.Usuario.Id == usuarioASerDeletado.Id && x.Bolao.Id == idBolao).FirstOrDefault() ?? throw new Exception("Usuario não encontrado no bolão.");
@@ -210,11 +218,15 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
                 }
                 else
                 {
+                    unitOfWork.Rollback();
                     throw new Exception("Usuario nao encontrado no bolão ou te falta permissão.");
                 }
+
+                unitOfWork.Commit();
             }
             catch (Exception ex)
             {
+                unitOfWork.Rollback();
                 throw new Exception("Erro ao desassociar o usuário ao bolão.", ex);
 
             }
@@ -235,6 +247,8 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
                     bolao = bolaoParametro;
                 }
 
+                unitOfWork.BeginTransaction();
+
                 boloesRepositorio.DeletarRegrasBolao(bolao.Id);
 
                 foreach (var item in request)
@@ -243,9 +257,12 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
                     var bolaoRegra = new BolaoRegra(item.Pontuacao, bolao, regra);
                     boloesRepositorio.InserirRegra(bolaoRegra);
                 }
+
+                unitOfWork.Commit();
             }
             catch (Exception ex)
             {
+                unitOfWork.Rollback();
                 throw new Exception("Erro ao inserir regras no bolão.", ex);
             }
         }
@@ -254,6 +271,7 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
         {
             try
             {
+
                 Bolao bolao = new();
                 if (bolaoParametro == null)
                 {
@@ -265,6 +283,8 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
                     bolao = bolaoParametro;
                 }
 
+                unitOfWork.BeginTransaction();
+
                 boloesRepositorio.DeletarPremiosBolao(bolao.Id);
 
                 foreach (var item in request)
@@ -272,9 +292,12 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
                     var premio = new Premio(item.Descricao, bolao, item.Colocacao);
                     boloesRepositorio.InserirPremio(premio);
                 }
+
+                unitOfWork.Commit();
             }
             catch (Exception ex)
             {
+                unitOfWork.Rollback();
                 throw new Exception("Erro ao inserir Premios no bolão.", ex);
             }
         }
