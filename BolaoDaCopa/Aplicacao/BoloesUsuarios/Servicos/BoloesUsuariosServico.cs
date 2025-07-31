@@ -4,7 +4,11 @@ using BolaoDaCopa.Aplicacao.Notificacoes.Servicos.Interfaces;
 using BolaoDaCopa.Bibliotecas.Transacoes.Interfaces;
 using BolaoDaCopa.Dto.Boloes.Comandos;
 using BolaoDaCopa.Dto.Boloes.Requests;
+using BolaoDaCopa.Dto.Boloes.Responses;
+using BolaoDaCopa.Dto.BoloesRegras.Responses;
 using BolaoDaCopa.Dto.BoloesUsuarios.Responses;
+using BolaoDaCopa.Dto.Regras.Responses;
+using BolaoDaCopa.Dto.Usuarios;
 using BolaoDaCopa.Infra.Repositorios.Boloes;
 using BolaoDaCopa.Infra.Repositorios.Boloes.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.BoloesUsuarios.Interfaces;
@@ -47,11 +51,38 @@ namespace BolaoDaCopa.Aplicacao.BoloesUsuarios.Servicos
         {
             Usuario usuario = usuariosRepositorio.Recuperar(idUsuario) ?? throw new Exception("Usuário não encontrado.");
 
-            IQueryable<BolaoUsuario> boloesUsuarios = boloesUsuariosRepositorio.Query().Where(x => x.Usuario.Id == usuario.Id);
+            IEnumerable<BolaoUsuario> boloesUsuarios = boloesUsuariosRepositorio.Query().Where(x => x.Usuario.Id == usuario.Id).ToList();
 
-            IEnumerable<BolaoUsuarioResponse>? response = mapper.Map<IEnumerable<BolaoUsuarioResponse>>(boloesUsuarios);
-
-            return response;
+            return boloesUsuarios.Select(x => new BolaoUsuarioResponse
+            {
+                Id = x.Id,
+                Bolao = new BolaoResponse
+                {
+                    Nome = x.Bolao.Nome,
+                    Logo = x.Bolao.Logo,
+                    TokenAcesso = x.Bolao.TokenAcesso,
+                    Aviso = x.Bolao.Aviso,
+                    Administrador = x.Bolao.UsuarioAdm.Nome,
+                    Premios = x.Bolao.Premios.Select(p => new PremioResponse
+                    {
+                        Id = p.Id,
+                        Descricao = p.Descricao,
+                        Colocacao = p.Colocacao
+                    }).ToList(),
+                    Regras = x.Bolao.Regras.Select(r => new BolaoRegraResponse
+                    {
+                        Id = r.Id,
+                        Pontuacao = r.Pontuacao,
+                        Descricao = r.Regra.Descricao,
+                        Explicacao = r.Regra.Explicacao
+                    }).ToList()
+                },
+                Usuario = new UsuarioResponse
+                {
+                    Email = x.Usuario.Email,
+                    Nome = x.Usuario.Nome
+                }
+            });
         }
 
         public void AssociarUsuarioBolaoViaHub(AssociarBolaoUsuarioViaHubRequest request)

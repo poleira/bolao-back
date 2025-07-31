@@ -6,6 +6,9 @@ using BolaoDaCopa.Dto.Boloes.Comandos;
 using BolaoDaCopa.Dto.Boloes.Requests;
 using BolaoDaCopa.Dto.Boloes.Responses;
 using BolaoDaCopa.Dto.BoloesRegras.Responses;
+using BolaoDaCopa.Dto.BoloesUsuarios.Responses;
+using BolaoDaCopa.Dto.Regras.Responses;
+using BolaoDaCopa.Dto.Usuarios;
 using BolaoDaCopa.Infra.Repositorios.Boloes.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.BoloesUsuarios.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.Usuarios.Interfaces;
@@ -132,9 +135,7 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
 
                 unitOfWork.Commit();
 
-                BolaoResponse? response = mapper.Map<BolaoResponse>(bolao);
-
-                return response;
+                return ConstruirResponse(bolao);
             }
             catch (Exception ex)
             {
@@ -151,9 +152,9 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
 
                 int idBolao = int.Parse(CryptoHelper.Decrypt(hash));
 
-                BolaoResponse? response = mapper.Map<BolaoResponse>(boloesRepositorio.Recuperar(idBolao));
+                Bolao bolao = boloesRepositorio.Recuperar(idBolao);
 
-                return response;
+                return ConstruirResponse(bolao);
             }
             catch (Exception ex)
             {
@@ -302,15 +303,6 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             }
         }
 
-        public IList<RegraResponse> ListarRegras()
-        {
-            var query = boloesRepositorio.QueryRegra();
-
-            var response = mapper.Map<IList<RegraResponse>>(query);
-
-            return response;
-        }
-
         public IList<BolaoRegraResponse> ListarRegrasBolao(string hashBolao)
         {
             int idBolao = int.Parse(CryptoHelper.Decrypt(hashBolao));
@@ -318,8 +310,6 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             var projecao = query.Select(x => new BolaoRegraResponse
             {
                 Id = x.Id,
-                Descricao = x.Regra.Descricao,
-                Explicacao = x.Regra.Explicacao,
                 Pontuacao = x.Pontuacao
             });
 
@@ -362,6 +352,30 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             return projecao.ToList();
         }
 
+        public BolaoResponse ConstruirResponse(Bolao bolao)
+        {
+            return new BolaoResponse
+            {
+                Nome = bolao.Nome,
+                Logo = bolao.Logo,
+                TokenAcesso = bolao.TokenAcesso,
+                Aviso = bolao.Aviso,
+                Administrador = bolao.UsuarioAdm.Nome,
+                Premios = bolao.Premios.Select(p => new PremioResponse
+                {
+                    Id = p.Id,
+                    Descricao = p.Descricao,
+                    Colocacao = p.Colocacao
+                }).ToList(),
+                Regras = bolao.Regras.Select(r => new BolaoRegraResponse
+                {
+                    Id = r.Regra.Id,
+                    Pontuacao = r.Pontuacao,
+                    Descricao = r.Regra.Descricao,
+                    Explicacao = r.Regra.Explicacao
+                }).ToList()
+            };
+        }
     }
 }
 

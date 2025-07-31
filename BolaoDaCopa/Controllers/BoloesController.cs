@@ -2,6 +2,7 @@
 using BolaoDaCopa.Dto.Boloes.Requests;
 using BolaoDaCopa.Dto.Boloes.Responses;
 using BolaoDaCopa.Dto.BoloesRegras.Responses;
+using BolaoDaCopa.Dto.Regras.Responses;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -139,19 +140,6 @@ namespace BolaoDaCopa.Controllers
         {
             boloesServico.InserirRegrasBolao(request, null);
             return Ok();
-        }
-
-        /// <summary>
-        /// Listar Regras gerais
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        [Route("regras")]
-        public ActionResult<IList<RegraResponse>> ListarRegras()
-        {
-            IList<RegraResponse>? response = boloesServico.ListarRegras();
-
-            return Ok(response);
         }
 
         /// <summary>

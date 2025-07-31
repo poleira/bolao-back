@@ -13,6 +13,8 @@ using BolaoDaCopa.Aplicacao.Palpites.Servicos;
 using BolaoDaCopa.Aplicacao.Palpites.Servicos.Interfaces;
 using BolaoDaCopa.Aplicacao.Rank.Servicos;
 using BolaoDaCopa.Aplicacao.Rank.Servicos.Interfaces;
+using BolaoDaCopa.Aplicacao.Regras.Servicos;
+using BolaoDaCopa.Aplicacao.Regras.Servicos.Interfaces;
 using BolaoDaCopa.Aplicacao.Selecoes.Servicos.Interfaces;
 using BolaoDaCopa.Aplicacao.Usuarios.Servicos;
 using BolaoDaCopa.Aplicacao.Usuarios.Servicos.Interfaces;
@@ -31,12 +33,15 @@ using BolaoDaCopa.Infra.Repositorios.Notificacoes.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.NovaPasta.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.Palpites;
 using BolaoDaCopa.Infra.Repositorios.Palpites.Interface;
+using BolaoDaCopa.Infra.Repositorios.Regras;
+using BolaoDaCopa.Infra.Repositorios.Regras.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.Selecoes;
 using BolaoDaCopa.Infra.Repositorios.Selecoes.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.Usuarios;
 using BolaoDaCopa.Infra.Repositorios.Usuarios.Interfaces;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.OpenApi.Models;
 using NHibernate;
 using ISession = NHibernate.ISession;
@@ -95,6 +100,8 @@ builder.Services.AddScoped<IUsuariosRepositorio, UsuariosRepositorio>();
 builder.Services.AddScoped<IUsuariosServico, UsuariosServico>();
 builder.Services.AddScoped<INotificacoesRepositorio, NotificacoesRepositorio>();
 builder.Services.AddScoped<INotificacoesServico, NotificacoesServico>();
+builder.Services.AddScoped<IRegrasRepositorio, RegrasRepositorio>();
+builder.Services.AddScoped<IRegrasServico, RegrasServico>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
@@ -137,6 +144,22 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 //}
+
+app.UseExceptionHandler(errorApp =>
+{
+    errorApp.Run(async context =>
+    {
+        context.Response.StatusCode = 400; // Ou 500, conforme o caso
+        context.Response.ContentType = "application/json";
+        var error = context.Features.Get<IExceptionHandlerFeature>();
+        if (error != null)
+        {
+            await context.Response.WriteAsync(
+                System.Text.Json.JsonSerializer.Serialize(new { erro = error.Error.Message })
+            );
+        }
+    });
+});
 
 app.UseHttpsRedirection();
 app.UseCors("MyCorsImplementationPolicy");
