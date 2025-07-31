@@ -1,13 +1,9 @@
-﻿using AutoMapper;
-using BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces;
+﻿using BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces;
 using BolaoDaCopa.Aplicacao.Notificacoes.Servicos.Interfaces;
 using BolaoDaCopa.Bibliotecas.Transacoes.Interfaces;
 using BolaoDaCopa.Dto.Boloes.Requests;
-using BolaoDaCopa.Dto.Notificacoes.Requests;
 using BolaoDaCopa.Dto.Notificacoes.Responses;
-using BolaoDaCopa.Infra.Repositorios.Notificacoes;
 using BolaoDaCopa.Infra.Repositorios.Notificacoes.Interfaces;
-using BolaoDaCopa.Infra.Repositorios.Usuarios.Interfaces;
 using BolaoDaCopa.Models;
 
 namespace BolaoDaCopa.Aplicacao.Notificacoes.Servicos
@@ -36,7 +32,6 @@ namespace BolaoDaCopa.Aplicacao.Notificacoes.Servicos
                 Tipo = x.Tipo,
                 Lida = x.Lida,
                 Mensagem = x.Mensagem,
-                HashBolao = x.HashBolao,
             }).ToList();
 
             return projecao;
