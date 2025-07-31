@@ -1,6 +1,7 @@
 ﻿using BolaoDaCopa.Dto.Boloes.Requests;
 using BolaoDaCopa.Dto.Boloes.Responses;
 using BolaoDaCopa.Dto.BoloesRegras.Responses;
+using BolaoDaCopa.Dto.Regras.Responses;
 using BolaoDaCopa.Models;
 
 namespace BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces
@@ -10,7 +11,6 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces
         BolaoResponse CriarBolao(CriarBolaoRequest inserirRequest);
         void AssociarUsuarioBolao(AssociarUsuarioRequest request);
         void InserirRegrasBolao(InserirRegraBolaoRequest[] request, Bolao? bolao);
-        IList<RegraResponse> ListarRegras();
         IList<BolaoRegraResponse> ListarRegrasBolao(string hashBolao);
         void DesassociarUsuarioBolao(AssociarUsuarioRequest request);
         IList<PremioResponse> ListarPremiosBolao(string hashBolao);
