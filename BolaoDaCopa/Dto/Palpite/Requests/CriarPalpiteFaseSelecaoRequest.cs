@@ -4,7 +4,6 @@
     {
         public int IdFase { get; set; }
         public int IdSelecao { get; set; }
-        public string HashUsuario { get; set; }
         public string HashBolao { get; set; }
     }
 }

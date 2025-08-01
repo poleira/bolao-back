@@ -2,7 +2,7 @@
 {
     public class CriarPalpiteArtilheiroRequest
     {
-        public string HashUsuario { get; set; }
+        public int IdUsuario { get; set; }
         public string HashBolao { get; set; }
         public int JogadorId { get; set; }
     }

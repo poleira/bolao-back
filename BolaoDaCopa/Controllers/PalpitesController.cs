@@ -8,6 +8,7 @@ using BolaoDaCopa.Dto.Palpite.Responses;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace BolaoDaCopa.Controllers
 {
@@ -31,6 +32,17 @@ namespace BolaoDaCopa.Controllers
         [Route("artilheiros")]
         public async Task<ActionResult> CriarPalpiteArtilheiroAsync([FromBody] CriarPalpiteArtilheiroRequest request)
         {
+            var idClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+
+            if (idClaim != null && int.TryParse(idClaim.Value, out int idUsuario))
+            {
+                request.IdUsuario = idUsuario;
+            }
+            else
+            {
+                throw new UnauthorizedAccessException("ID do usuário inválido ou ausente.");
+            }
+
             await palpitesServico.CriarPalpiteArtilheiro(request);
             return Ok();
         }
@@ -38,36 +50,44 @@ namespace BolaoDaCopa.Controllers
         /// <summary>
         /// Cria PalpiteFaseSelecao
         /// </summary>
-        /// <returns></returns>
         [HttpPost]
         [Route("fases-selecoes")]
-        public async Task<ActionResult> CriarPalpiteFaseSelecao([FromBody] CriarPalpiteFaseSelecaoRequest[] request)
+        public async Task<IActionResult> CriarPalpiteFaseSelecao([FromBody] CriarPalpiteFaseSelecaoRequest[] request)
         {
-            await palpitesServico.CriarPalpiteFaseSelecao(request);
+            if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int idUsuario))
+                return Unauthorized("ID do usuário inválido ou ausente.");
+
+            await palpitesServico.CriarPalpiteFaseSelecao(request, idUsuario);
             return Ok();
         }
+
 
         /// <summary>
         /// Cria PalpiteGrupoSelecao
         /// </summary>
-        /// <returns></returns>
         [HttpPost]
         [Route("grupos-selecoes")]
-        public async Task<ActionResult> CriarPalpiteGrupoSelecao([FromBody] CriarPalpiteGrupoSelecaoRequest[] request)
+        public async Task<IActionResult> CriarPalpiteGrupoSelecao([FromBody] CriarPalpiteGrupoSelecaoRequest[] request)
         {
-            await palpitesServico.CriarPalpiteGrupoSelecao(request);
+            if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int idUsuario))
+                return Unauthorized("ID do usuário inválido ou ausente.");
+
+            await palpitesServico.CriarPalpiteGrupoSelecao(request, idUsuario);
             return Ok();
         }
+
 
         /// <summary>
         /// Cria PalpiteJogoGrupo
         /// </summary>
-        /// <returns></returns>
         [HttpPost]
         [Route("jogos-grupos")]
-        public async Task<ActionResult> CriarPalpiteJogoGrupo([FromBody] CriarPalpiteJogoGrupoRequest[] request)
+        public async Task<IActionResult> CriarPalpiteJogoGrupo([FromBody] CriarPalpiteJogoGrupoRequest[] request)
         {
-            await palpitesServico.CriarPalpiteJogoGrupo(request);
+            if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int idUsuario))
+                return Unauthorized("ID do usuário inválido ou ausente.");
+
+            await palpitesServico.CriarPalpiteJogoGrupo(request, idUsuario);
             return Ok();
         }
 
@@ -80,10 +100,13 @@ namespace BolaoDaCopa.Controllers
         [Route("artilheiros")]
         public async Task<ActionResult<PalpiteArtilheiroResponse>> RecuperarPalpiteArtilheiroAsync([FromQuery] HashBolaoRequest request)
         {
-            string usuarioHash = "8kVzFTYZiIRlvoRa7kKRt4bTEvn2";
-            var retorno = await palpitesServico.RecuperarPalpiteArtilheiroAsync(request.HashBolao, usuarioHash);
+            if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int idUsuario))
+                return Unauthorized("ID do usuário inválido ou ausente.");
+
+            var retorno = await palpitesServico.RecuperarPalpiteArtilheiroAsync(request.HashBolao, idUsuario);
             return Ok(retorno);
         }
+
 
         /// <summary>
         /// Recupera PalpiteFaseSelecao
@@ -94,10 +117,13 @@ namespace BolaoDaCopa.Controllers
         [Route("fases-selecoes")]
         public async Task<ActionResult<PalpiteFaseSelecaoResponse>> RecuperarPalpiteFaseSelecaoAsync([FromQuery] HashBolaoRequest request)
         {
-            string usuarioHash = "8kVzFTYZiIRlvoRa7kKRt4bTEvn2";
-            var retorno = await palpitesServico.RecuperarPalpiteFaseSelecaoAsync(request.HashBolao, usuarioHash);
+            if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int idUsuario))
+                return Unauthorized("ID do usuário inválido ou ausente.");
+
+            var retorno = await palpitesServico.RecuperarPalpiteFaseSelecaoAsync(request.HashBolao, idUsuario);
             return Ok(retorno);
         }
+
 
         /// <summary>
         /// Recupera PalpiteGrupoSelecao
@@ -108,10 +134,13 @@ namespace BolaoDaCopa.Controllers
         [Route("grupos-selecoes")]
         public async Task<ActionResult<PalpiteGrupoSelecaoResponse>> RecuperarPalpiteGrupoSelecaoAsync([FromQuery] HashBolaoRequest request)
         {
-            string usuarioHash = "8kVzFTYZiIRlvoRa7kKRt4bTEvn2";
-            var retorno = await palpitesServico.RecuperarPalpiteGrupoSelecaoAsync(request.HashBolao, usuarioHash);
+            if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int idUsuario))
+                return Unauthorized("ID do usuário inválido ou ausente.");
+
+            var retorno = await palpitesServico.RecuperarPalpiteGrupoSelecaoAsync(request.HashBolao, idUsuario);
             return Ok(retorno);
         }
+
 
         /// <summary>
         /// Recupera PalpiteJogoGrupo
@@ -122,9 +151,12 @@ namespace BolaoDaCopa.Controllers
         [Route("jogos-grupos")]
         public async Task<ActionResult<PalpiteJogoGrupoResponse>> RecuperarPalpiteJogoGrupoAsync([FromQuery] HashBolaoRequest request)
         {
-            string usuarioHash = "8kVzFTYZiIRlvoRa7kKRt4bTEvn2";
-            var retorno = await palpitesServico.RecuperarPalpiteJogoGrupoAsync(request.HashBolao, usuarioHash);
+            if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int idUsuario))
+                return Unauthorized("ID do usuário inválido ou ausente.");
+
+            var retorno = await palpitesServico.RecuperarPalpiteJogoGrupoAsync(request.HashBolao, idUsuario);
             return Ok(retorno);
         }
+
     }
 }

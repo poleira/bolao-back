@@ -2,7 +2,6 @@
 {
     public class CriarPalpiteJogoGrupoRequest
     {
-        public string HashUsuario { get; set; }
         public string HashBolao { get; set; }
         public int IdGrupo { get; set; }
         public int IdSelecao1 { get; set; }

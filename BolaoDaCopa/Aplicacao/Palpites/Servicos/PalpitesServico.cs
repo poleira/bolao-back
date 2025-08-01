@@ -43,7 +43,7 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
             try
             {
                 int idBolao = int.Parse(CryptoHelper.Decrypt(request.HashBolao));
-                Usuario usuario = usuariosRepositorio.RecuperarPorHash(request.HashUsuario) ?? throw new Exception("Usuário não encontrado.");
+                Usuario usuario = usuariosRepositorio.Recuperar(request.IdUsuario) ?? throw new Exception("Usuário não encontrado.");
                 Jogador jogador = jogadoresRepositorio.Recuperar(request.JogadorId) ?? throw new Exception("Jogador não encontrado.");
 
                 BolaoUsuario bolaoUsuario = await boloesUsuariosRepositorio.RecuperarAsync(idBolao, usuario.Id) ?? throw new Exception("Bolao do usuario não encontrado.");
@@ -62,13 +62,13 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
             }
         }
 
-        public async Task CriarPalpiteFaseSelecao(CriarPalpiteFaseSelecaoRequest[] request)
+        public async Task CriarPalpiteFaseSelecao(CriarPalpiteFaseSelecaoRequest[] request, int idUsuario)
         {
             var transacao = session.BeginTransaction();
             try
             {
                 int idBolao = int.Parse(CryptoHelper.Decrypt(request.First().HashBolao));
-                Usuario usuario = usuariosRepositorio.RecuperarPorHash(request.First().HashUsuario) ?? throw new Exception("Usuário não encontrado.");
+                Usuario usuario = usuariosRepositorio.Recuperar(idUsuario) ?? throw new Exception("Usuário não encontrado.");
 
                 BolaoUsuario bolaoUsuario = await boloesUsuariosRepositorio.RecuperarAsync(idBolao, usuario.Id) ?? throw new Exception("Bolao do usuario não encontrado.");
 
@@ -99,13 +99,13 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
             }
         }
 
-        public async Task CriarPalpiteGrupoSelecao(CriarPalpiteGrupoSelecaoRequest[] request)
+        public async Task CriarPalpiteGrupoSelecao(CriarPalpiteGrupoSelecaoRequest[] request, int idUsuario)
         {
             var transacao = session.BeginTransaction();
             try
             {
                 int idBolao = int.Parse(CryptoHelper.Decrypt(request.First().HashBolao));
-                Usuario usuario = usuariosRepositorio.RecuperarPorHash(request.First().HashUsuario) ?? throw new Exception("Usuário não encontrado.");
+                Usuario usuario = usuariosRepositorio.Recuperar(idUsuario) ?? throw new Exception("Usuário não encontrado.");
 
                 BolaoUsuario bolaoUsuario = await boloesUsuariosRepositorio.RecuperarAsync(idBolao, usuario.Id) ?? throw new Exception("Bolao do usuario não encontrado.");
 
@@ -129,13 +129,13 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
             }
         }
 
-        public async Task CriarPalpiteJogoGrupo(CriarPalpiteJogoGrupoRequest[] request)
+        public async Task CriarPalpiteJogoGrupo(CriarPalpiteJogoGrupoRequest[] request, int idUsuario)
         {
             var transacao = session.BeginTransaction();
             try
             {
                 int idBolao = int.Parse(CryptoHelper.Decrypt(request.First().HashBolao));
-                Usuario usuario = usuariosRepositorio.RecuperarPorHash(request.First().HashUsuario) ?? throw new Exception("Usuário não encontrado.");
+                Usuario usuario = usuariosRepositorio.Recuperar(idUsuario) ?? throw new Exception("Usuário não encontrado.");
 
                 BolaoUsuario bolaoUsuario = await boloesUsuariosRepositorio.RecuperarAsync(idBolao, usuario.Id) ?? throw new Exception("Bolao do usuario não encontrado.");
 
@@ -160,11 +160,11 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
             }
         }
 
-        public async Task<PalpiteArtilheiroResponse> RecuperarPalpiteArtilheiroAsync(string hashBolao, string hashUsuario)
+        public async Task<PalpiteArtilheiroResponse> RecuperarPalpiteArtilheiroAsync(string hashBolao, int idUsuario)
         {
             try
             {
-                var usuario = usuariosRepositorio.RecuperarPorHash(hashUsuario) ?? throw new Exception("Usuário não encontrado.");
+                var usuario = usuariosRepositorio.Recuperar(idUsuario) ?? throw new Exception("Usuário não encontrado.");
                 int idBolao = int.Parse(CryptoHelper.Decrypt(hashBolao));
 
                 BolaoUsuario bolaoUsuario = await boloesUsuariosRepositorio.RecuperarAsync(idBolao, usuario.Id) ?? throw new Exception("Bolao do usuario não encontrado.");
@@ -186,11 +186,11 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
             }
         }
 
-        public async Task<IList<PalpiteFaseSelecaoResponse>> RecuperarPalpiteFaseSelecaoAsync(string hashBolao, string hashUsuario)
+        public async Task<IList<PalpiteFaseSelecaoResponse>> RecuperarPalpiteFaseSelecaoAsync(string hashBolao, int idUsuario)
         {
             try
             {
-                var usuario = usuariosRepositorio.RecuperarPorHash(hashUsuario) ?? throw new Exception("Usuário não encontrado.");
+                var usuario = usuariosRepositorio.Recuperar(idUsuario) ?? throw new Exception("Usuário não encontrado.");
                 int idBolao = int.Parse(CryptoHelper.Decrypt(hashBolao));
 
                 BolaoUsuario bolaoUsuario = await boloesUsuariosRepositorio.RecuperarAsync(idBolao, usuario.Id) ?? throw new Exception("Bolao do usuario não encontrado.");
@@ -216,11 +216,11 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
             }
         }
 
-        public async Task<IList<PalpiteGrupoSelecaoResponse>> RecuperarPalpiteGrupoSelecaoAsync(string hashBolao, string hashUsuario)
+        public async Task<IList<PalpiteGrupoSelecaoResponse>> RecuperarPalpiteGrupoSelecaoAsync(string hashBolao, int idUsuario)
         {
             try
             {
-                var usuario = usuariosRepositorio.RecuperarPorHash(hashUsuario) ?? throw new Exception("Usuário não encontrado.");
+                var usuario = usuariosRepositorio.Recuperar(idUsuario) ?? throw new Exception("Usuário não encontrado.");
                 int idBolao = int.Parse(CryptoHelper.Decrypt(hashBolao));
 
                 BolaoUsuario bolaoUsuario = await boloesUsuariosRepositorio.RecuperarAsync(idBolao, usuario.Id) ?? throw new Exception("Bolao do usuario não encontrado.");
@@ -243,11 +243,11 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
             }
         }
 
-        public async Task<IList<PalpiteJogoGrupoResponse>> RecuperarPalpiteJogoGrupoAsync(string hashBolao, string hashUsuario)
+        public async Task<IList<PalpiteJogoGrupoResponse>> RecuperarPalpiteJogoGrupoAsync(string hashBolao, int idUsuario)
         {
             try
             {
-                var usuario = usuariosRepositorio.RecuperarPorHash(hashUsuario) ?? throw new Exception("Usuário não encontrado.");
+                var usuario = usuariosRepositorio.Recuperar(idUsuario) ?? throw new Exception("Usuário não encontrado.");
                 int idBolao = int.Parse(CryptoHelper.Decrypt(hashBolao));
 
                 BolaoUsuario bolaoUsuario = await boloesUsuariosRepositorio.RecuperarAsync(idBolao, usuario.Id) ?? throw new Exception("Bolao do usuario não encontrado.");
