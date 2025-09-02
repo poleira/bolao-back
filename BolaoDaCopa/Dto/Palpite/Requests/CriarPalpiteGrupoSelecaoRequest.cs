@@ -5,6 +5,7 @@
         public string HashBolao { get; set; }
         public int IdGrupo { get; set; }
         public int IdSelecao { get; set; }
-        public int PontuacaoSelecao { get; set; }
+        public int? PontuacaoSelecao { get; set; }
+        public int PosicaoSelecao { get; set; }
     }
 }

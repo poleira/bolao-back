@@ -129,18 +129,20 @@ namespace BolaoDaCopa.Controllers
             return Ok();
         }
 
-        /// <summary>
-        /// Inserir regras a um Bolao
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        [HttpPost]
-        [Route("regras-bolao")]
-        public ActionResult InserirRegrasBolao([FromBody] InserirRegraBolaoRequest[] request)
-        {
-            boloesServico.InserirRegrasBolao(request, null);
-            return Ok();
-        }
+        //Nao esta sendo usado
+        ///// <summary>
+        ///// Inserir regras a um Bolao
+        ///// </summary>
+        ///// <param name="request"></param>
+        ///// <returns></returns>
+        //[HttpPost]
+        //[Route("regras-bolao")]
+        //public ActionResult InserirRegrasBolao([FromBody] InserirRegraBolaoRequest[] request)
+        //{
+        //    var idClaim = User.FindFirst(ClaimTypes.NameIdentifier) ?? throw new UnauthorizedAccessException("ID do usuário inválido ou ausente.");
+        //    boloesServico.InserirRegrasBolao(request, null);
+        //    return Ok();
+        //}
 
         /// <summary>
         /// Listar Regras de um Bolao
@@ -151,6 +153,7 @@ namespace BolaoDaCopa.Controllers
         [Route("regras-boloes")]
         public ActionResult<IList<BolaoRegraResponse>> ListarRegrasBolao([FromQuery] HashBolaoRequest request)
         {
+            var idClaim = User.FindFirst(ClaimTypes.NameIdentifier) ?? throw new UnauthorizedAccessException("ID do usuário inválido ou ausente.");
             var retorno = boloesServico.ListarRegrasBolao(request.HashBolao);
             return Ok(retorno);
         }

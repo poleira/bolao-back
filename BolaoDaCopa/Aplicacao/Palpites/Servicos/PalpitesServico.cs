@@ -3,6 +3,7 @@ using BolaoDaCopa.Aplicacao.Palpites.Servicos.Interfaces;
 using BolaoDaCopa.Dto.Fases.Responses;
 using BolaoDaCopa.Dto.Palpite.Requests;
 using BolaoDaCopa.Dto.Palpite.Responses;
+using BolaoDaCopa.Dto.Selecoes.Responses;
 using BolaoDaCopa.Infra.Repositorios.BoloesUsuarios.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.NovaPasta.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.Palpites.Interface;
@@ -115,7 +116,7 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
                 {
                     Selecao selecao = selecoesRepositorio.Recuperar(item.IdSelecao) ?? throw new Exception("Seleção não encontrada.");
                     Grupo grupo = await selecoesRepositorio.RecuperarGrupo(item.IdGrupo) ?? throw new Exception("Grupo não encontrado.");
-                    await palpiteRepositorio.InserirPalpiteGrupoSelecao(new PalpiteGrupoSelecao(grupo, selecao,item.PontuacaoSelecao, bolaoUsuario));
+                    await palpiteRepositorio.InserirPalpiteGrupoSelecao(new PalpiteGrupoSelecao(grupo, selecao, item.PontuacaoSelecao.HasValue ? item.PontuacaoSelecao.Value : null, bolaoUsuario, item.PosicaoSelecao));
                 }
 
                 if (transacao.IsActive)
@@ -230,9 +231,22 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
                 var projecao = query.Select(x => new PalpiteGrupoSelecaoResponse
                 {
                     Id = x.Id,
-                    Selecao = x.Selecao,
-                    Grupo = x.Grupo,
-                    PontuacaoSelecao = x.PontuacaoSelecao
+                    Selecao = new GrupoSelecaoResponse
+                    {
+                        Id = x.Selecao.Id,
+                        Nome = x.Selecao.Nome,
+                        Grupo = new GrupoResponse
+                        {
+                            Id = x.Grupo.Id,
+                            Nome = x.Grupo.Nome
+                        },
+                        Logo = x.Selecao.Logo,
+                        Abreviacao = x.Selecao.Abreviacao,
+                        Pontuacao = x.Selecao.PontuacaoSelecao,
+                        PosicaoFaseDeGrupos = x.Selecao.PosicaoFaseDeGrupos
+                    },
+                    PontuacaoSelecao = x.PontuacaoSelecao,
+                    PosicaoSelecao = x.PosicaoSelecao
                 });
 
                 return await projecao.ToListAsync();

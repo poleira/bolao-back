@@ -14,7 +14,7 @@ namespace BolaoDaCopa.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/palpites")]
     [EnableCors("MyCorsImplementationPolicy")]
     public class PalpitesController : Controller
     {

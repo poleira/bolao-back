@@ -36,10 +36,15 @@ namespace BolaoDaCopa.Aplicacao.HabilitarPalpites.Servicos
                 {
                     Id = x.Id,
                     Nome = x.Nome,
-                    Grupo = x.Grupo.Nome,
+                    Grupo = new GrupoResponse
+                    {
+                        Id = x.Grupo.Id,
+                        Nome = x.Grupo.Nome
+                    },
                     Logo = x.Logo,
                     Abreviacao = x.Abreviacao,
                     Pontuacao = x.PontuacaoSelecao,
+                    PosicaoFaseDeGrupos = x.PosicaoFaseDeGrupos
                 });
 
             return projecao.ToList();

@@ -13,6 +13,7 @@ namespace BolaoDaCopa.Infra.Mapeamento
             Map(x => x.Nome).Column("Nome").Not.Nullable();
             Map(x => x.Logo).Column("Logo").Not.Nullable();
             Map(x => x.Abreviacao).Column("Abreviacao").Not.Nullable();
+            Map(x => x.PosicaoFaseDeGrupos).Column("PosicaoFaseDeGrupos");
             References(x => x.Grupo).Column("IDGrupo").Not.Nullable();
             Map(x => x.PontuacaoSelecao).Column("PontuacaoSelecao");
         }

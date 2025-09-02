@@ -310,7 +310,9 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             var projecao = query.Select(x => new BolaoRegraResponse
             {
                 Id = x.Id,
-                Pontuacao = x.Pontuacao
+                Pontuacao = x.Pontuacao,
+                Descricao = x.Regra.Descricao,
+                Explicacao = x.Regra.Explicacao
             });
 
             return projecao.ToList();
