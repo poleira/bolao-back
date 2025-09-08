@@ -2,6 +2,7 @@
 using BolaoDaCopa.Aplicacao.Palpites.Servicos.Interfaces;
 using BolaoDaCopa.Dto.Jogadores.Requests;
 using BolaoDaCopa.Dto.Palpite.Responses;
+using BolaoDaCopa.Models;
 using BolaoTeste.Dto.Rank;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -11,7 +12,7 @@ namespace BolaoDaCopa.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/jogadores")]
     [EnableCors("MyCorsImplementationPolicy")]
     public class JogadoresController : Controller
     {
@@ -22,7 +23,7 @@ namespace BolaoDaCopa.Controllers
         }
 
         [HttpGet]
-        public ActionResult<PalpiteFaseSelecaoResponse> ListarPalpites([FromQuery] JogadoresListarRequest request)
+        public ActionResult<IEnumerable<Jogador>> ListarJogadores([FromQuery] JogadoresListarRequest request)
         {
             var retorno = jogadoresServico.ListarJogadores(request);
             return Ok(retorno);
