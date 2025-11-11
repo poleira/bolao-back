@@ -27,6 +27,8 @@ namespace BolaoDaCopa.Infra.Mapeamento
                 .KeyColumn("IDBolao")
                 .Cascade.All().Not.LazyLoad();
 
+            References(x => x.ModoJogo).Column("IDModoJogo").Nullable();
+
             HasMany(x => x.Premios)
                 .KeyColumn("IDBolao")
                 .Cascade.All().Not.LazyLoad();

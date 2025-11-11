@@ -13,6 +13,7 @@
         public virtual IEnumerable<Usuario> Usuarios { get; set; }
         public virtual IEnumerable<BolaoRegra> Regras { get; set; }
         public virtual IEnumerable<Premio> Premios { get; set; }
+    public virtual ModoJogo? ModoJogo { get; set; }
 
         public Bolao() { }
 

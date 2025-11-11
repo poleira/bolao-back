@@ -39,6 +39,12 @@ using BolaoDaCopa.Infra.Repositorios.Selecoes;
 using BolaoDaCopa.Infra.Repositorios.Selecoes.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.Usuarios;
 using BolaoDaCopa.Infra.Repositorios.Usuarios.Interfaces;
+using BolaoDaCopa.Infra.Repositorios.ModoJogoRegra;
+using BolaoDaCopa.Infra.Repositorios.ModoJogoRegra.Interfaces;
+using BolaoDaCopa.Infra.Repositorios.ModosJogos;
+using BolaoDaCopa.Infra.Repositorios.ModosJogos.Interfaces;
+using BolaoDaCopa.Aplicacao.ModoJogo.Servicos;
+using BolaoDaCopa.Aplicacao.ModoJogo.Servicos.Interfaces;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using Microsoft.AspNetCore.Diagnostics;
@@ -102,6 +108,9 @@ builder.Services.AddScoped<INotificacoesRepositorio, NotificacoesRepositorio>();
 builder.Services.AddScoped<INotificacoesServico, NotificacoesServico>();
 builder.Services.AddScoped<IRegrasRepositorio, RegrasRepositorio>();
 builder.Services.AddScoped<IRegrasServico, RegrasServico>();
+builder.Services.AddScoped<IModoJogoRegraRepositorio, ModoJogoRegraRepositorio>();
+builder.Services.AddScoped<IModosJogosRepositorios, ModosJogosRepositorios>();
+builder.Services.AddScoped<IModosJogosServicos, ModosJogosServicos>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
@@ -109,7 +118,7 @@ builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo { Title = "Bolao Api", Version = "v1" });
 
-    // Adiciona a configuração do token
+    // Adiciona a configuraï¿½ï¿½o do token
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Name = "Authorization",

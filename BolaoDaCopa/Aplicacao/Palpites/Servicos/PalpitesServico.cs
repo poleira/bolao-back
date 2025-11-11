@@ -286,6 +286,44 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
             }
         }
 
+    public async Task<IList<GrupoSelecaoResponse>> RecuperarPalpiteMelhoresTerceiroLugarAsync(string hashBolao, int idUsuario)
+        {
+            try
+            {
+                var usuario = usuariosRepositorio.Recuperar(idUsuario) ?? throw new Exception("Usuário não encontrado.");
+                int idBolao = int.Parse(CryptoHelper.Decrypt(hashBolao));
+
+                BolaoUsuario bolaoUsuario = await boloesUsuariosRepositorio.RecuperarAsync(idBolao, usuario.Id) ?? throw new Exception("Bolao do usuario não encontrado.");
+
+                IQueryable<PalpiteGrupoSelecao> query = palpiteRepositorio.RecuperarQueryPalpiteGrupoSelecaoPorBolaoUsuarioId(bolaoUsuario.Id);
+
+                var projecao = query
+                    .Where(x => x.PosicaoSelecao == 3)
+                    .Select(x => new GrupoSelecaoResponse
+                    {
+                        Id = x.Selecao.Id,
+                        Nome = x.Selecao.Nome,
+                        Grupo = new GrupoResponse
+                        {
+                            Id = x.Grupo.Id,
+                            Nome = x.Grupo.Nome
+                        },
+                        Logo = x.Selecao.Logo,
+                        Abreviacao = x.Selecao.Abreviacao,
+                        Pontuacao = x.Selecao.PontuacaoSelecao,
+                        PosicaoFaseDeGrupos = x.Selecao.PosicaoFaseDeGrupos
+                    });
+
+                var lista = await projecao.ToListAsync();
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao recuperar", ex);
+            }
+        }
+
     }
 
 }

@@ -4,6 +4,7 @@ namespace BolaoDaCopa.Dto.Boloes.Responses
 {
     public class BolaoResponse
     {
+    public int? IdModoJogo { get; set; } // continua como int para response
         public string Nome { get; set; } = string.Empty;
         public string Logo { get; set; } = string.Empty;
         public string TokenAcesso { get; set; } = string.Empty;

@@ -21,17 +21,19 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
-        private readonly IBoloesRepositorio boloesRepositorio;
+    private readonly IBoloesRepositorio boloesRepositorio;
+    private readonly BolaoDaCopa.Infra.Repositorios.ModosJogos.Interfaces.IModosJogosRepositorios modosJogosRepositorios;
         private readonly IUsuariosRepositorio usuariosRepositorio;
         private readonly IBoloesUsuariosRepositorio boloesUsuariosRepositorio;
 
-        public BoloesServico(IUnitOfWork unitOfWork, IMapper mapper, IBoloesRepositorio boloesRepositorio, IUsuariosRepositorio usuariosRepositorio, IBoloesUsuariosRepositorio boloesUsuariosRepositorio)
+    public BoloesServico(IUnitOfWork unitOfWork, IMapper mapper, IBoloesRepositorio boloesRepositorio, IUsuariosRepositorio usuariosRepositorio, IBoloesUsuariosRepositorio boloesUsuariosRepositorio, BolaoDaCopa.Infra.Repositorios.ModosJogos.Interfaces.IModosJogosRepositorios modosJogosRepositorios)
         {
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
             this.boloesRepositorio = boloesRepositorio;
             this.usuariosRepositorio = usuariosRepositorio;
             this.boloesUsuariosRepositorio = boloesUsuariosRepositorio;
+            this.modosJogosRepositorios = modosJogosRepositorios;
         }
 
         public BolaoResponse CriarBolao(CriarBolaoRequest inserirRequest)
@@ -50,6 +52,10 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
                 unitOfWork.BeginTransaction();
 
                 var bolao = new Bolao(inserirRequest.Nome, inserirRequest.Logo, inserirRequest.Aviso, inserirRequest.Senha, usuario, inserirRequest.Privado);
+                if (inserirRequest.IdModoJogo.HasValue)
+                {
+                    bolao.ModoJogo = modosJogosRepositorios.Recuperar(inserirRequest.IdModoJogo.Value);
+                }
 
                 boloesRepositorio.Inserir(bolao);
 
@@ -77,6 +83,11 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
                 unitOfWork.Commit();
 
                 BolaoResponse? response = mapper.Map<BolaoResponse>(bolao);
+                // ensure response includes IdModoJogo when using manual mapping or mapper configuration doesn't include it
+                if (response != null)
+                {
+                    response.IdModoJogo = bolao.ModoJogo?.Id;
+                }
 
                 return response;
             }
@@ -117,6 +128,10 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
                 bolao.Aviso = editarRequest.Aviso;
                 bolao.Senha = editarRequest.Senha;
                 bolao.Privado = editarRequest.Privado;
+                if (editarRequest.IdModoJogo.HasValue)
+                {
+                    bolao.ModoJogo = modosJogosRepositorios.Recuperar(editarRequest.IdModoJogo.Value);
+                }
                 bolao.UsuarioAdm = usuario;
 
                 boloesRepositorio.Editar(bolao);
@@ -358,6 +373,7 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
         {
             return new BolaoResponse
             {
+                IdModoJogo = bolao.ModoJogo?.Id,
                 Nome = bolao.Nome,
                 Logo = bolao.Logo,
                 TokenAcesso = bolao.TokenAcesso,

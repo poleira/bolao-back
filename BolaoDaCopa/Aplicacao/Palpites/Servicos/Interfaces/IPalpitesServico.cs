@@ -1,6 +1,7 @@
 ﻿using BolaoDaCopa.Dto.Palpite.Requests;
 using BolaoDaCopa.Dto.Palpite.Responses;
 using BolaoTeste.Dto;
+using BolaoDaCopa.Dto.Selecoes.Responses;
 
 namespace BolaoDaCopa.Aplicacao.Palpites.Servicos.Interfaces
 {
@@ -14,5 +15,6 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos.Interfaces
         Task<IList<PalpiteFaseSelecaoResponse>> RecuperarPalpiteFaseSelecaoAsync(string hashBolao, int idUsuario);
         Task<IList<PalpiteGrupoSelecaoResponse>> RecuperarPalpiteGrupoSelecaoAsync(string hashBolao, int idUsuario);
         Task<IList<PalpiteJogoGrupoResponse>> RecuperarPalpiteJogoGrupoAsync(string hashBolao, int idUsuario);
+    Task<IList<GrupoSelecaoResponse>> RecuperarPalpiteMelhoresTerceiroLugarAsync(string hashBolao, int idUsuario);
     }
 }

@@ -5,6 +5,7 @@ using BolaoDaCopa.Dto.Boloes.Requests;
 using BolaoDaCopa.Dto.Boloes.Responses;
 using BolaoDaCopa.Dto.Palpite.Requests;
 using BolaoDaCopa.Dto.Palpite.Responses;
+using BolaoDaCopa.Dto.Selecoes.Responses;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -132,7 +133,7 @@ namespace BolaoDaCopa.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("grupos-selecoes")]
-        public async Task<ActionResult<PalpiteGrupoSelecaoResponse>> RecuperarPalpiteGrupoSelecaoAsync([FromQuery] HashBolaoRequest request)
+        public async Task<ActionResult<IList<PalpiteGrupoSelecaoResponse>>> RecuperarPalpiteGrupoSelecaoAsync([FromQuery] HashBolaoRequest request)
         {
             if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int idUsuario))
                 return Unauthorized("ID do usuário inválido ou ausente.");
@@ -155,6 +156,22 @@ namespace BolaoDaCopa.Controllers
                 return Unauthorized("ID do usuário inválido ou ausente.");
 
             var retorno = await palpitesServico.RecuperarPalpiteJogoGrupoAsync(request.HashBolao, idUsuario);
+            return Ok(retorno);
+        }
+
+        /// <summary>
+        /// Recupera Palpite terceiro lugares
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("terceiros-lugares")]
+        public async Task<ActionResult<IList<GrupoSelecaoResponse>>> RecuperarPalpiteMelhoresTerceiroLugarAsync([FromQuery] HashBolaoRequest request)
+        {
+            if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int idUsuario))
+                return Unauthorized("ID do usuário inválido ou ausente.");
+
+            var retorno = await palpitesServico.RecuperarPalpiteMelhoresTerceiroLugarAsync(request.HashBolao, idUsuario);
             return Ok(retorno);
         }
 
