@@ -110,9 +110,9 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
 
                 BolaoUsuario bolaoUsuario = await boloesUsuariosRepositorio.RecuperarAsync(idBolao, usuario.Id) ?? throw new Exception("Bolao do usuario não encontrado.");
 
-                await palpiteRepositorio.DeletarPalpiteGrupoSelecaoPorBolaoUsuario(bolaoUsuario.Id);
-                await palpiteRepositorio.DeletarPalpiteTerceiroLugarPorBolaoUsuario(bolaoUsuario.Id);
                 await palpiteRepositorio.DeletarPalpiteFaseSelecaoPorBolaoUsuario(bolaoUsuario.Id);
+                await palpiteRepositorio.DeletarPalpiteTerceiroLugarPorBolaoUsuario(bolaoUsuario.Id);
+                await palpiteRepositorio.DeletarPalpiteGrupoSelecaoPorBolaoUsuario(bolaoUsuario.Id);
 
                 foreach (var item in request)
                 {
@@ -173,7 +173,7 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
 
                 BolaoUsuario bolaoUsuario = await boloesUsuariosRepositorio.RecuperarAsync(idBolao, usuario.Id) ?? throw new Exception("Bolao do usuario não encontrado.");
 
-                // remove existing third-place palpite(s)
+                await palpiteRepositorio.DeletarPalpiteFaseSelecaoPorBolaoUsuario(bolaoUsuario.Id);
                 await palpiteRepositorio.DeletarPalpiteTerceiroLugarPorBolaoUsuario(bolaoUsuario.Id);
 
                 foreach (var item in request)
