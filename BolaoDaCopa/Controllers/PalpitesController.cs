@@ -175,5 +175,34 @@ namespace BolaoDaCopa.Controllers
             return Ok(retorno);
         }
 
+        /// <summary>
+        /// Recupera os palpites de terceiro lugar feitos pelo usuário (os inseridos pelo endpoint de terceiros-lugares)
+        /// </summary>
+        [HttpGet]
+        [Route("terceiros-lugares/palpites")]
+        public async Task<ActionResult<IList<PalpiteTerceiroLugarResponse>>> RecuperarPalpitesTerceiroLugarAsync([FromQuery] HashBolaoRequest request)
+        {
+            if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int idUsuario))
+                return Unauthorized("ID do usuário inválido ou ausente.");
+
+            var retorno = await palpitesServico.RecuperarPalpitesTerceiroLugarAsync(request.HashBolao, idUsuario);
+            return Ok(retorno);
+        }
+
+
+        /// <summary>
+        /// Cria PalpiteTerceiroLugar
+        /// </summary>
+        [HttpPost]
+        [Route("terceiros-lugares")]
+        public async Task<IActionResult> CriarPalpiteTerceiroLugar([FromBody] CriarPalpiteTerceiroLugarRequest[] request)
+        {
+            if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int idUsuario))
+                return Unauthorized("ID do usuário inválido ou ausente.");
+
+            await palpitesServico.CriarPalpiteTerceiroLugar(request, idUsuario);
+            return Ok();
+        }
+
     }
 }

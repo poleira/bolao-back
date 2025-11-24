@@ -70,6 +70,23 @@ namespace BolaoDaCopa.Infra.Repositorios.Palpites
             }
         }
 
+        public async Task DeletarPalpiteTerceiroLugarPorBolaoUsuario(int bolaoUsuarioId)
+        {
+            var palpites = await session.Query<PalpiteTerceiroLugar>()
+                .Where(x => x.BolaoUsuario.Id == bolaoUsuarioId)
+                .ToListAsync();
+
+            foreach (var palpite in palpites)
+            {
+                await session.DeleteAsync(palpite);
+            }
+        }
+
+        public async Task InserirPalpiteTerceiroLugar(PalpiteTerceiroLugar palpiteTerceiroLugar)
+        {
+            await session.SaveAsync(palpiteTerceiroLugar);
+        }
+
         public async Task InserirPalpiteJogoGrupo(PalpiteJogoGrupo palpiteJogoGrupo)
         {
             await session.SaveAsync(palpiteJogoGrupo);
@@ -93,6 +110,11 @@ namespace BolaoDaCopa.Infra.Repositorios.Palpites
         public IQueryable<PalpiteJogoGrupo> RecuperarQueryPalpiteJogoGrupoPorBolaoUsuarioId(int idBolaoUsuario)
         {
             return session.Query<PalpiteJogoGrupo>()
+                .Where(x => x.BolaoUsuario.Id == idBolaoUsuario);
+        }
+        public IQueryable<PalpiteTerceiroLugar> RecuperarQueryPalpiteTerceiroLugarPorBolaoUsuarioId(int idBolaoUsuario)
+        {
+            return session.Query<PalpiteTerceiroLugar>()
                 .Where(x => x.BolaoUsuario.Id == idBolaoUsuario);
         }
     }

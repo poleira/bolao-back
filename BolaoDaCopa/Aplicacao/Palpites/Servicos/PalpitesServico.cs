@@ -111,6 +111,8 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
                 BolaoUsuario bolaoUsuario = await boloesUsuariosRepositorio.RecuperarAsync(idBolao, usuario.Id) ?? throw new Exception("Bolao do usuario não encontrado.");
 
                 await palpiteRepositorio.DeletarPalpiteGrupoSelecaoPorBolaoUsuario(bolaoUsuario.Id);
+                await palpiteRepositorio.DeletarPalpiteTerceiroLugarPorBolaoUsuario(bolaoUsuario.Id);
+                await palpiteRepositorio.DeletarPalpiteFaseSelecaoPorBolaoUsuario(bolaoUsuario.Id);
 
                 foreach (var item in request)
                 {
@@ -148,6 +150,37 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
                     Selecao selecao2 = selecoesRepositorio.Recuperar(item.IdSelecao2) ?? throw new Exception("Seleção não encontrada.");
                     Grupo grupo = await selecoesRepositorio.RecuperarGrupo(item.IdGrupo) ?? throw new Exception("Grupo não encontrado.");
                     await palpiteRepositorio.InserirPalpiteJogoGrupo(new PalpiteJogoGrupo(grupo, selecao1, selecao2, item.PlacarSelecao1, item.PlacarSelecao2, bolaoUsuario));
+                }
+
+                if (transacao.IsActive)
+                    transacao.Commit();
+            }
+            catch (Exception ex)
+            {
+                if (transacao.IsActive)
+                    transacao.Rollback();
+                throw new Exception("Erro", ex);
+            }
+        }
+
+        public async Task CriarPalpiteTerceiroLugar(CriarPalpiteTerceiroLugarRequest[] request, int idUsuario)
+        {
+            var transacao = session.BeginTransaction();
+            try
+            {
+                int idBolao = int.Parse(CryptoHelper.Decrypt(request.First().HashBolao));
+                Usuario usuario = usuariosRepositorio.Recuperar(idUsuario) ?? throw new Exception("Usuário não encontrado.");
+
+                BolaoUsuario bolaoUsuario = await boloesUsuariosRepositorio.RecuperarAsync(idBolao, usuario.Id) ?? throw new Exception("Bolao do usuario não encontrado.");
+
+                // remove existing third-place palpite(s)
+                await palpiteRepositorio.DeletarPalpiteTerceiroLugarPorBolaoUsuario(bolaoUsuario.Id);
+
+                foreach (var item in request)
+                {
+                    Selecao selecao = selecoesRepositorio.Recuperar(item.IdSelecao) ?? throw new Exception("Seleção não encontrada.");
+
+                    await palpiteRepositorio.InserirPalpiteTerceiroLugar(new PalpiteTerceiroLugar(selecao, bolaoUsuario, item.Posicao));
                 }
 
                 if (transacao.IsActive)
@@ -280,11 +313,46 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
 
                 return await projecao.ToListAsync();
             }
+
             catch (Exception ex)
             {
                 throw new Exception("Erro ao recuperar", ex);
             }
         }
+            public async Task<IList<PalpiteTerceiroLugarResponse>> RecuperarPalpitesTerceiroLugarAsync(string hashBolao, int idUsuario)
+            {
+                try
+                {
+                    var usuario = usuariosRepositorio.Recuperar(idUsuario) ?? throw new Exception("Usuário não encontrado.");
+                    int idBolao = int.Parse(CryptoHelper.Decrypt(hashBolao));
+
+                    BolaoUsuario bolaoUsuario = await boloesUsuariosRepositorio.RecuperarAsync(idBolao, usuario.Id) ?? throw new Exception("Bolao do usuario não encontrado.");
+
+                    IQueryable<PalpiteTerceiroLugar> query = palpiteRepositorio.RecuperarQueryPalpiteTerceiroLugarPorBolaoUsuarioId(bolaoUsuario.Id);
+
+                    var projecao = query.Select(x => new PalpiteTerceiroLugarResponse
+                    {
+                        Id = x.Id,
+                        Posicao = x.Posicao,
+                        Selecao = new GrupoSelecaoResponse
+                        {
+                            Id = x.Selecao.Id,
+                            Nome = x.Selecao.Nome,
+                            Grupo = new GrupoResponse { Id = x.Selecao.Grupo.Id, Nome = x.Selecao.Grupo.Nome },
+                            Logo = x.Selecao.Logo,
+                            Abreviacao = x.Selecao.Abreviacao,
+                            Pontuacao = x.Selecao.PontuacaoSelecao,
+                            PosicaoFaseDeGrupos = x.Selecao.PosicaoFaseDeGrupos
+                        }
+                    });
+
+                    return await projecao.ToListAsync();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Erro ao recuperar", ex);
+                }
+            }
 
     public async Task<IList<GrupoSelecaoResponse>> RecuperarPalpiteMelhoresTerceiroLugarAsync(string hashBolao, int idUsuario)
         {
@@ -312,7 +380,7 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
                         Abreviacao = x.Selecao.Abreviacao,
                         Pontuacao = x.Selecao.PontuacaoSelecao,
                         PosicaoFaseDeGrupos = x.Selecao.PosicaoFaseDeGrupos
-                    });
+                    }).OrderBy(x => x.Pontuacao);
 
                 var lista = await projecao.ToListAsync();
 

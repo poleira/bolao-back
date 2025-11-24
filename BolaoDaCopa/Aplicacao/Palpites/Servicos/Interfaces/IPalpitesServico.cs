@@ -15,6 +15,8 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos.Interfaces
         Task<IList<PalpiteFaseSelecaoResponse>> RecuperarPalpiteFaseSelecaoAsync(string hashBolao, int idUsuario);
         Task<IList<PalpiteGrupoSelecaoResponse>> RecuperarPalpiteGrupoSelecaoAsync(string hashBolao, int idUsuario);
         Task<IList<PalpiteJogoGrupoResponse>> RecuperarPalpiteJogoGrupoAsync(string hashBolao, int idUsuario);
-    Task<IList<GrupoSelecaoResponse>> RecuperarPalpiteMelhoresTerceiroLugarAsync(string hashBolao, int idUsuario);
+        Task<IList<GrupoSelecaoResponse>> RecuperarPalpiteMelhoresTerceiroLugarAsync(string hashBolao, int idUsuario);
+        Task<IList<PalpiteTerceiroLugarResponse>> RecuperarPalpitesTerceiroLugarAsync(string hashBolao, int idUsuario);
+        Task CriarPalpiteTerceiroLugar(CriarPalpiteTerceiroLugarRequest[] request, int idUsuario);
     }
 }
