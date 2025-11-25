@@ -189,7 +189,6 @@ namespace BolaoDaCopa.Controllers
             return Ok(retorno);
         }
 
-
         /// <summary>
         /// Cria PalpiteTerceiroLugar
         /// </summary>
@@ -202,6 +201,20 @@ namespace BolaoDaCopa.Controllers
 
             await palpitesServico.CriarPalpiteTerceiroLugar(request, idUsuario);
             return Ok();
+        }
+
+        /// <summary>
+        /// Recupera os jogos das eliminatórias baseado nos palpites de classificação do usuário
+        /// </summary>
+        [HttpGet]
+        [Route("eliminatorias")]
+        public async Task<ActionResult<EliminatoriasResponse>> RecuperarJogosEliminatoriasAsync([FromQuery] HashBolaoRequest request)
+        {
+            if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int idUsuario))
+                return Unauthorized("ID do usuário inválido ou ausente.");
+
+            var retorno = await palpitesServico.RecuperarJogosEliminatoriasAsync(request.HashBolao, idUsuario);
+            return Ok(retorno);
         }
 
     }
