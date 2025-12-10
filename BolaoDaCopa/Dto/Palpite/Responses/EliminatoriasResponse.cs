@@ -1,3 +1,5 @@
+using BolaoDaCopa.Dto.Selecoes.Responses;
+
 namespace BolaoDaCopa.Dto.Palpite.Responses
 {
     public class EliminatoriasResponse
@@ -7,5 +9,8 @@ namespace BolaoDaCopa.Dto.Palpite.Responses
         public IList<JogoEliminatoriaResponse> Quartas { get; set; } = new List<JogoEliminatoriaResponse>();
         public IList<JogoEliminatoriaResponse> Semis { get; set; } = new List<JogoEliminatoriaResponse>();
         public JogoEliminatoriaResponse? Finais { get; set; }
+        public JogoEliminatoriaResponse? DisputaDeTerceiro { get; set; }
+        public GrupoSelecaoResponse? Campeao { get; set; }
+        public GrupoSelecaoResponse? TerceiroLugar { get; set; }
     }
 }

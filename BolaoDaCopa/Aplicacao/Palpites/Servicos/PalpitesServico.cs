@@ -538,38 +538,88 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
                 var terceiro16 = ObterTerceiroPorCodigo(tabelaCruzamentos.GetValueOrDefault("Jogo16"), terceirosPorGrupo);
                 rodadaDe16.Add(CriarJogo(16, "Rodada de 16", ObterClassificado(classificados, "K", 1), terceiro16, 8));
 
+                // Recuperar palpites de fases eliminatórias (se existirem)
+                IQueryable<PalpiteFaseSelecao> queryFaseSelecao = palpiteRepositorio.RecuperarQueryPalpiteFaseSelecaoPorBolaoUsuarioId(bolaoUsuario.Id);
+                var palpitesFaseSelecao = await queryFaseSelecao.Select(x => new
+                {
+                    FaseId = x.Fase.Id,
+                    FaseNome = x.Fase.Nome,
+                    Selecao = new GrupoSelecaoResponse
+                    {
+                        Id = x.Selecao.Id,
+                        Nome = x.Selecao.Nome,
+                        Grupo = x.Selecao.Grupo != null ? new GrupoResponse { Id = x.Selecao.Grupo.Id, Nome = x.Selecao.Grupo.Nome } : null!,
+                        Logo = x.Selecao.Logo,
+                        Abreviacao = x.Selecao.Abreviacao,
+                        Pontuacao = x.Selecao.PontuacaoSelecao,
+                        PosicaoFaseDeGrupos = x.Selecao.PosicaoFaseDeGrupos
+                    }
+                }).ToListAsync();
+
                 // Oitavas de final (8 chaves = 8 jogos)
-                // Vencedores das chaves se enfrentam
+                // Buscar palpites do usuário para Oitavas (Fase ID = 2)
+                var palpitesOitavas = palpitesFaseSelecao.Where(x => x.FaseId == 2).Select(x => x.Selecao).ToList();
                 var oitavas = new List<JogoEliminatoriaResponse>
                 {
-                    new JogoEliminatoriaResponse { NumeroJogo = 1, Fase = "Oitavas", ProximoJogoVencedor = 1 }, // Vencedor Chave 1
-                    new JogoEliminatoriaResponse { NumeroJogo = 2, Fase = "Oitavas", ProximoJogoVencedor = 1 }, // Vencedor Chave 2
-                    new JogoEliminatoriaResponse { NumeroJogo = 3, Fase = "Oitavas", ProximoJogoVencedor = 2 }, // Vencedor Chave 3
-                    new JogoEliminatoriaResponse { NumeroJogo = 4, Fase = "Oitavas", ProximoJogoVencedor = 2 }, // Vencedor Chave 4
-                    new JogoEliminatoriaResponse { NumeroJogo = 5, Fase = "Oitavas", ProximoJogoVencedor = 3 }, // Vencedor Chave 5
-                    new JogoEliminatoriaResponse { NumeroJogo = 6, Fase = "Oitavas", ProximoJogoVencedor = 3 }, // Vencedor Chave 6
-                    new JogoEliminatoriaResponse { NumeroJogo = 7, Fase = "Oitavas", ProximoJogoVencedor = 4 }, // Vencedor Chave 7
-                    new JogoEliminatoriaResponse { NumeroJogo = 8, Fase = "Oitavas", ProximoJogoVencedor = 4 }  // Vencedor Chave 8
+                    new JogoEliminatoriaResponse { NumeroJogo = 1, Fase = "Oitavas", Selecao1 = palpitesOitavas.ElementAtOrDefault(0), Selecao2 = palpitesOitavas.ElementAtOrDefault(1), ProximoJogoVencedor = 1 },
+                    new JogoEliminatoriaResponse { NumeroJogo = 2, Fase = "Oitavas", Selecao1 = palpitesOitavas.ElementAtOrDefault(2), Selecao2 = palpitesOitavas.ElementAtOrDefault(3), ProximoJogoVencedor = 1 },
+                    new JogoEliminatoriaResponse { NumeroJogo = 3, Fase = "Oitavas", Selecao1 = palpitesOitavas.ElementAtOrDefault(4), Selecao2 = palpitesOitavas.ElementAtOrDefault(5), ProximoJogoVencedor = 2 },
+                    new JogoEliminatoriaResponse { NumeroJogo = 4, Fase = "Oitavas", Selecao1 = palpitesOitavas.ElementAtOrDefault(6), Selecao2 = palpitesOitavas.ElementAtOrDefault(7), ProximoJogoVencedor = 2 },
+                    new JogoEliminatoriaResponse { NumeroJogo = 5, Fase = "Oitavas", Selecao1 = palpitesOitavas.ElementAtOrDefault(8), Selecao2 = palpitesOitavas.ElementAtOrDefault(9), ProximoJogoVencedor = 3 },
+                    new JogoEliminatoriaResponse { NumeroJogo = 6, Fase = "Oitavas", Selecao1 = palpitesOitavas.ElementAtOrDefault(10), Selecao2 = palpitesOitavas.ElementAtOrDefault(11), ProximoJogoVencedor = 3 },
+                    new JogoEliminatoriaResponse { NumeroJogo = 7, Fase = "Oitavas", Selecao1 = palpitesOitavas.ElementAtOrDefault(12), Selecao2 = palpitesOitavas.ElementAtOrDefault(13), ProximoJogoVencedor = 4 },
+                    new JogoEliminatoriaResponse { NumeroJogo = 8, Fase = "Oitavas", Selecao1 = palpitesOitavas.ElementAtOrDefault(14), Selecao2 = palpitesOitavas.ElementAtOrDefault(15), ProximoJogoVencedor = 4 }
                 };
 
                 // Quartas de final (4 jogos)
+                // Buscar palpites do usuário para Quartas (Fase ID = 3)
+                var palpitesQuartas = palpitesFaseSelecao.Where(x => x.FaseId == 3).Select(x => x.Selecao).ToList();
                 var quartas = new List<JogoEliminatoriaResponse>
                 {
-                    new JogoEliminatoriaResponse { NumeroJogo = 1, Fase = "Quartas", ProximoJogoVencedor = 1 }, // Vencedor Oitavas 1
-                    new JogoEliminatoriaResponse { NumeroJogo = 2, Fase = "Quartas", ProximoJogoVencedor = 1 }, // Vencedor Oitavas 2
-                    new JogoEliminatoriaResponse { NumeroJogo = 3, Fase = "Quartas", ProximoJogoVencedor = 2 }, // Vencedor Oitavas 3
-                    new JogoEliminatoriaResponse { NumeroJogo = 4, Fase = "Quartas", ProximoJogoVencedor = 2 }  // Vencedor Oitavas 4
+                    new JogoEliminatoriaResponse { NumeroJogo = 1, Fase = "Quartas", Selecao1 = palpitesQuartas.ElementAtOrDefault(0), Selecao2 = palpitesQuartas.ElementAtOrDefault(1), ProximoJogoVencedor = 1 },
+                    new JogoEliminatoriaResponse { NumeroJogo = 2, Fase = "Quartas", Selecao1 = palpitesQuartas.ElementAtOrDefault(2), Selecao2 = palpitesQuartas.ElementAtOrDefault(3), ProximoJogoVencedor = 1 },
+                    new JogoEliminatoriaResponse { NumeroJogo = 3, Fase = "Quartas", Selecao1 = palpitesQuartas.ElementAtOrDefault(4), Selecao2 = palpitesQuartas.ElementAtOrDefault(5), ProximoJogoVencedor = 2 },
+                    new JogoEliminatoriaResponse { NumeroJogo = 4, Fase = "Quartas", Selecao1 = palpitesQuartas.ElementAtOrDefault(6), Selecao2 = palpitesQuartas.ElementAtOrDefault(7), ProximoJogoVencedor = 2 }
                 };
 
                 // Semifinais (2 jogos)
+                // Buscar palpites do usuário para Semis (Fase ID = 4)
+                var palpitesSemis = palpitesFaseSelecao.Where(x => x.FaseId == 4).Select(x => x.Selecao).ToList();
                 var semis = new List<JogoEliminatoriaResponse>
                 {
-                    new JogoEliminatoriaResponse { NumeroJogo = 1, Fase = "Semis", ProximoJogoVencedor = 1 }, // Vencedor Quartas 1
-                    new JogoEliminatoriaResponse { NumeroJogo = 2, Fase = "Semis", ProximoJogoVencedor = 1 }  // Vencedor Quartas 2
+                    new JogoEliminatoriaResponse { NumeroJogo = 1, Fase = "Semis", Selecao1 = palpitesSemis.ElementAtOrDefault(0), Selecao2 = palpitesSemis.ElementAtOrDefault(1), ProximoJogoVencedor = 1 },
+                    new JogoEliminatoriaResponse { NumeroJogo = 2, Fase = "Semis", Selecao1 = palpitesSemis.ElementAtOrDefault(2), Selecao2 = palpitesSemis.ElementAtOrDefault(3), ProximoJogoVencedor = 1 }
                 };
 
                 // Final
-                var finais = new JogoEliminatoriaResponse { NumeroJogo = 1, Fase = "Finais", ProximoJogoVencedor = null };
+                // Buscar palpites do usuário para Finais (Fase ID = 5)
+                var palpitesFinais = palpitesFaseSelecao.Where(x => x.FaseId == 5).Select(x => x.Selecao).ToList();
+                var finais = new JogoEliminatoriaResponse 
+                { 
+                    NumeroJogo = 1, 
+                    Fase = "Finais", 
+                    Selecao1 = palpitesFinais.ElementAtOrDefault(0),
+                    Selecao2 = palpitesFinais.ElementAtOrDefault(1),
+                    ProximoJogoVencedor = null 
+                };
+
+                // Disputa de Terceiro Lugar
+                // Buscar palpites do usuário para Disputa de Terceiro (Fase ID = 6)
+                var palpitesDisputaTerceiro = palpitesFaseSelecao.Where(x => x.FaseId == 6).Select(x => x.Selecao).ToList();
+                var disputaDeTerceiro = new JogoEliminatoriaResponse 
+                { 
+                    NumeroJogo = 1, 
+                    Fase = "Disputa de terceiro", 
+                    Selecao1 = palpitesDisputaTerceiro.ElementAtOrDefault(0),
+                    Selecao2 = palpitesDisputaTerceiro.ElementAtOrDefault(1),
+                    ProximoJogoVencedor = null 
+                };
+
+                // Campeão - Buscar palpite do usuário para Campeão (Fase ID = 7)
+                var campeao = palpitesFaseSelecao.Where(x => x.FaseId == 7).Select(x => x.Selecao).FirstOrDefault();
+
+                // Terceiro Lugar - Buscar palpite do usuário para Terceiro Lugar (Fase ID = 8)
+                var terceiroLugar = palpitesFaseSelecao.Where(x => x.FaseId == 8).Select(x => x.Selecao).FirstOrDefault();
 
                 return new EliminatoriasResponse
                 {
@@ -577,7 +627,10 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
                     Oitavas = oitavas,
                     Quartas = quartas,
                     Semis = semis,
-                    Finais = finais
+                    Finais = finais,
+                    DisputaDeTerceiro = disputaDeTerceiro,
+                    Campeao = campeao,
+                    TerceiroLugar = terceiroLugar
                 };
             }
             catch (Exception ex)

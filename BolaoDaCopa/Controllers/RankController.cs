@@ -1,8 +1,11 @@
-﻿using BolaoTeste.Dto.Rank;
+﻿using BolaoDaCopa.Aplicacao.Rank.Servicos.Interfaces;
+using BolaoDaCopa.Dto.Boloes.Requests;
+using BolaoTeste.Dto.Rank;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
-using BolaoDaCopa.Aplicacao.Rank.Servicos.Interfaces;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BolaoDaCopa.Controllers
 {
@@ -19,9 +22,14 @@ namespace BolaoDaCopa.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IList<RankResponse>> ListarRank()
+        public async Task<ActionResult<IList<RankResponse>>> ListarRank([FromQuery] HashBolaoRequest request)
         {
-            var retorno = rankServico.ListarRank();
+            if (request == null || string.IsNullOrWhiteSpace(request.HashBolao))
+            {
+                return BadRequest("HashBolao é obrigatório.");
+            }
+
+            var retorno = await rankServico.ListarRankAsync(request.HashBolao);
             return Ok(retorno);
         }
     }
