@@ -28,6 +28,22 @@ namespace BolaoDaCopa.Aplicacao.Rank.Servicos
             ["acertou terceiro colocado geral da copa"] = 8
         };
 
+        private static readonly Dictionary<string, GroupStageRuleType> DescricaoParaRegraGrupoMap = new Dictionary<string, GroupStageRuleType>
+        {
+            ["acertou a posicao do pais na fase de grupos"] = GroupStageRuleType.Position,
+            ["acertou a pontuacao do pais na fase de grupos"] = GroupStageRuleType.Points
+        };
+
+        private static readonly HashSet<string> DescricaoRegraArtilheiroSet = new HashSet<string>
+        {
+            "acertou artilheiro"
+        };
+
+        private static readonly HashSet<string> DescricaoRegraMelhorTerceiroSet = new HashSet<string>
+        {
+            "acertou posicao do terceiro colocado classificado para eliminatoria"
+        };
+
         private readonly ISession session;
         private readonly IBoloesRepositorio boloesRepositorio;
         private readonly IBoloesUsuariosRepositorio boloesUsuariosRepositorio;
@@ -51,7 +67,8 @@ namespace BolaoDaCopa.Aplicacao.Rank.Servicos
 
             int idBolao = int.Parse(CryptoHelper.Decrypt(hashBolao));
 
-            var regrasPorFase = await ObterRegrasPontuacaoPorFaseAsync(idBolao);
+            var configuracaoRegras = await ObterConfiguracaoRegrasAsync(idBolao);
+            var regrasPorFase = configuracaoRegras.PontuacaoPorFase;
             var participantes = await boloesUsuariosRepositorio.Query()
                 .Where(x => x.Bolao.Id == idBolao)
                 .Select(x => new { x.Id, UsuarioNome = x.Usuario.Nome })
@@ -66,9 +83,99 @@ namespace BolaoDaCopa.Aplicacao.Rank.Servicos
                 return new List<RankResponse>();
             }
 
-            if (!regrasPorFase.Any())
+            var possuiRegrasEliminatorias = regrasPorFase.Any();
+            var possuiRegrasGrupos = configuracaoRegras.PontosAcertoPosicaoGrupo.HasValue || configuracaoRegras.PontosAcertoPontuacaoGrupo.HasValue;
+            var possuiRegraArtilheiro = configuracaoRegras.PontosAcertoArtilheiro.HasValue;
+            var possuiRegraMelhorTerceiro = configuracaoRegras.PontosAcertoMelhorTerceiro.HasValue;
+
+            if (!possuiRegrasEliminatorias && !possuiRegrasGrupos && !possuiRegraArtilheiro && !possuiRegraMelhorTerceiro)
             {
                 return ConverterParaResponse(acumuladores);
+            }
+
+            if (possuiRegrasEliminatorias)
+            {
+                await AplicarPontuacaoEliminatoriasAsync(idBolao, regrasPorFase, acumuladores);
+            }
+
+            if (possuiRegrasGrupos)
+            {
+                await AplicarPontuacaoFaseDeGruposAsync(idBolao, configuracaoRegras, acumuladores);
+            }
+
+            if (possuiRegraArtilheiro)
+            {
+                await AplicarPontuacaoArtilheiroAsync(idBolao, configuracaoRegras.PontosAcertoArtilheiro!.Value, acumuladores);
+            }
+
+            if (possuiRegraMelhorTerceiro)
+            {
+                await AplicarPontuacaoMelhorTerceiroAsync(idBolao, configuracaoRegras.PontosAcertoMelhorTerceiro!.Value, acumuladores);
+            }
+
+            return ConverterParaResponse(acumuladores);
+        }
+
+        private async Task<RankRulesConfig> ObterConfiguracaoRegrasAsync(int idBolao)
+        {
+            var regras = await boloesRepositorio.QueryBolaoRegra()
+                .Where(x => x.Bolao.Id == idBolao)
+                .Select(x => new { x.Pontuacao, x.Regra.Descricao })
+                .ToListAsync();
+
+            var resultado = new RankRulesConfig();
+            foreach (var regra in regras)
+            {
+                var faseId = MapearDescricaoParaFase(regra.Descricao);
+                if (!faseId.HasValue)
+                {
+                    var regraGrupo = MapearDescricaoParaRegraDeGrupo(regra.Descricao);
+                    if (!regraGrupo.HasValue)
+                    {
+                        var handled = false;
+                        if (DescricaoSeRefereAoArtilheiro(regra.Descricao))
+                        {
+                            resultado.PontosAcertoArtilheiro = regra.Pontuacao;
+                            handled = true;
+                        }
+
+                        if (DescricaoSeRefereAoMelhorTerceiro(regra.Descricao))
+                        {
+                            resultado.PontosAcertoMelhorTerceiro = regra.Pontuacao;
+                            handled = true;
+                        }
+
+                        if (!handled)
+                        {
+                            continue;
+                        }
+
+                        continue;
+                    }
+
+                    switch (regraGrupo.Value)
+                    {
+                        case GroupStageRuleType.Position:
+                            resultado.PontosAcertoPosicaoGrupo = regra.Pontuacao;
+                            break;
+                        case GroupStageRuleType.Points:
+                            resultado.PontosAcertoPontuacaoGrupo = regra.Pontuacao;
+                            break;
+                    }
+                    continue;
+                }
+
+                resultado.PontuacaoPorFase[faseId.Value] = regra.Pontuacao;
+            }
+
+            return resultado;
+        }
+
+        private async Task AplicarPontuacaoEliminatoriasAsync(int idBolao, Dictionary<int, int> regrasPorFase, Dictionary<int, RankAccumulator> acumuladores)
+        {
+            if (!regrasPorFase.Any())
+            {
+                return;
             }
 
             var faseIds = regrasPorFase.Keys.ToList();
@@ -76,7 +183,7 @@ namespace BolaoDaCopa.Aplicacao.Rank.Servicos
 
             if (!gabaritoPorFase.Any())
             {
-                return ConverterParaResponse(acumuladores);
+                return;
             }
 
             var palpites = await session.Query<PalpiteFaseSelecao>()
@@ -89,6 +196,11 @@ namespace BolaoDaCopa.Aplicacao.Rank.Servicos
                     SelecaoId = p.Selecao.Id
                 })
                 .ToListAsync();
+
+            if (!palpites.Any())
+            {
+                return;
+            }
 
             foreach (var grupoUsuario in palpites.GroupBy(x => x.BolaoUsuarioId))
             {
@@ -117,30 +229,179 @@ namespace BolaoDaCopa.Aplicacao.Rank.Servicos
                     accumulator.Pontuacao += acertos * pontosPorAcerto;
                 }
             }
-
-            return ConverterParaResponse(acumuladores);
         }
 
-        private async Task<Dictionary<int, int>> ObterRegrasPontuacaoPorFaseAsync(int idBolao)
+        private async Task AplicarPontuacaoFaseDeGruposAsync(int idBolao, RankRulesConfig configuracao, Dictionary<int, RankAccumulator> acumuladores)
         {
-            var regras = await boloesRepositorio.QueryBolaoRegra()
-                .Where(x => x.Bolao.Id == idBolao)
-                .Select(x => new { x.Pontuacao, x.Regra.Descricao })
+            var considerarPosicao = configuracao.PontosAcertoPosicaoGrupo.HasValue;
+            var considerarPontuacao = configuracao.PontosAcertoPontuacaoGrupo.HasValue;
+
+            if (!considerarPosicao && !considerarPontuacao)
+            {
+                return;
+            }
+
+            var palpites = await session.Query<PalpiteGrupoSelecao>()
+                .Where(p => p.BolaoUsuario.Bolao.Id == idBolao)
+                .Select(p => new
+                {
+                    BolaoUsuarioId = p.BolaoUsuario.Id,
+                    SelecaoId = p.Selecao.Id,
+                    PosicaoPalpite = p.PosicaoSelecao,
+                    PontuacaoPalpite = p.PontuacaoSelecao
+                })
                 .ToListAsync();
 
-            var resultado = new Dictionary<int, int>();
-            foreach (var regra in regras)
+            if (!palpites.Any())
             {
-                var faseId = MapearDescricaoParaFase(regra.Descricao);
-                if (!faseId.HasValue)
+                return;
+            }
+
+            var selecoes = await session.Query<Selecao>()
+                .Select(s => new
+                {
+                    s.Id,
+                    s.PosicaoFaseDeGrupos,
+                    s.PontuacaoSelecao
+                })
+                .ToListAsync();
+
+            var gabarito = selecoes.ToDictionary(
+                x => x.Id,
+                x => new GrupoSelecaoGabarito
+                {
+                    Posicao = x.PosicaoFaseDeGrupos,
+                    Pontuacao = x.PontuacaoSelecao
+                });
+
+            foreach (var palpite in palpites)
+            {
+                if (!acumuladores.TryGetValue(palpite.BolaoUsuarioId, out var accumulator))
                 {
                     continue;
                 }
 
-                resultado[faseId.Value] = regra.Pontuacao;
+                if (!gabarito.TryGetValue(palpite.SelecaoId, out var dadosGabarito))
+                {
+                    continue;
+                }
+
+                if (considerarPosicao
+                    && dadosGabarito.Posicao.HasValue
+                    && palpite.PosicaoPalpite > 0
+                    && dadosGabarito.Posicao.Value == palpite.PosicaoPalpite)
+                {
+                    accumulator.Pontuacao += configuracao.PontosAcertoPosicaoGrupo!.Value;
+                }
+
+                if (considerarPontuacao
+                    && dadosGabarito.Pontuacao.HasValue
+                    && palpite.PontuacaoPalpite.HasValue
+                    && dadosGabarito.Pontuacao.Value == palpite.PontuacaoPalpite.Value)
+                {
+                    accumulator.Pontuacao += configuracao.PontosAcertoPontuacaoGrupo!.Value;
+                }
+            }
+        }
+
+        private async Task AplicarPontuacaoArtilheiroAsync(int idBolao, int pontosPorAcerto, Dictionary<int, RankAccumulator> acumuladores)
+        {
+            var palpites = await session.Query<PalpiteArtilheiro>()
+                .Where(p => p.BolaoUsuario.Bolao.Id == idBolao)
+                .Select(p => new
+                {
+                    BolaoUsuarioId = p.BolaoUsuario.Id,
+                    JogadorId = p.Jogador.Id
+                })
+                .ToListAsync();
+
+            if (!palpites.Any())
+            {
+                return;
             }
 
-            return resultado;
+            var artilheiros = await session.Query<Artilheiro>()
+                .Select(a => a.Jogador.Id)
+                .ToListAsync();
+
+            if (!artilheiros.Any())
+            {
+                return;
+            }
+
+            var gabarito = new HashSet<int>(artilheiros);
+
+            foreach (var grupoUsuario in palpites.GroupBy(x => x.BolaoUsuarioId))
+            {
+                if (!acumuladores.TryGetValue(grupoUsuario.Key, out var accumulator))
+                {
+                    continue;
+                }
+
+                if (grupoUsuario.Any(x => gabarito.Contains(x.JogadorId)))
+                {
+                    accumulator.Pontuacao += pontosPorAcerto;
+                }
+            }
+        }
+
+        private async Task AplicarPontuacaoMelhorTerceiroAsync(int idBolao, int pontosPorAcerto, Dictionary<int, RankAccumulator> acumuladores)
+        {
+            var palpites = await session.Query<PalpiteTerceiroLugar>()
+                .Where(p => p.BolaoUsuario.Bolao.Id == idBolao)
+                .Select(p => new
+                {
+                    BolaoUsuarioId = p.BolaoUsuario.Id,
+                    SelecaoId = p.Selecao.Id,
+                    Posicao = p.Posicao
+                })
+                .ToListAsync();
+
+            if (!palpites.Any())
+            {
+                return;
+            }
+
+            var melhoresTerceiros = await session.Query<MelhorTerceiroLugar>()
+                .Select(mt => new
+                {
+                    mt.Posicao,
+                    SelecaoId = mt.Selecao.Id
+                })
+                .ToListAsync();
+
+            if (!melhoresTerceiros.Any())
+            {
+                return;
+            }
+
+            var gabaritoPorPosicao = melhoresTerceiros
+                .Where(x => x.Posicao > 0)
+                .GroupBy(x => x.Posicao)
+                .ToDictionary(g => g.Key, g => g.First().SelecaoId);
+
+            foreach (var palpite in palpites)
+            {
+                if (palpite.Posicao <= 0)
+                {
+                    continue;
+                }
+
+                if (!acumuladores.TryGetValue(palpite.BolaoUsuarioId, out var accumulator))
+                {
+                    continue;
+                }
+
+                if (!gabaritoPorPosicao.TryGetValue(palpite.Posicao, out var selecaoId))
+                {
+                    continue;
+                }
+
+                if (selecaoId == palpite.SelecaoId)
+                {
+                    accumulator.Pontuacao += pontosPorAcerto;
+                }
+            }
         }
 
         private async Task<Dictionary<int, HashSet<int>>> ObterGabaritoPorFaseAsync(IEnumerable<int> faseIds)
@@ -229,6 +490,67 @@ namespace BolaoDaCopa.Aplicacao.Rank.Servicos
             return null;
         }
 
+        private static bool DescricaoSeRefereAoArtilheiro(string descricao)
+        {
+            if (string.IsNullOrWhiteSpace(descricao))
+            {
+                return false;
+            }
+
+            var normalizado = NormalizarDescricao(descricao);
+            if (DescricaoRegraArtilheiroSet.Contains(normalizado))
+            {
+                return true;
+            }
+
+            return normalizado.Contains("artilheiro");
+        }
+
+        private static bool DescricaoSeRefereAoMelhorTerceiro(string descricao)
+        {
+            if (string.IsNullOrWhiteSpace(descricao))
+            {
+                return false;
+            }
+
+            var normalizado = NormalizarDescricao(descricao).Replace("/", " ");
+            if (DescricaoRegraMelhorTerceiroSet.Contains(normalizado))
+            {
+                return true;
+            }
+
+            return normalizado.Contains("terceiro") && normalizado.Contains("eliminatoria");
+        }
+
+        private static GroupStageRuleType? MapearDescricaoParaRegraDeGrupo(string descricao)
+        {
+            if (string.IsNullOrWhiteSpace(descricao))
+            {
+                return null;
+            }
+
+            var normalizado = NormalizarDescricao(descricao);
+            if (DescricaoParaRegraGrupoMap.TryGetValue(normalizado, out var regra))
+            {
+                return regra;
+            }
+
+            if (normalizado.Contains("grupo"))
+            {
+                if (normalizado.Contains("posicao"))
+                {
+                    return GroupStageRuleType.Position;
+                }
+
+                if (normalizado.Contains("pontuacao"))
+                {
+                    return GroupStageRuleType.Points;
+                }
+            }
+
+            return null;
+        }
+
         private static string NormalizarDescricao(string descricao)
         {
             var texto = descricao.Normalize(NormalizationForm.FormD);
@@ -255,6 +577,27 @@ namespace BolaoDaCopa.Aplicacao.Rank.Servicos
 
             public string Usuario { get; }
             public int Pontuacao { get; set; }
+        }
+
+        private sealed class RankRulesConfig
+        {
+            public Dictionary<int, int> PontuacaoPorFase { get; } = new Dictionary<int, int>();
+            public int? PontosAcertoPosicaoGrupo { get; set; }
+            public int? PontosAcertoPontuacaoGrupo { get; set; }
+            public int? PontosAcertoArtilheiro { get; set; }
+            public int? PontosAcertoMelhorTerceiro { get; set; }
+        }
+
+        private sealed class GrupoSelecaoGabarito
+        {
+            public int? Posicao { get; init; }
+            public int? Pontuacao { get; init; }
+        }
+
+        private enum GroupStageRuleType
+        {
+            Position,
+            Points
         }
     }
 }

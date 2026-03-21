@@ -217,5 +217,21 @@ namespace BolaoDaCopa.Controllers
             return Ok(retorno);
         }
 
+        /// <summary>
+        /// Obtém os palpites de um usuário formatados por escrito
+        /// </summary>
+        /// <param name="nomeUsuario">Nome do usuário cujos palpites serão recuperados</param>
+        /// <param name="hashBolao">Hash do bolão</param>
+        [HttpGet]
+        [Route("por-escrito")]
+        public async Task<ActionResult<PalpitesPorEscritoResponse>> ObterPalpitesPorEscrito([FromQuery] string nomeUsuario, [FromQuery] string hashBolao)
+        {
+            if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int idUsuarioSolicitante))
+                return Unauthorized("ID do usuário inválido ou ausente.");
+
+            var retorno = await palpitesServico.ObterPalpitesPorEscrito(nomeUsuario, hashBolao, idUsuarioSolicitante);
+            return Ok(retorno);
+        }
+
     }
 }

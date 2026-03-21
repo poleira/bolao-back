@@ -44,6 +44,8 @@ namespace BolaoDaCopa.Aplicacao.Usuarios.Servicos
 
                 _unitOfWork.BeginTransaction();
 
+                VerificarUsuarioExistente(new VerificarUsuarioExistenteRequest { Email = request.Email, Nome = request.Nome });
+
                 _usuariosRepositorio.Inserir(usuario);
 
                 var token = _jwtTokenGenerator.GerarToken(usuario);
@@ -96,6 +98,70 @@ namespace BolaoDaCopa.Aplicacao.Usuarios.Servicos
             var query = _usuariosRepositorio.Query();
 
             return query.Where(x => x.FirebaseUid == uid).FirstOrDefault();
+        }
+
+        public UsuarioResponse ObterUsuarioLogado(int idUsuario)
+        {
+            var query = _usuariosRepositorio.Query();
+            
+            Usuario? usuario = query.Where(x => x.Id == idUsuario).FirstOrDefault();
+
+            if (usuario == null)
+            {
+                throw new Exception("Usuário não encontrado.");
+            }
+
+            return new UsuarioResponse
+            {
+                Id = usuario.Id,
+                Nome = usuario.Nome,
+                Email = usuario.Email
+            };
+        }
+
+        public void VerificarUsuarioExistente(VerificarUsuarioExistenteRequest request)
+        {
+            var query = _usuariosRepositorio.Query();
+
+            bool usuarioExistente = query.Any(x => x.Email == request.Email || x.Nome == request.Nome);
+
+            if (usuarioExistente)
+            {
+                throw new Exception("Já existe um usuário cadastrado com este nome ou email.");
+            }
+        }
+
+        public void AlterarNome(int idUsuario, string novoNome)
+        {
+            try
+            {
+                _unitOfWork.BeginTransaction();
+
+                var query = _usuariosRepositorio.Query();
+                Usuario? usuario = query.Where(x => x.Id == idUsuario).FirstOrDefault();
+
+                if (usuario == null)
+                {
+                    throw new Exception("Usuário não encontrado.");
+                }
+
+                // Verificar se já existe outro usuário com o novo nome
+                bool nomeExistente = query.Any(x => x.Nome == novoNome && x.Id != idUsuario);
+                if (nomeExistente)
+                {
+                    throw new Exception("Já existe um usuário cadastrado com este nome.");
+                }
+
+                usuario.SetNome(novoNome);
+                _usuariosRepositorio.Editar(usuario);
+
+                _unitOfWork.Commit();
+            }
+            catch
+            {
+                _unitOfWork.Rollback();
+                throw;
+            }
         }
     }
 }

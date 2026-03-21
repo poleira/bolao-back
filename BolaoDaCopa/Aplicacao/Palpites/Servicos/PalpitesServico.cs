@@ -271,8 +271,8 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
                         Nome = x.Selecao.Nome,
                         Grupo = new GrupoResponse
                         {
-                            Id = x.Grupo.Id,
-                            Nome = x.Grupo.Nome
+                            Id = x.Selecao.Grupo.Id,
+                            Nome = x.Selecao.Grupo.Nome
                         },
                         Logo = x.Selecao.Logo,
                         Abreviacao = x.Selecao.Abreviacao,
@@ -740,6 +740,90 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
 
             var grupo = codigo.Substring(1); // Remove o "3" e pega a letra do grupo
             return terceirosPorGrupo.GetValueOrDefault(grupo);
+        }
+
+        public async Task<PalpitesPorEscritoResponse> ObterPalpitesPorEscrito(string nomeUsuario, string hashBolao, int idUsuarioSolicitante)
+        {
+            try
+            {
+                int idBolao = int.Parse(CryptoHelper.Decrypt(hashBolao));
+
+                // Verificar se usuário solicitante faz parte do bolão
+                var bolaoUsuarioSolicitante = await boloesUsuariosRepositorio.RecuperarAsync(idBolao, idUsuarioSolicitante);
+                if (bolaoUsuarioSolicitante == null)
+                {
+                    throw new UnauthorizedAccessException("Você não faz parte deste bolão.");
+                }
+
+                // Buscar usuário solicitado pelo nome
+                var queryUsuario = usuariosRepositorio.Query();
+                var usuarioSolicitado = await queryUsuario.Where(x => x.Nome == nomeUsuario).FirstOrDefaultAsync();
+                
+                if (usuarioSolicitado == null)
+                {
+                    throw new Exception("Usuário não encontrado.");
+                }
+
+                // Verificar se usuário solicitado faz parte do bolão
+                var bolaoUsuarioSolicitado = await boloesUsuariosRepositorio.RecuperarAsync(idBolao, usuarioSolicitado.Id);
+                if (bolaoUsuarioSolicitado == null)
+                {
+                    throw new UnauthorizedAccessException("O usuário solicitado não faz parte deste bolão.");
+                }
+
+                var response = new PalpitesPorEscritoResponse();
+
+                // Palpite Fase Grupos
+                var palpitesGrupos = await RecuperarPalpiteGrupoSelecaoAsync(hashBolao, usuarioSolicitado.Id);
+                if (palpitesGrupos != null && palpitesGrupos.Any())
+                {
+                    var gruposAgrupados = palpitesGrupos.GroupBy(p => p.Selecao.Grupo.Nome).OrderBy(g => g.Key);
+                    var textoGrupos = string.Join(", ", gruposAgrupados.Select(grupo =>
+                    {
+                        var selecoes = grupo.OrderBy(s => s.PosicaoSelecao).Select(s => 
+                            $"{s.Selecao.Nome} {s.PosicaoSelecao}º {s.PontuacaoSelecao ?? 0}pts"
+                        );
+                        return $"Grupo {grupo.Key}: {string.Join(", ", selecoes)}";
+                    }));
+                    response.PalpiteFaseGrupos = $"{textoGrupos}";
+                }
+
+                // Palpite Eliminatórias
+                var palpitesFases = await RecuperarPalpiteFaseSelecaoAsync(hashBolao, usuarioSolicitado.Id);
+                if (palpitesFases != null && palpitesFases.Any())
+                {
+                    var fasesAgrupadas = palpitesFases.GroupBy(p => p.Fase.Nome).OrderBy(f => f.Key);
+                    var textoFases = string.Join(", ", fasesAgrupadas.Select(fase =>
+                    {
+                        var selecoes = string.Join(", ", fase.Select(s => s.Selecao.Nome));
+                        return $"{fase.Key}: {selecoes}";
+                    }));
+                    response.PalpiteEliminatorias = $"{textoFases}";
+                }
+
+                // Palpite Melhores Terceiros
+                var palpitesTerceiros = await RecuperarPalpitesTerceiroLugarAsync(hashBolao, usuarioSolicitado.Id);
+                if (palpitesTerceiros != null && palpitesTerceiros.Any())
+                {
+                    var textoTerceiros = string.Join(", ", palpitesTerceiros
+                        .OrderBy(t => t.Posicao)
+                        .Select(t => $"{t.Selecao.Nome} {t.Posicao}º"));
+                    response.PalpiteMelhoresTerceiros = $"{textoTerceiros}";
+                }
+
+                // Palpite Artilheiro
+                var palpiteArtilheiro = await RecuperarPalpiteArtilheiroAsync(hashBolao, usuarioSolicitado.Id);
+                if (palpiteArtilheiro != null && !string.IsNullOrEmpty(palpiteArtilheiro.JogadorNome))
+                {
+                    response.PalpiteArtilheiro = $"{palpiteArtilheiro.JogadorNome}";
+                }
+
+                return response;
+            }
+            catch
+            {
+                throw;
+            }
         }
 
     }

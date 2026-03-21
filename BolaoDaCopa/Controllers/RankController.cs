@@ -11,7 +11,7 @@ namespace BolaoDaCopa.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/rank")]
     [EnableCors("MyCorsImplementationPolicy")]
     public class RankController : Controller
     {
