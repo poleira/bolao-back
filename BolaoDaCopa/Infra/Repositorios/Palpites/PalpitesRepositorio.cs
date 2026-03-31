@@ -24,6 +24,16 @@ namespace BolaoDaCopa.Infra.Repositorios.Palpites
             await session.SaveAsync(palpiteArtilheiro);
         }
 
+        public async Task InserirPalpiteArtilheiroBrasil(PalpiteArtilheiroBrasil palpiteArtilheiroBrasil)
+        {
+            session.Query<PalpiteArtilheiroBrasil>()
+                   .Where(x => x.BolaoUsuario.Id == palpiteArtilheiroBrasil.BolaoUsuario.Id)
+                   .ToList()
+                   .ForEach(x => session.DeleteAsync(x));
+
+            await session.SaveAsync(palpiteArtilheiroBrasil);
+        }
+
         public async Task DeletarPalpiteGrupoSelecaoPorBolaoUsuario(int bolaoUsuarioId)
         {
             var palpites = await session.Query<PalpiteGrupoSelecao>()
@@ -95,6 +105,12 @@ namespace BolaoDaCopa.Infra.Repositorios.Palpites
         public IQueryable<PalpiteArtilheiro> RecuperarQueryPalpiteArtilheiroPorBolaoUsuarioId(int idBolaoUsuario)
         {
             return session.Query<PalpiteArtilheiro>()
+                .Where(x => x.BolaoUsuario.Id == idBolaoUsuario);
+        }
+
+        public IQueryable<PalpiteArtilheiroBrasil> RecuperarQueryPalpiteArtilheiroBrasilPorBolaoUsuarioId(int idBolaoUsuario)
+        {
+            return session.Query<PalpiteArtilheiroBrasil>()
                 .Where(x => x.BolaoUsuario.Id == idBolaoUsuario);
         }
         public IQueryable<PalpiteFaseSelecao> RecuperarQueryPalpiteFaseSelecaoPorBolaoUsuarioId(int idBolaoUsuario)

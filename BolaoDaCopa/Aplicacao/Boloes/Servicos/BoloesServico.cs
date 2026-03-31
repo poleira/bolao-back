@@ -222,7 +222,7 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             {
                 int idBolao = int.Parse(CryptoHelper.Decrypt(request.HashBolao));
                 Bolao bolao = boloesRepositorio.Recuperar(idBolao) ?? throw new Exception("Bolão não encontrado.");
-                var usuarioASerDeletado = usuariosRepositorio.RecuperarPorHash(request.HashUsuarioASerDeletado) ?? throw new Exception("Usuário não encontrado.");
+                var usuarioASerDeletado = usuariosRepositorio.Recuperar(request.IdUsuarioASerAlterado.Value) ?? throw new Exception("Usuário não encontrado.");
                 var usuarioLogado = usuariosRepositorio.Recuperar(request.IdUsuario.Value) ?? throw new Exception("Usuário logado não encontrado.");
 
                 unitOfWork.BeginTransaction();

@@ -19,10 +19,25 @@ namespace BolaoDaCopa.Aplicacao.Jogadores.Servicos
 
             if (!string.IsNullOrEmpty(request.Nome))
             {
-                jogadores = jogadores.Where(x => x.Nome.Contains(request.Nome));
+                jogadores = jogadores.Where(x => x.Nome.ToLower().Contains(request.Nome.ToLower()));
             }
 
             jogadores = jogadores.Take(10);
+
+            return jogadores.ToList();
+        }
+
+        public IEnumerable<Jogador> ListarJogadoresDoBrasil(JogadoresListarRequest request)
+        {
+            var jogadores = jogadoresRepositorio.Query()
+                .OrderBy(x => x.Id)
+                .Take(26)
+                .AsEnumerable();
+
+            if (!string.IsNullOrEmpty(request.Nome))
+            {
+                jogadores = jogadores.Where(x => x.Nome.ToLower().Contains(request.Nome.ToLower()));
+            }
 
             return jogadores.ToList();
         }

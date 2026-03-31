@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace BolaoDaCopa.Controllers
@@ -24,6 +25,9 @@ namespace BolaoDaCopa.Controllers
         [HttpGet]
         public async Task<ActionResult<IList<RankResponse>>> ListarRank([FromQuery] HashBolaoRequest request)
         {
+            if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int idUsuario))
+                return Unauthorized("ID do usuário inválido ou ausente.");
+
             if (request == null || string.IsNullOrWhiteSpace(request.HashBolao))
             {
                 return BadRequest("HashBolao é obrigatório.");

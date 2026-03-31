@@ -6,5 +6,6 @@ namespace BolaoDaCopa.Aplicacao.Jogadores.Servicos.Interfaces
     public interface IJogadoresServico
     {
         IEnumerable<Jogador> ListarJogadores(JogadoresListarRequest request);
+        IEnumerable<Jogador> ListarJogadoresDoBrasil(JogadoresListarRequest request);
     }
 }

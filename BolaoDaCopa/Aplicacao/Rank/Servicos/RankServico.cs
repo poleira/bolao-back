@@ -39,9 +39,19 @@ namespace BolaoDaCopa.Aplicacao.Rank.Servicos
             "acertou artilheiro"
         };
 
+        private static readonly HashSet<string> DescricaoRegraArtilheiroBrasilSet = new HashSet<string>
+        {
+            "acertou artilheiro do brasil"
+        };
+
         private static readonly HashSet<string> DescricaoRegraMelhorTerceiroSet = new HashSet<string>
         {
             "acertou posicao do terceiro colocado classificado para eliminatoria"
+        };
+
+        private static readonly HashSet<string> DescricaoRegraAcertouPlacarBrasilSet = new HashSet<string>
+        {
+            "acertou o placar do brasil"
         };
 
         private readonly ISession session;
@@ -71,12 +81,12 @@ namespace BolaoDaCopa.Aplicacao.Rank.Servicos
             var regrasPorFase = configuracaoRegras.PontuacaoPorFase;
             var participantes = await boloesUsuariosRepositorio.Query()
                 .Where(x => x.Bolao.Id == idBolao)
-                .Select(x => new { x.Id, UsuarioNome = x.Usuario.Nome })
+                .Select(x => new { x.Id, UsuarioNome = x.Usuario.Nome, IdUsuario = x.Usuario.Id })
                 .ToListAsync();
 
             var acumuladores = participantes.ToDictionary(
                 x => x.Id,
-                x => new RankAccumulator(x.UsuarioNome));
+                x => new RankAccumulator(x.UsuarioNome, x.IdUsuario));
 
             if (!acumuladores.Any())
             {
@@ -86,9 +96,11 @@ namespace BolaoDaCopa.Aplicacao.Rank.Servicos
             var possuiRegrasEliminatorias = regrasPorFase.Any();
             var possuiRegrasGrupos = configuracaoRegras.PontosAcertoPosicaoGrupo.HasValue || configuracaoRegras.PontosAcertoPontuacaoGrupo.HasValue;
             var possuiRegraArtilheiro = configuracaoRegras.PontosAcertoArtilheiro.HasValue;
+            var possuiRegraArtilheiroBrasil = configuracaoRegras.PontosAcertoArtilheiroBrasil.HasValue;
             var possuiRegraMelhorTerceiro = configuracaoRegras.PontosAcertoMelhorTerceiro.HasValue;
+            var possuiRegraAcertouPlacarBrasil = configuracaoRegras.PontosAcertoPlacarBrasil.HasValue;
 
-            if (!possuiRegrasEliminatorias && !possuiRegrasGrupos && !possuiRegraArtilheiro && !possuiRegraMelhorTerceiro)
+            if (!possuiRegrasEliminatorias && !possuiRegrasGrupos && !possuiRegraArtilheiro && !possuiRegraArtilheiroBrasil && !possuiRegraMelhorTerceiro && !possuiRegraAcertouPlacarBrasil)
             {
                 return ConverterParaResponse(acumuladores);
             }
@@ -108,9 +120,19 @@ namespace BolaoDaCopa.Aplicacao.Rank.Servicos
                 await AplicarPontuacaoArtilheiroAsync(idBolao, configuracaoRegras.PontosAcertoArtilheiro!.Value, acumuladores);
             }
 
+            if (possuiRegraArtilheiroBrasil)
+            {
+                await AplicarPontuacaoArtilheiroBrasilAsync(idBolao, configuracaoRegras.PontosAcertoArtilheiroBrasil!.Value, acumuladores);
+            }
+
             if (possuiRegraMelhorTerceiro)
             {
                 await AplicarPontuacaoMelhorTerceiroAsync(idBolao, configuracaoRegras.PontosAcertoMelhorTerceiro!.Value, acumuladores);
+            }
+
+            if (possuiRegraAcertouPlacarBrasil)
+            {
+                await AplicarPontuacaoPlacarBrasilAsync(idBolao, configuracaoRegras.PontosAcertoPlacarBrasil!.Value, acumuladores);
             }
 
             return ConverterParaResponse(acumuladores);
@@ -139,9 +161,21 @@ namespace BolaoDaCopa.Aplicacao.Rank.Servicos
                             handled = true;
                         }
 
+                        if (DescricaoSeRefereAoArtilheiroBrasil(regra.Descricao))
+                        {
+                            resultado.PontosAcertoArtilheiroBrasil = regra.Pontuacao;
+                            handled = true;
+                        }
+
                         if (DescricaoSeRefereAoMelhorTerceiro(regra.Descricao))
                         {
                             resultado.PontosAcertoMelhorTerceiro = regra.Pontuacao;
+                            handled = true;
+                        }
+
+                        if (DescricaoSeRefereAoPlacarDoBrasil(regra.Descricao))
+                        {
+                            resultado.PontosAcertoPlacarBrasil = regra.Pontuacao;
                             handled = true;
                         }
 
@@ -345,6 +379,113 @@ namespace BolaoDaCopa.Aplicacao.Rank.Servicos
             }
         }
 
+        private async Task AplicarPontuacaoArtilheiroBrasilAsync(int idBolao, int pontosPorAcerto, Dictionary<int, RankAccumulator> acumuladores)
+        {
+            var palpites = await session.Query<PalpiteArtilheiroBrasil>()
+                .Where(p => p.BolaoUsuario.Bolao.Id == idBolao)
+                .Select(p => new
+                {
+                    BolaoUsuarioId = p.BolaoUsuario.Id,
+                    JogadorId = p.Jogador.Id
+                })
+                .ToListAsync();
+
+            if (!palpites.Any())
+            {
+                return;
+            }
+
+            var artilheiros = await session.Query<Artilheiro>()
+                .Select(a => a.Jogador.Id)
+                .ToListAsync();
+
+            if (!artilheiros.Any())
+            {
+                return;
+            }
+
+            var gabarito = new HashSet<int>(artilheiros);
+
+            foreach (var grupoUsuario in palpites.GroupBy(x => x.BolaoUsuarioId))
+            {
+                if (!acumuladores.TryGetValue(grupoUsuario.Key, out var accumulator))
+                {
+                    continue;
+                }
+
+                if (grupoUsuario.Any(x => gabarito.Contains(x.JogadorId)))
+                {
+                    accumulator.Pontuacao += pontosPorAcerto;
+                }
+            }
+        }
+
+        private async Task AplicarPontuacaoPlacarBrasilAsync(int idBolao, int pontosPorAcerto, Dictionary<int, RankAccumulator> acumuladores)
+        {
+            var jogosDoBrasil = await session.Query<JogoGrupo>()
+                .Where(j => j.Selecao1.Abreviacao == "BRA" || j.Selecao2.Abreviacao == "BRA")
+                .Select(j => new
+                {
+                    j.Id,
+                    Selecao1Id = j.Selecao1.Id,
+                    Selecao2Id = j.Selecao2.Id,
+                    j.PlacarSelecao1,
+                    j.PlacarSelecao2
+                })
+                .ToListAsync();
+
+            var jogosComPlacar = jogosDoBrasil
+                .Where(j => j.PlacarSelecao1.HasValue && j.PlacarSelecao2.HasValue)
+                .ToList();
+
+            if (!jogosComPlacar.Any())
+            {
+                return;
+            }
+
+            var palpites = await session.Query<PalpiteJogoGrupo>()
+                .Where(p => p.BolaoUsuario.Bolao.Id == idBolao)
+                .Select(p => new
+                {
+                    BolaoUsuarioId = p.BolaoUsuario.Id,
+                    Selecao1Id = p.Selecao1.Id,
+                    Selecao2Id = p.Selecao2.Id,
+                    p.PlacarSelecao1,
+                    p.PlacarSelecao2
+                })
+                .ToListAsync();
+
+            if (!palpites.Any())
+            {
+                return;
+            }
+
+            foreach (var grupoUsuario in palpites.GroupBy(x => x.BolaoUsuarioId))
+            {
+                if (!acumuladores.TryGetValue(grupoUsuario.Key, out var accumulator))
+                {
+                    continue;
+                }
+
+                foreach (var jogo in jogosComPlacar)
+                {
+                    var palpite = grupoUsuario.FirstOrDefault(p =>
+                        p.Selecao1Id == jogo.Selecao1Id && p.Selecao2Id == jogo.Selecao2Id);
+
+                    if (palpite == null)
+                    {
+                        continue;
+                    }
+
+                    if (palpite.PlacarSelecao1 == jogo.PlacarSelecao1!.Value &&
+                        palpite.PlacarSelecao2 == jogo.PlacarSelecao2!.Value)
+                    {
+                        accumulator.Pontuacao += pontosPorAcerto;
+                    }
+                }
+            }
+        }
+
         private async Task AplicarPontuacaoMelhorTerceiroAsync(int idBolao, int pontosPorAcerto, Dictionary<int, RankAccumulator> acumuladores)
         {
             var palpites = await session.Query<PalpiteTerceiroLugar>()
@@ -435,7 +576,7 @@ namespace BolaoDaCopa.Aplicacao.Rank.Servicos
             return acumuladores.Values
                 .OrderByDescending(x => x.Pontuacao)
                 .ThenBy(x => x.Usuario, StringComparer.OrdinalIgnoreCase)
-                .Select(x => new RankResponse(x.Usuario, x.Pontuacao))
+                .Select(x => new RankResponse(x.Usuario, x.Pontuacao) { IdUsuario = x.IdUsuario })
                 .ToList();
         }
 
@@ -506,6 +647,22 @@ namespace BolaoDaCopa.Aplicacao.Rank.Servicos
             return normalizado.Contains("artilheiro");
         }
 
+        private static bool DescricaoSeRefereAoArtilheiroBrasil(string descricao)
+        {
+            if (string.IsNullOrWhiteSpace(descricao))
+            {
+                return false;
+            }
+
+            var normalizado = NormalizarDescricao(descricao);
+            if (DescricaoRegraArtilheiroBrasilSet.Contains(normalizado))
+            {
+                return true;
+            }
+
+            return normalizado.Contains("artilheiro") && normalizado.Contains("brasil");
+        }
+
         private static bool DescricaoSeRefereAoMelhorTerceiro(string descricao)
         {
             if (string.IsNullOrWhiteSpace(descricao))
@@ -520,6 +677,22 @@ namespace BolaoDaCopa.Aplicacao.Rank.Servicos
             }
 
             return normalizado.Contains("terceiro") && normalizado.Contains("eliminatoria");
+        }
+
+        private static bool DescricaoSeRefereAoPlacarDoBrasil(string descricao)
+        {
+            if (string.IsNullOrWhiteSpace(descricao))
+            {
+                return false;
+            }
+
+            var normalizado = NormalizarDescricao(descricao);
+            if (DescricaoRegraAcertouPlacarBrasilSet.Contains(normalizado))
+            {
+                return true;
+            }
+
+            return normalizado.Contains("placar") && normalizado.Contains("brasil");
         }
 
         private static GroupStageRuleType? MapearDescricaoParaRegraDeGrupo(string descricao)
@@ -570,12 +743,14 @@ namespace BolaoDaCopa.Aplicacao.Rank.Servicos
 
         private class RankAccumulator
         {
-            public RankAccumulator(string usuario)
+            public RankAccumulator(string usuario, int idUsuario)
             {
                 Usuario = usuario;
+                IdUsuario = idUsuario;
             }
 
             public string Usuario { get; }
+            public int IdUsuario { get; }
             public int Pontuacao { get; set; }
         }
 
@@ -585,7 +760,9 @@ namespace BolaoDaCopa.Aplicacao.Rank.Servicos
             public int? PontosAcertoPosicaoGrupo { get; set; }
             public int? PontosAcertoPontuacaoGrupo { get; set; }
             public int? PontosAcertoArtilheiro { get; set; }
+            public int? PontosAcertoArtilheiroBrasil { get; set; }
             public int? PontosAcertoMelhorTerceiro { get; set; }
+            public int? PontosAcertoPlacarBrasil { get; set; }
         }
 
         private sealed class GrupoSelecaoGabarito

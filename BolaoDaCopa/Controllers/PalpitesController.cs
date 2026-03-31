@@ -49,6 +49,35 @@ namespace BolaoDaCopa.Controllers
         }
 
         /// <summary>
+        /// Cria PalpiteArtilheiroBrasil
+        /// </summary>
+        [HttpPost]
+        [Route("artilheiros-brasil")]
+        public async Task<ActionResult> CriarPalpiteArtilheiroBrasilAsync([FromBody] CriarPalpiteArtilheiroBrasilRequest request)
+        {
+            if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int idUsuario))
+                return Unauthorized("ID do usuário inválido ou ausente.");
+
+            request.IdUsuario = idUsuario;
+            await palpitesServico.CriarPalpiteArtilheiroBrasil(request);
+            return Ok();
+        }
+
+        /// <summary>
+        /// Recupera PalpiteArtilheiroBrasil
+        /// </summary>
+        [HttpGet]
+        [Route("artilheiros-brasil")]
+        public async Task<ActionResult<PalpiteArtilheiroBrasilResponse>> RecuperarPalpiteArtilheiroBrasilAsync([FromQuery] HashBolaoRequest request)
+        {
+            if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int idUsuario))
+                return Unauthorized("ID do usuário inválido ou ausente.");
+
+            var retorno = await palpitesServico.RecuperarPalpiteArtilheiroBrasilAsync(request.HashBolao, idUsuario);
+            return Ok(retorno);
+        }
+
+        /// <summary>
         /// Cria PalpiteFaseSelecao
         /// </summary>
         [HttpPost]

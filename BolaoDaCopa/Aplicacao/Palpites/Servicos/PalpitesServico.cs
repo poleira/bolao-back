@@ -195,6 +195,56 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
             }
         }
 
+        public async Task CriarPalpiteArtilheiroBrasil(CriarPalpiteArtilheiroBrasilRequest request)
+        {
+            var transacao = session.BeginTransaction();
+            try
+            {
+                int idBolao = int.Parse(CryptoHelper.Decrypt(request.HashBolao));
+                Usuario usuario = usuariosRepositorio.Recuperar(request.IdUsuario) ?? throw new Exception("Usuário não encontrado.");
+                Jogador jogador = jogadoresRepositorio.Recuperar(request.JogadorId) ?? throw new Exception("Jogador não encontrado.");
+
+                BolaoUsuario bolaoUsuario = await boloesUsuariosRepositorio.RecuperarAsync(idBolao, usuario.Id) ?? throw new Exception("Bolao do usuario não encontrado.");
+
+                await palpiteRepositorio.InserirPalpiteArtilheiroBrasil(new PalpiteArtilheiroBrasil(jogador, bolaoUsuario));
+
+                if (transacao.IsActive)
+                    transacao.Commit();
+            }
+            catch (Exception ex)
+            {
+                if (transacao.IsActive)
+                    transacao.Rollback();
+                throw new Exception("Erro", ex);
+            }
+        }
+
+        public async Task<PalpiteArtilheiroBrasilResponse> RecuperarPalpiteArtilheiroBrasilAsync(string hashBolao, int idUsuario)
+        {
+            try
+            {
+                var usuario = usuariosRepositorio.Recuperar(idUsuario) ?? throw new Exception("Usuário não encontrado.");
+                int idBolao = int.Parse(CryptoHelper.Decrypt(hashBolao));
+
+                BolaoUsuario bolaoUsuario = await boloesUsuariosRepositorio.RecuperarAsync(idBolao, usuario.Id) ?? throw new Exception("Bolao do usuario não encontrado.");
+
+                IQueryable<PalpiteArtilheiroBrasil> query = palpiteRepositorio.RecuperarQueryPalpiteArtilheiroBrasilPorBolaoUsuarioId(bolaoUsuario.Id);
+
+                var projecao = query.Select(x => new PalpiteArtilheiroBrasilResponse
+                {
+                    Id = x.Id,
+                    JogadorNome = x.Jogador.Nome,
+                    JogadorId = x.Jogador.Id,
+                });
+
+                return (await projecao.ToListAsync()).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao recuperar", ex);
+            }
+        }
+
         public async Task<PalpiteArtilheiroResponse> RecuperarPalpiteArtilheiroAsync(string hashBolao, int idUsuario)
         {
             try

@@ -43,8 +43,12 @@ using BolaoDaCopa.Infra.Repositorios.ModosJogosRegras;
 using BolaoDaCopa.Infra.Repositorios.ModosJogosRegras.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.ModosJogos;
 using BolaoDaCopa.Infra.Repositorios.ModosJogos.Interfaces;
+using BolaoDaCopa.Aplicacao.JogosGrupo.Servicos;
+using BolaoDaCopa.Aplicacao.JogosGrupo.Servicos.Interfaces;
 using BolaoDaCopa.Aplicacao.ModosJogos.Servicos;
 using BolaoDaCopa.Aplicacao.ModosJogos.Servicos.Interfaces;
+using BolaoDaCopa.Infra.Repositorios.JogosGrupo;
+using BolaoDaCopa.Infra.Repositorios.JogosGrupo.Interfaces;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using Microsoft.AspNetCore.Diagnostics;
@@ -111,6 +115,8 @@ builder.Services.AddScoped<IRegrasServico, RegrasServico>();
 builder.Services.AddScoped<IModosJogosRegrasRepositorios, ModosJogosRegrasRepositorios>();
 builder.Services.AddScoped<IModosJogosRepositorios, ModosJogosRepositorios>();
 builder.Services.AddScoped<IModosJogosServicos, ModosJogosServicos>();
+builder.Services.AddScoped<IJogosGrupoRepositorio, JogosGrupoRepositorio>();
+builder.Services.AddScoped<IJogosGrupoServico, JogosGrupoServico>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 

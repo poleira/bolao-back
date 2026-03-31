@@ -8,6 +8,7 @@ namespace BolaoDaCopa.Infra.Repositorios.Palpites.Interface
         Task DeletarPalpiteGrupoSelecaoPorBolaoUsuario(int bolaoUsuarioId);
         Task DeletarPalpiteJogoGrupoPorBolaoUsuario(int bolaoUsuarioId);
         Task InserirPalpiteArtilheiro(PalpiteArtilheiro palpiteArtilheiro);
+        Task InserirPalpiteArtilheiroBrasil(PalpiteArtilheiroBrasil palpiteArtilheiroBrasil);
         Task InserirPalpiteFaseSelecao(PalpiteFaseSelecao palpiteFaseSelecao);
         Task InserirPalpiteGrupoSelecao(PalpiteGrupoSelecao palpiteGrupoSelecao);
         Task InserirPalpiteJogoGrupo(PalpiteJogoGrupo palpiteJogoGrupo);
@@ -18,6 +19,7 @@ namespace BolaoDaCopa.Infra.Repositorios.Palpites.Interface
         IQueryable<PalpiteGrupoSelecao> RecuperarQueryPalpiteGrupoSelecaoPorBolaoUsuarioId(int idBolaoUsuario);
         IQueryable<PalpiteJogoGrupo> RecuperarQueryPalpiteJogoGrupoPorBolaoUsuarioId(int idBolaoUsuario);
         IQueryable<PalpiteArtilheiro> RecuperarQueryPalpiteArtilheiroPorBolaoUsuarioId(int idBolaoUsuario);
+        IQueryable<PalpiteArtilheiroBrasil> RecuperarQueryPalpiteArtilheiroBrasilPorBolaoUsuarioId(int idBolaoUsuario);
         IQueryable<PalpiteTerceiroLugar> RecuperarQueryPalpiteTerceiroLugarPorBolaoUsuarioId(int idBolaoUsuario);
     }
 }

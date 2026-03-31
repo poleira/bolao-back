@@ -28,5 +28,12 @@ namespace BolaoDaCopa.Controllers
             var retorno = jogadoresServico.ListarJogadores(request);
             return Ok(retorno);
         }
+
+        [HttpGet("brasil")]
+        public ActionResult<IEnumerable<Jogador>> ListarJogadoresDoBrasil([FromQuery] JogadoresListarRequest request)
+        {
+            var retorno = jogadoresServico.ListarJogadoresDoBrasil(request);
+            return Ok(retorno);
+        }
     }
 }

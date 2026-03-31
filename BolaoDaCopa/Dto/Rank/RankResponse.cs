@@ -10,5 +10,6 @@
 
         public string Usuario { get; set; }
         public int Pontuacao { get; set; }
+        public int IdUsuario { get; set; }
     }
 }
