@@ -98,6 +98,20 @@ namespace BolaoDaCopa.Aplicacao.Notificacoes.Servicos
             }
         }
 
+        public void CriarNotificacaoBoasVindas(Usuario usuario)
+        {
+            var notificacao = new Notificacao(
+                mensagem: $"Bem-vindo ao Bolão do Hexa, {usuario.Nome}! Os palpites estão abertos até dia 10/06/26. 🎉 Boas apostas!",
+                tipo: Models.Enums.TipoMensagemEnum.Mensagem,
+                lida: false,
+                usuario: usuario,
+                usuarioEnviando: null,
+                hashBolao: null
+            );
+
+            notificacoesRepositorio.Inserir(notificacao);
+        }
+
         public void ExcluirNotificacao(int idNotificacao)
         {
             try

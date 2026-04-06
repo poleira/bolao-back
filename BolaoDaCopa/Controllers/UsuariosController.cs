@@ -58,8 +58,6 @@ namespace BolaoDaCopa.Controllers
             return Ok(response);
         }
 
-
-
         [AllowAnonymous]
         [HttpPost]
         [Route("verificar-existente")]

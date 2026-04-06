@@ -14,7 +14,7 @@ namespace BolaoDaCopa.Models
 
         protected Notificacao() { }
 
-        public Notificacao(string mensagem, TipoMensagemEnum tipo, bool lida, Usuario usuario, Usuario usuarioEnviando, string hashBolao)
+        public Notificacao(string mensagem, TipoMensagemEnum tipo, bool lida, Usuario usuario, Usuario usuarioEnviando, string? hashBolao)
         {
             Mensagem = mensagem;
             Tipo = tipo;

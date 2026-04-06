@@ -7,6 +7,7 @@ namespace BolaoDaCopa.Aplicacao.Notificacoes.Servicos.Interfaces
     {
         void AceitarSolicitacao(int idNotificacao, int idUsuarioLogado);
         void CriarNotificacao(Notificacao notificacao);
+        void CriarNotificacaoBoasVindas(Usuario usuario);
         void ExcluirNotificacao(int idNotificacao);
         IEnumerable<NotificacaoResponse> ListarNotificacoesPorUsuario(int idUsuario);
         void MarcarNotificacaoComoLida(int idNotificacao);

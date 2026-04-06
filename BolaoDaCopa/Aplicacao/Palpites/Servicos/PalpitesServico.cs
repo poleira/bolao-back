@@ -39,8 +39,17 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
             this.selecoesRepositorio = selecoesRepositorio;
         }
 
+        private static readonly DateTime DataLimitePalpites = new DateTime(2026, 6, 11);
+
+        private static void ValidarPrazoParaPalpite()
+        {
+            if (DateTime.UtcNow.Date >= DataLimitePalpites.Date)
+                throw new InvalidOperationException("O prazo para realizar palpites encerrou. Os palpites só são permitidos até o dia 10 de junho de 2026.");
+        }
+
         public async Task CriarPalpiteArtilheiro(CriarPalpiteArtilheiroRequest request)
         {
+            ValidarPrazoParaPalpite();
             var transacao = session.BeginTransaction();
             try
             {
@@ -66,6 +75,7 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
 
         public async Task CriarPalpiteFaseSelecao(CriarPalpiteFaseSelecaoRequest[] request, int idUsuario)
         {
+            ValidarPrazoParaPalpite();
             var transacao = session.BeginTransaction();
             try
             {
@@ -103,6 +113,7 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
 
         public async Task CriarPalpiteGrupoSelecao(CriarPalpiteGrupoSelecaoRequest[] request, int idUsuario)
         {
+            ValidarPrazoParaPalpite();
             var transacao = session.BeginTransaction();
             try
             {
@@ -135,6 +146,7 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
 
         public async Task CriarPalpiteJogoGrupo(CriarPalpiteJogoGrupoRequest[] request, int idUsuario)
         {
+            ValidarPrazoParaPalpite();
             var transacao = session.BeginTransaction();
             try
             {
@@ -166,6 +178,7 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
 
         public async Task CriarPalpiteTerceiroLugar(CriarPalpiteTerceiroLugarRequest[] request, int idUsuario)
         {
+            ValidarPrazoParaPalpite();
             var transacao = session.BeginTransaction();
             try
             {
@@ -197,6 +210,7 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
 
         public async Task CriarPalpiteArtilheiroBrasil(CriarPalpiteArtilheiroBrasilRequest request)
         {
+            ValidarPrazoParaPalpite();
             var transacao = session.BeginTransaction();
             try
             {
@@ -866,6 +880,25 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
                 if (palpiteArtilheiro != null && !string.IsNullOrEmpty(palpiteArtilheiro.JogadorNome))
                 {
                     response.PalpiteArtilheiro = $"{palpiteArtilheiro.JogadorNome}";
+                }
+
+                // Palpite Resultados Jogos do Brasil
+                var palpitesJogosGrupo = await RecuperarPalpiteJogoGrupoAsync(hashBolao, usuarioSolicitado.Id);
+                var jogosBrasil = palpitesJogosGrupo?
+                    .Where(p => p.Selecao1?.Abreviacao == "BRA" || p.Selecao2?.Abreviacao == "BRA")
+                    .ToList();
+                if (jogosBrasil != null && jogosBrasil.Any())
+                {
+                    var textoJogosBrasil = string.Join(", ", jogosBrasil.Select(j =>
+                        $"{j.Selecao1?.Nome} {j.PlacarSelecao1} x {j.PlacarSelecao2} {j.Selecao2?.Nome}"));
+                    response.PalpiteResultadosJogosBrasil = textoJogosBrasil;
+                }
+
+                // Palpite Artilheiro Brasil
+                var palpiteArtilheiroBrasil = await RecuperarPalpiteArtilheiroBrasilAsync(hashBolao, usuarioSolicitado.Id);
+                if (palpiteArtilheiroBrasil != null && !string.IsNullOrEmpty(palpiteArtilheiroBrasil.JogadorNome))
+                {
+                    response.PalpiteArtilheiroBrasil = palpiteArtilheiroBrasil.JogadorNome;
                 }
 
                 return response;

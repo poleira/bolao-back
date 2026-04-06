@@ -49,6 +49,7 @@ using BolaoDaCopa.Aplicacao.ModosJogos.Servicos;
 using BolaoDaCopa.Aplicacao.ModosJogos.Servicos.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.JogosGrupo;
 using BolaoDaCopa.Infra.Repositorios.JogosGrupo.Interfaces;
+using AspNetCoreRateLimit;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using Microsoft.AspNetCore.Diagnostics;
@@ -68,14 +69,26 @@ builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(BoloesProfile));
 
+// Rate Limiting
+builder.Services.AddMemoryCache();
+builder.Services.Configure<IpRateLimitOptions>(builder.Configuration.GetSection("IpRateLimiting"));
+builder.Services.AddInMemoryRateLimiting();
+builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+// CORS — adicione os domínios permitidos em appsettings.json > "AllowedOrigins"
+var allowedOrigins = builder.Configuration.GetSection("AllowedOrigins").Get<string[]>()
+    ?? Array.Empty<string>();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("MyCorsImplementationPolicy", builder =>
+    options.AddPolicy("MyCorsImplementationPolicy", corsBuilder =>
     {
-        builder.WithOrigins("*");
-        builder.AllowAnyHeader();
-        builder.AllowAnyMethod();
+        corsBuilder
+            .WithOrigins(allowedOrigins)
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
     });
 });
 
@@ -176,6 +189,7 @@ app.UseExceptionHandler(errorApp =>
     });
 });
 
+app.UseIpRateLimiting();
 app.UseHttpsRedirection();
 app.UseCors("MyCorsImplementationPolicy");
 app.UseAuthentication();

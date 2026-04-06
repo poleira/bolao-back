@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BolaoDaCopa.Aplicacao.Comum.Repositorios;
+using BolaoDaCopa.Aplicacao.Notificacoes.Servicos.Interfaces;
 using BolaoDaCopa.Aplicacao.Usuarios.Servicos.Interfaces;
 using BolaoDaCopa.Bibliotecas.Transacoes.Interfaces;
 using BolaoDaCopa.Dto.Autenticacao.Responses;
@@ -19,13 +20,15 @@ namespace BolaoDaCopa.Aplicacao.Usuarios.Servicos
         private readonly IUnitOfWork _unitOfWork;
         private readonly IJwtTokenGenerator _jwtTokenGenerator;
         private readonly IUsuariosRepositorio _usuariosRepositorio;
+        private readonly INotificacoesServico _notificacoesServico;
 
-        public UsuariosServico(IMapper _mapper, IUnitOfWork _unitOfWork, IJwtTokenGenerator _jwtTokenGenerator, IUsuariosRepositorio _usuariosRepositorio)
+        public UsuariosServico(IMapper _mapper, IUnitOfWork _unitOfWork, IJwtTokenGenerator _jwtTokenGenerator, IUsuariosRepositorio _usuariosRepositorio, INotificacoesServico _notificacoesServico)
         {
             this._mapper = _mapper;
             this._unitOfWork = _unitOfWork;
             this._jwtTokenGenerator = _jwtTokenGenerator;
             this._usuariosRepositorio = _usuariosRepositorio;
+            this._notificacoesServico = _notificacoesServico;
 
             if (FirebaseApp.DefaultInstance == null)
             {
@@ -47,6 +50,8 @@ namespace BolaoDaCopa.Aplicacao.Usuarios.Servicos
                 VerificarUsuarioExistente(new VerificarUsuarioExistenteRequest { Email = request.Email, Nome = request.Nome });
 
                 _usuariosRepositorio.Inserir(usuario);
+
+                _notificacoesServico.CriarNotificacaoBoasVindas(usuario);
 
                 var token = _jwtTokenGenerator.GerarToken(usuario);
 

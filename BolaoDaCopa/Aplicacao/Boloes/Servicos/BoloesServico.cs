@@ -14,6 +14,7 @@ using BolaoDaCopa.Infra.Repositorios.BoloesUsuarios.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.Usuarios.Interfaces;
 using BolaoDaCopa.Models;
 using BolaoDaCopa.Services;
+using ISession = NHibernate.ISession;
 
 namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
 {
@@ -21,15 +22,17 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
+        private readonly ISession session;
     private readonly IBoloesRepositorio boloesRepositorio;
     private readonly BolaoDaCopa.Infra.Repositorios.ModosJogos.Interfaces.IModosJogosRepositorios modosJogosRepositorios;
         private readonly IUsuariosRepositorio usuariosRepositorio;
         private readonly IBoloesUsuariosRepositorio boloesUsuariosRepositorio;
 
-    public BoloesServico(IUnitOfWork unitOfWork, IMapper mapper, IBoloesRepositorio boloesRepositorio, IUsuariosRepositorio usuariosRepositorio, IBoloesUsuariosRepositorio boloesUsuariosRepositorio, BolaoDaCopa.Infra.Repositorios.ModosJogos.Interfaces.IModosJogosRepositorios modosJogosRepositorios)
+    public BoloesServico(IUnitOfWork unitOfWork, IMapper mapper, ISession session, IBoloesRepositorio boloesRepositorio, IUsuariosRepositorio usuariosRepositorio, IBoloesUsuariosRepositorio boloesUsuariosRepositorio, BolaoDaCopa.Infra.Repositorios.ModosJogos.Interfaces.IModosJogosRepositorios modosJogosRepositorios)
         {
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
+            this.session = session;
             this.boloesRepositorio = boloesRepositorio;
             this.usuariosRepositorio = usuariosRepositorio;
             this.boloesUsuariosRepositorio = boloesUsuariosRepositorio;
@@ -230,6 +233,25 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
                 if (bolao.Usuarios.Any(x => x.Id == usuarioASerDeletado.Id) && (usuarioLogado.Id == usuarioASerDeletado.Id || bolao.UsuarioAdm.Id == usuarioLogado.Id))
                 {
                     BolaoUsuario bolaoUsuario = boloesUsuariosRepositorio.Query().Where(x => x.Usuario.Id == usuarioASerDeletado.Id && x.Bolao.Id == idBolao).FirstOrDefault() ?? throw new Exception("Usuario não encontrado no bolão.");
+
+                    var deleteQuery = "delete from {0} where BolaoUsuario.Id = :id";
+                    var tabelas = new[]
+                    {
+                        "PalpiteArtilheiro",
+                        "PalpiteArtilheiroBrasil",
+                        "PalpiteFaseSelecao",
+                        "PalpiteGrupoSelecao",
+                        "PalpiteJogoGrupo",
+                        "PalpiteTerceiroLugar"
+                    };
+
+                    foreach (var tabela in tabelas)
+                    {
+                        session.CreateQuery(string.Format(deleteQuery, tabela))
+                            .SetParameter("id", bolaoUsuario.Id)
+                            .ExecuteUpdate();
+                    }
+
                     boloesUsuariosRepositorio.Remover(bolaoUsuario);
                 }
                 else
