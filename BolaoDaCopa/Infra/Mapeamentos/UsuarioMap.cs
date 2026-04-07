@@ -8,19 +8,20 @@ namespace BolaoDaCopa.Infra.Mapeamento
         public UsuarioMap()
         {
 
-            Schema("Bolao");
-            Table("Usuario");
+            Schema("bolao");
+            Table("usuario");
             
-            Id(x => x.Id).Column("ID");
-            Map(x => x.Nome).Column("Nome");
-            Map(x => x.FirebaseUid).Column("FirebaseUid");
-            Map(x => x.Email).Column("Email");
-            Map(x => x.Logo).Column("Logo");
+            Id(x => x.Id).Column("id");
+            Map(x => x.Nome).Column("nome");
+            Map(x => x.FirebaseUid).Column("firebaseuid");
+            Map(x => x.Email).Column("email");
+            Map(x => x.Logo).Column("logo");
             
             HasManyToMany(x => x.Boloes)
-                .Table("BolaoUsuario")
-                .ParentKeyColumn("IDUsuario")
-                .ChildKeyColumn("IDBolao")
+                .Schema("bolao")
+                .Table("bolaousuario")
+                .ParentKeyColumn("idusuario")
+                .ChildKeyColumn("idbolao")
                 .Cascade.All();
         }
     }

@@ -8,12 +8,12 @@ namespace BolaoDaCopa.Infra.Mapeamentos
     {
         public PremioMap()
         {
-            Schema("Bolao");
-            Table("Premio");
-            Id(x => x.Id).Column("ID");
-            Map(x => x.Descricao).Column("Descricao");
-            Map(x => x.Colocacao).Column("Colocacao");
-            References(x => x.Bolao).Column("IDBolao").Not.Nullable().Cascade.None();
+            Schema("bolao");
+            Table("premio");
+            Id(x => x.Id).Column("id");
+            Map(x => x.Descricao).Column("descricao");
+            Map(x => x.Colocacao).Column("colocacao");
+            References(x => x.Bolao).Column("idbolao").Not.Nullable().Cascade.None();
         }
     }
 }

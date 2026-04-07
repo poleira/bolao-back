@@ -206,6 +206,23 @@ namespace BolaoDaCopa.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Excluir Bolao (apenas o administrador pode excluir)
+        /// </summary>
+        /// <param name="hashBolao">Hash de acesso do bolão</param>
+        /// <returns></returns>
+        [HttpDelete]
+        public ActionResult ExcluirBolao([FromQuery] HashBolaoRequest request)
+        {
+            var idClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+
+            if (idClaim == null || !int.TryParse(idClaim.Value, out int idUsuario))
+                throw new UnauthorizedAccessException("ID do usuário inválido ou ausente.");
+
+            boloesServico.ExcluirBolao(request.HashBolao, idUsuario);
+            return Ok();
+        }
+
     }
 }
 

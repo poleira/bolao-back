@@ -7,15 +7,15 @@ namespace BolaoDaCopa.Infra.Mapeamento
     {
         public PalpiteJogoGrupoMap()
         {
-            Schema("Bolao");
-            Table("PalpiteJogoGrupo");
-            Id(x => x.Id).Column("ID");
-            Map(x => x.PlacarSelecao1).Column("PlacarSelecao1");
-            Map(x => x.PlacarSelecao2).Column("PlacarSelecao2");
-            References(x => x.Grupo).Column("IDGrupo").Not.Nullable();
-            References(x => x.BolaoUsuario).Column("IDBolaoUsuario").Not.Nullable();
-            References(x => x.Selecao1).Column("IDSelecao1").Not.Nullable();
-            References(x => x.Selecao2).Column("IDSelecao2").Not.Nullable();
+            Schema("bolao");
+            Table("palpitejogogrupo");
+            Id(x => x.Id).Column("id");
+            Map(x => x.PlacarSelecao1).Column("placarselecao1");
+            Map(x => x.PlacarSelecao2).Column("placarselecao2");
+            References(x => x.Grupo).Column("idgrupo").Not.Nullable();
+            References(x => x.BolaoUsuario).Column("idbolaousuario").Not.Nullable();
+            References(x => x.Selecao1).Column("idselecao1").Not.Nullable();
+            References(x => x.Selecao2).Column("idselecao2").Not.Nullable();
         }
     }
 }

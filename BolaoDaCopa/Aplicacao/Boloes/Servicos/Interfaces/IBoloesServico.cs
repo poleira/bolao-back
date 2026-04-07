@@ -18,5 +18,6 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos.Interfaces
         BolaoResponse Recuperar(string hashBolao);
         void InserirPremiosBolao(InserirPremioBolaoRequest[] request, Bolao? bolaoParametro);
         IList<BolaoListarResponse> ListarBoloes(BolaoListarRequest request);
+        void ExcluirBolao(string hashBolao, int idUsuario);
     }
 }

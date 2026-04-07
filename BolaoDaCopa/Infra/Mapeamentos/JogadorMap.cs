@@ -7,10 +7,10 @@ namespace BolaoDaCopa.Infra.Mapeamento
     {
         public JogadorMap() 
         {
-            Schema("Bolao");
-            Table("Jogador");
-            Id(x => x.Id).Column("ID");
-            Map(x => x.Nome).Column("Nome").Not.Nullable();
+            Schema("bolao");
+            Table("jogador");
+            Id(x => x.Id).Column("id");
+            Map(x => x.Nome).Column("nome").Not.Nullable();
         }
     }
 }

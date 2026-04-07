@@ -7,12 +7,12 @@ namespace BolaoDaCopa.Infra.Mapeamento
     {
         public CampeonatoMap()
         {
-            Schema("Bolao");
-            Table("BolaoRegra");
-            Id(x => x.Id).Column("ID");
-            Map(x => x.Pontuacao).Column("Pontuacao");
-            References(x => x.Bolao).Column("IDBolao").Not.Nullable();
-            References(x => x.Regra).Column("IDRegra").Not.Nullable();
+            Schema("bolao");
+            Table("bolaoregra");
+            Id(x => x.Id).Column("id");
+            Map(x => x.Pontuacao).Column("pontuacao");
+            References(x => x.Bolao).Column("idbolao").Not.Nullable();
+            References(x => x.Regra).Column("idregra").Not.Nullable();
         }
     }
 }

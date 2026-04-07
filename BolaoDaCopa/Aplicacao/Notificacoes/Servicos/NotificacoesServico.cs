@@ -24,7 +24,7 @@ namespace BolaoDaCopa.Aplicacao.Notificacoes.Servicos
         public IEnumerable<NotificacaoResponse> ListarNotificacoesPorUsuario(int idUsuario)
         {
             var query = notificacoesRepositorio.Query()
-                .Where(n => n.UsuarioRecebendo.Id == idUsuario && !n.Lida);
+                .Where(n => n.UsuarioRecebendo.Id == idUsuario && n.Lida == false);
 
             var projecao = query.Select(x => new NotificacaoResponse
             {
@@ -59,7 +59,7 @@ namespace BolaoDaCopa.Aplicacao.Notificacoes.Servicos
             try
             {
                 var query = notificacoesRepositorio.Query()
-                    .Where(n => !n.Lida && n.UsuarioRecebendo.Id == idUsuario);
+                    .Where(n => n.Lida == false && n.UsuarioRecebendo.Id == idUsuario);
 
                 return query.Any();
             }

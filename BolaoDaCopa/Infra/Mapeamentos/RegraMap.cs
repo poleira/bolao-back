@@ -7,11 +7,11 @@ namespace BolaoDaCopa.Infra.Mapeamentos
     {
         public RegraMap()
         {
-            Schema("Bolao");
-            Table("Regra");
-            Id(x => x.Id).Column("ID");
-            Map(x => x.Descricao).Column("Descricao");
-            Map(x => x.Explicacao).Column("Explicacao");
+            Schema("bolao");
+            Table("regra");
+            Id(x => x.Id).Column("id");
+            Map(x => x.Descricao).Column("descricao");
+            Map(x => x.Explicacao).Column("explicacao");
         }
     }
 }

@@ -7,12 +7,12 @@ namespace BolaoDaCopa.Infra.Mapeamento
     {
         public PalpiteTerceiroLugarMap()
         {
-            Schema("Bolao");
-            Table("PalpiteTerceiroLugar");
-            Id(x => x.Id).Column("ID");
-            References(x => x.BolaoUsuario).Column("IDBolaoUsuario").Not.Nullable();
-            References(x => x.Selecao).Column("IDSelecao").Not.Nullable();
-            Map(x => x.Posicao).Column("Posicao");
+            Schema("bolao");
+            Table("palpiteterceirolugar");
+            Id(x => x.Id).Column("id");
+            References(x => x.BolaoUsuario).Column("idbolaousuario").Not.Nullable();
+            References(x => x.Selecao).Column("idselecao").Not.Nullable();
+            Map(x => x.Posicao).Column("posicao");
         }
     }
 }

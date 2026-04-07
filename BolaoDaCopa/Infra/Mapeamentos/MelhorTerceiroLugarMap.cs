@@ -7,11 +7,11 @@ namespace BolaoDaCopa.Infra.Mapeamento
     {
         public MelhorTerceiroLugarMap()
         {
-            Schema("Bolao");
-            Table("MelhorTerceiroLugar");
-            Id(x => x.Id).Column("ID");
-            References(x => x.Selecao).Column("IDSelecao").Not.Nullable();
-            Map(x => x.Posicao).Column("Posicao");
+            Schema("bolao");
+            Table("melhorterceirolugar");
+            Id(x => x.Id).Column("id");
+            References(x => x.Selecao).Column("idselecao").Not.Nullable();
+            Map(x => x.Posicao).Column("posicao");
         }
     }
 }

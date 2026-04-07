@@ -8,15 +8,15 @@ namespace BolaoDaCopa.Infra.Mapeamentos
     {
         public NotificacaoMap()
         {
-            Schema("Bolao");
-            Table("Notificacao");
-            Id(x => x.Id).Column("ID");
-            Map(x => x.Tipo).Column("Tipo").Not.Nullable().CustomType<TipoMensagemEnum>();
-            Map(x => x.Lida).Column("Lida").Not.Nullable().Default("0").CustomType(typeof(NHibernate.Type.BooleanType)).Not.Nullable();
-            Map(x => x.Mensagem).Column("Mensagem").Not.Nullable();
-            Map(x => x.HashBolao).Column("HashBolao").Nullable();
-            References(x => x.UsuarioRecebendo).Column("IDUsuario").Not.Nullable();
-            References(x => x.UsuarioEnviando).Column("IDUsuarioEnviando").Not.Nullable();
+            Schema("bolao");
+            Table("notificacao");
+            Id(x => x.Id).Column("id");
+            Map(x => x.Tipo).Column("tipo").Not.Nullable().CustomType<TipoMensagemEnum>();
+            Map(x => x.Lida).Column("lida").Not.Nullable().Default("false");
+            Map(x => x.Mensagem).Column("mensagem").Not.Nullable();
+            Map(x => x.HashBolao).Column("hashbolao").Nullable();
+            References(x => x.UsuarioRecebendo).Column("idusuario").Not.Nullable();
+            References(x => x.UsuarioEnviando).Column("idusuarioenviando").Not.Nullable();
         }
     }
 }

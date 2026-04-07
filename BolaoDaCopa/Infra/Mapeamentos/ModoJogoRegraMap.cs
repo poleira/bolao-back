@@ -7,11 +7,11 @@ namespace BolaoDaCopa.Infra.Mapeamentos
     {
         public ModoJogoRegraMap()
         {
-            Schema("Bolao");
-            Table("ModoJogoRegra");
-            Id(x => x.Id).Column("ID");
-            References(x => x.ModoJogo).Column("IDModoJogo").Not.Nullable();
-            References(x => x.Regra).Column("IDRegra").Not.Nullable();
+            Schema("bolao");
+            Table("modojogoregra");
+            Id(x => x.Id).Column("id");
+            References(x => x.ModoJogo).Column("idmodojogo").Not.Nullable();
+            References(x => x.Regra).Column("idregra").Not.Nullable();
         }
     }
 }

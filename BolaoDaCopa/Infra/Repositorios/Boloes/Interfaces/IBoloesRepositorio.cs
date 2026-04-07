@@ -13,5 +13,6 @@ namespace BolaoDaCopa.Infra.Repositorios.Boloes.Interfaces
         void DeletarPremiosBolao(int bolaoId);
         void InserirPremio(Premio premio);
         IQueryable<Premio> QueryPremio();
+        void DeletarBolao(int bolaoId);
     }
 }

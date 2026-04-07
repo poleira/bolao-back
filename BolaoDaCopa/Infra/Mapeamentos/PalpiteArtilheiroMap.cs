@@ -7,11 +7,11 @@ namespace BolaoDaCopa.Infra.Mapeamento
     {
         public PalpiteArtilheiroMap()
         {
-            Schema("Bolao");
-            Table("PalpiteArtilheiro");
-            Id(x => x.Id).Column("ID");
-            References(x => x.BolaoUsuario).Column("IDBolaoUsuario").Not.Nullable();
-            References(x => x.Jogador).Column("IDJogador").Not.Nullable();
+            Schema("bolao");
+            Table("palpiteartilheiro");
+            Id(x => x.Id).Column("id");
+            References(x => x.BolaoUsuario).Column("idbolaousuario").Not.Nullable();
+            References(x => x.Jogador).Column("idjogador").Not.Nullable();
         }
     }
 }

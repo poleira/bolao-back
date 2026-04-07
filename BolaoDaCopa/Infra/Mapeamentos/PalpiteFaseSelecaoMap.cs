@@ -7,12 +7,12 @@ namespace BolaoDaCopa.Infra.Mapeamento
     {
         public PalpiteFaseSelecaoMap()
         {
-            Schema("Bolao");
-            Table("PalpiteFaseSelecao");
-            Id(x => x.Id).Column("ID");
-            References(x => x.Fase).Column("IDFase").Not.Nullable();
-            References(x => x.Selecao).Column("IDSelecao").Not.Nullable();
-            References(x => x.BolaoUsuario).Column("IDBolaoUsuario").Not.Nullable();
+            Schema("bolao");
+            Table("palpitefaseselecao");
+            Id(x => x.Id).Column("id");
+            References(x => x.Fase).Column("idfase").Not.Nullable();
+            References(x => x.Selecao).Column("idselecao").Not.Nullable();
+            References(x => x.BolaoUsuario).Column("idbolaousuario").Not.Nullable();
         }
     }
 }

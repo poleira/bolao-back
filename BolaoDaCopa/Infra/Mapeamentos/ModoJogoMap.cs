@@ -7,13 +7,13 @@ namespace BolaoDaCopa.Infra.Mapeamentos
     {
         public ModoJogoMap()
         {
-            Schema("Bolao");
-            Table("ModoJogo");
-            Id(x => x.Id).Column("ID");
-            Map(x => x.NomeModoJogo).Column("NomeModoJogo");
+            Schema("bolao");
+            Table("modojogo");
+            Id(x => x.Id).Column("id");
+            Map(x => x.NomeModoJogo).Column("nomemodojogo");
 
             HasMany(x => x.Regras)
-                .KeyColumn("IDModoJogo")
+                .KeyColumn("idmodojogo")
                 .Cascade.All().Not.LazyLoad();
         }
     }

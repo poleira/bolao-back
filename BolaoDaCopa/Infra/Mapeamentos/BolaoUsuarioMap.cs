@@ -7,11 +7,11 @@ namespace BolaoDaCopa.Infra.Mapeamento
     {
         public BolaoUsuarioMap()
         {
-            Schema("Bolao");
-            Table("BolaoUsuario");
-            Id(x => x.Id).Column("ID");
-            References(x => x.Usuario).Column("IDUsuario");
-            References(x => x.Bolao).Column("IDBolao");
+            Schema("bolao");
+            Table("bolaousuario");
+            Id(x => x.Id).Column("id");
+            References(x => x.Usuario).Column("idusuario");
+            References(x => x.Bolao).Column("idbolao");
         }
     }
 }

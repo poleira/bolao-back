@@ -18,12 +18,24 @@ namespace BolaoDaCopa.Infra.Repositorios.Boloes
         }
 
         private readonly string sqlDeletarRegrasBolao =
-            @"DELETE FROM bolaoregra
-            WHERE IDBolao = @idBolao;";
+            @"DELETE FROM bolao.bolaoregra
+            WHERE idbolao = @idBolao;";
 
         private readonly string sqlDeletarPremiosBolao =
-            @"DELETE FROM premio
-            WHERE IDBolao = @idBolao;";
+            @"DELETE FROM bolao.premio
+            WHERE idbolao = @idBolao;";
+
+        private readonly string sqlDeletarPalpitesBolao =
+            @"DELETE FROM bolao.palpiteartilheiro      WHERE idbolaousuario IN (SELECT id FROM bolao.bolaousuario WHERE idbolao = @idBolao);
+              DELETE FROM bolao.palpiteartilheirobrasil WHERE idbolaousuario IN (SELECT id FROM bolao.bolaousuario WHERE idbolao = @idBolao);
+              DELETE FROM bolao.palpitefaseselecao      WHERE idbolaousuario IN (SELECT id FROM bolao.bolaousuario WHERE idbolao = @idBolao);
+              DELETE FROM bolao.palpitegruposelecao     WHERE idbolaousuario IN (SELECT id FROM bolao.bolaousuario WHERE idbolao = @idBolao);
+              DELETE FROM bolao.palpitejogogrupo        WHERE idbolaousuario IN (SELECT id FROM bolao.bolaousuario WHERE idbolao = @idBolao);
+              DELETE FROM bolao.palpiteterceirolugar    WHERE idbolaousuario IN (SELECT id FROM bolao.bolaousuario WHERE idbolao = @idBolao);
+              DELETE FROM bolao.bolaousuario            WHERE idbolao = @idBolao;";
+
+        private readonly string sqlDeletarBolao =
+            @"DELETE FROM bolao.bolao WHERE id = @idBolao;";
 
         public void InserirRegra(BolaoRegra bolaoRegra)
         {
@@ -48,6 +60,17 @@ namespace BolaoDaCopa.Infra.Repositorios.Boloes
             parameters.Add("@idBolao", bolaoId);
 
             session.Connection.Execute(sqlDeletarPremiosBolao, parameters);
+        }
+
+        public void DeletarBolao(int bolaoId)
+        {
+            DynamicParameters parameters = new();
+            parameters.Add("@idBolao", bolaoId);
+
+            session.Connection.Execute(sqlDeletarRegrasBolao, parameters);
+            session.Connection.Execute(sqlDeletarPremiosBolao, parameters);
+            session.Connection.Execute(sqlDeletarPalpitesBolao, parameters);
+            session.Connection.Execute(sqlDeletarBolao, parameters);
         }
         public Regra RecuperarRegra(int idRegra)
         {

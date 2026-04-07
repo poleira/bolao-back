@@ -7,30 +7,31 @@ namespace BolaoDaCopa.Infra.Mapeamento
     {
         public BolaoMap()
         {
-            Schema("Bolao");
-            Table("Bolao");
-            Id(x => x.Id).Column("ID");
-            Map(x => x.Nome).Column("Nome").Not.Nullable();
-            Map(x => x.Logo).Column("Logo").Not.Nullable();
-            Map(x => x.TokenAcesso).Column("TokenAcesso");
-            Map(x => x.Aviso).Column("Aviso");
-            Map(x => x.Privado).Column("Privacidade").CustomType(typeof(NHibernate.Type.BooleanType)).Not.Nullable();
-            References(x => x.UsuarioAdm).Column("IDUsuarioAdm").Not.Nullable();
-            Map(x => x.Senha).Column("Senha").Nullable();
+            Schema("bolao");
+            Table("bolao");
+            Id(x => x.Id).Column("id");
+            Map(x => x.Nome).Column("nome").Not.Nullable();
+            Map(x => x.Logo).Column("logo").Not.Nullable();
+            Map(x => x.TokenAcesso).Column("tokenacesso");
+            Map(x => x.Aviso).Column("aviso");
+            Map(x => x.Privado).Column("privacidade").Not.Nullable();
+            References(x => x.UsuarioAdm).Column("idusuarioadm").Not.Nullable();
+            Map(x => x.Senha).Column("senha").Nullable();
             HasManyToMany(x => x.Usuarios)
-                .Table("BolaoUsuario")
-                .ParentKeyColumn("IDBolao")
-                .ChildKeyColumn("IDUsuario")
+                .Schema("bolao")
+                .Table("bolaousuario")
+                .ParentKeyColumn("idbolao")
+                .ChildKeyColumn("idusuario")
                 .Cascade.All().Not.LazyLoad();
             
             HasMany(x => x.Regras)
-                .KeyColumn("IDBolao")
+                .KeyColumn("idbolao")
                 .Cascade.All().Not.LazyLoad();
 
-            References(x => x.ModoJogo).Column("IDModoJogo").Nullable();
+            References(x => x.ModoJogo).Column("idmodojogo").Nullable();
 
             HasMany(x => x.Premios)
-                .KeyColumn("IDBolao")
+                .KeyColumn("idbolao")
                 .Cascade.All().Not.LazyLoad();
         }
     }

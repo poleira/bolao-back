@@ -7,12 +7,12 @@ namespace BolaoDaCopa.Infra.Mapeamento
     {
         public FaseMap()
         {
-            Schema("Bolao");
-            Table("Fase");
-            Id(x => x.Id).Column("ID");
-            Map(x => x.Nome).Column("Nome");
+            Schema("bolao");
+            Table("fase");
+            Id(x => x.Id).Column("id");
+            Map(x => x.Nome).Column("nome");
             HasMany(x => x.Selecoes)
-                .KeyColumn("IDFase")
+                .KeyColumn("idfase")
                 .Cascade.All();
         }
     }

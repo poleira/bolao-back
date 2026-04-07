@@ -94,9 +94,9 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddSingleton<ISessionFactory>(factory =>
 {
-    //azure = "Data Source=bolao-hexa.mysql.database.azure.com;Initial Catalog=teste;User ID=polin;Password=@Botafogo123;SslMode=Required;"
-    string connectionString = "Data Source=localhost;Initial Catalog=bolao;User ID=root;Password=root;";
-    return Fluently.Configure().Database(MySQLConfiguration.Standard
+    string connectionString = builder.Configuration.GetConnectionString("PostgreSql")
+        ?? "Host=localhost;Database=bolao;Username=postgres;Password=root;";
+    return Fluently.Configure().Database(PostgreSQLConfiguration.PostgreSQL82
                 .ConnectionString(connectionString)
                 .FormatSql()
                 .ShowSql())

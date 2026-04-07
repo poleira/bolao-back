@@ -7,10 +7,10 @@ namespace BolaoDaCopa.Infra.Mapeamento
         {
             public FaseSelecaoMap()
             {
-                Schema("Bolao");
-                Table("FaseSelecao");
-                Id(x => x.Id).Column("ID");
-                References(x => x.Selecao).Column("IDSelecao").Not.Nullable();
+                Schema("bolao");
+                Table("faseselecao");
+                Id(x => x.Id).Column("id");
+                References(x => x.Selecao).Column("idselecao").Not.Nullable();
             }
         }
     

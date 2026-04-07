@@ -7,10 +7,10 @@ namespace BolaoDaCopa.Infra.Mapeamento
     {
         public GrupoMap()
         {
-            Schema("Bolao");
-            Table("Grupo");
-            Id(x => x.Id).Column("ID");
-            Map(x => x.Nome).Column("Nome");
+            Schema("bolao");
+            Table("grupo");
+            Id(x => x.Id).Column("id");
+            Map(x => x.Nome).Column("nome");
         }
     }
 }

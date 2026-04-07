@@ -391,6 +391,29 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             return projecao.ToList();
         }
 
+        public void ExcluirBolao(string hashBolao, int idUsuario)
+        {
+            try
+            {
+                string hash = HttpUtility.UrlDecode(hashBolao).Replace(" ", "+");
+                int idBolao = int.Parse(CryptoHelper.Decrypt(hash));
+
+                Bolao bolao = boloesRepositorio.Recuperar(idBolao) ?? throw new Exception("Bolão não encontrado.");
+
+                if (bolao.UsuarioAdm.Id != idUsuario)
+                    throw new UnauthorizedAccessException("Apenas o administrador do bolão pode excluí-lo.");
+
+                unitOfWork.BeginTransaction();
+                boloesRepositorio.DeletarBolao(idBolao);
+                unitOfWork.Commit();
+            }
+            catch (Exception ex)
+            {
+                unitOfWork.Rollback();
+                throw new Exception("Erro ao excluir o bolão.", ex);
+            }
+        }
+
         public BolaoResponse ConstruirResponse(Bolao bolao)
         {
             return new BolaoResponse
