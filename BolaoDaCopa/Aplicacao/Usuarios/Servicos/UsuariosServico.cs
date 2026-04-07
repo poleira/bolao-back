@@ -32,9 +32,14 @@ namespace BolaoDaCopa.Aplicacao.Usuarios.Servicos
 
             if (FirebaseApp.DefaultInstance == null)
             {
+                var firebaseJson = Environment.GetEnvironmentVariable("FIREBASE_CREDENTIALS_JSON");
+                GoogleCredential credential = firebaseJson != null
+                    ? GoogleCredential.FromJson(firebaseJson)
+                    : GoogleCredential.FromFile("bolao-33185-firebase-adminsdk-fbsvc-fb8ec571f6.json");
+
                 FirebaseApp.Create(new AppOptions()
                 {
-                    Credential = GoogleCredential.FromFile(@"C:\Users\MARCO\Desktop\World-Cup-Betting-Game\Bolao (backend)\BolaoDaCopa\bolao-33185-firebase-adminsdk-fbsvc-fb8ec571f6.json")
+                    Credential = credential
                 });
             }
         }

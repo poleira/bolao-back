@@ -95,7 +95,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddSingleton<ISessionFactory>(factory =>
 {
     string connectionString = builder.Configuration.GetConnectionString("PostgreSql")
-        ?? "Host=localhost;Database=bolao;Username=postgres;Password=root;";
+        ?? throw new InvalidOperationException("Connection string 'PostgreSql' not configured.");
     return Fluently.Configure().Database(PostgreSQLConfiguration.PostgreSQL82
                 .ConnectionString(connectionString)
                 .FormatSql()
