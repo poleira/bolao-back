@@ -16,7 +16,7 @@ namespace BolaoDaCopa.Infra.Mapeamentos
             Map(x => x.Mensagem).Column("mensagem").Not.Nullable();
             Map(x => x.HashBolao).Column("hashbolao").Nullable();
             References(x => x.UsuarioRecebendo).Column("idusuario").Not.Nullable();
-            References(x => x.UsuarioEnviando).Column("idusuarioenviando").Not.Nullable();
+            References(x => x.UsuarioEnviando).Column("idusuarioenviando");
         }
     }
 }
