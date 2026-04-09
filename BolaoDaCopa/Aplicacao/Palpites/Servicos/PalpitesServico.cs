@@ -130,7 +130,7 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
                 {
                     Selecao selecao = selecoesRepositorio.Recuperar(item.IdSelecao) ?? throw new Exception("Seleção não encontrada.");
                     Grupo grupo = await selecoesRepositorio.RecuperarGrupo(item.IdGrupo) ?? throw new Exception("Grupo não encontrado.");
-                    await palpiteRepositorio.InserirPalpiteGrupoSelecao(new PalpiteGrupoSelecao(grupo, selecao, item.PontuacaoSelecao.HasValue ? item.PontuacaoSelecao.Value : null, bolaoUsuario, item.PosicaoSelecao));
+                    await palpiteRepositorio.InserirPalpiteGrupoSelecao(new PalpiteGrupoSelecao(grupo, selecao, item.PontuacaoSelecao.HasValue ? item.PontuacaoSelecao.Value : 0, bolaoUsuario, item.PosicaoSelecao));
                 }
 
                 if (transacao.IsActive)

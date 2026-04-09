@@ -55,7 +55,7 @@ namespace BolaoDaCopa.Aplicacao.JogosGrupo.Servicos
         public IList<JogoGrupoResponse> ListarJogosBrasil()
         {
             var query = jogosGrupoRepositorio.Query()
-                .Where(x => x.Selecao1.Id == 1 || x.Selecao2.Id == 1);
+                .Where(x => x.Selecao1.Abreviacao == "BRA" || x.Selecao2.Abreviacao == "BRA");
 
             var projecao = query.Select(x => new JogoGrupoResponse
             {
