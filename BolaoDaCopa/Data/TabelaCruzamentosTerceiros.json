@@ -18809,14 +18809,14 @@
       "Away": "3D"
     }
   },
-  "A,B,G,H,I,J,K": {
+  "A,B,G,H,I,J,K,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3A"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3I"
+      "Away": "3G"
     },
     "Jogo3": {
       "Home": "2A",
@@ -18836,11 +18836,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3J"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3A"
+      "Away": "3I"
     },
     "Jogo9": {
       "Home": "1C",
@@ -18852,11 +18852,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -18868,11 +18868,11 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3J"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3G"
+      "Away": "3L"
     }
   },
   "A,B,F,H,I,J,K,L": {
@@ -24353,14 +24353,14 @@
       "Away": "3E"
     }
   },
-  "A,B,C,H,I,J,K": {
+  "A,B,C,H,I,J,K,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3H"
     },
     "Jogo3": {
       "Home": "2A",
@@ -24380,11 +24380,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3J"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -24396,37 +24396,37 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
       "Away": "3I"
     },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3J"
+    },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3H"
+      "Away": "3L"
     }
   },
-  "A,B,C,G,I,J,K": {
+  "A,B,C,G,I,J,K,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3G"
     },
     "Jogo3": {
       "Home": "2A",
@@ -24446,11 +24446,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3J"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -24462,103 +24462,37 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
       "Away": "3I"
     },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3G"
-    }
-  },
-  "A,B,C,G,H,J,K": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
     },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
     },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
     },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
+    "Jogo15": {
+      "Home": "1B",
       "Away": "3J"
     },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3H"
-    },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3G"
+      "Away": "3L"
     }
   },
-  "A,B,C,G,H,I,K": {
+  "A,B,C,G,H,J,K,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3G"
     },
     "Jogo3": {
       "Home": "2A",
@@ -24578,11 +24512,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -24594,11 +24528,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -24610,21 +24544,87 @@
     },
     "Jogo15": {
       "Home": "1B",
+      "Away": "3J"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3L"
+    }
+  },
+  "A,B,C,G,H,I,K,L": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3C"
+    },
+    "Jogo2": {
+      "Home": "1I",
+      "Away": "3H"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
       "Away": "3I"
     },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3G"
+    },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3H"
+      "Away": "3L"
     }
   },
-  "A,B,C,G,H,I,J": {
+  "A,B,C,G,H,I,J,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3G"
     },
     "Jogo3": {
       "Home": "2A",
@@ -24644,11 +24644,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3J"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -24660,11 +24660,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3I"
     },
     "Jogo13": {
       "Home": "1J",
@@ -24676,87 +24676,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3J"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3G"
+      "Away": "3L"
     }
   },
   "A,B,C,G,H,I,J,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
-      "Away": "3J"
-    },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": ""
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3I"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3H"
-    },
-    "Jogo16": {
-      "Home": "1K",
       "Away": "3G"
-    }
-  },
-  "A,B,C,F,I,J,K": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
-    },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
     },
     "Jogo3": {
       "Home": "2A",
@@ -24776,11 +24710,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3J"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -24792,11 +24726,209 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3J"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3I"
+    }
+  },
+  "A,B,C,F,I,J,K,L": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3C"
+    },
+    "Jogo2": {
+      "Home": "1I",
+      "Away": "3F"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3I"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3J"
+    },
+    "Jogo16": {
+      "Home": "1K",
       "Away": "3L"
+    }
+  },
+  "A,B,C,F,H,J,K,L": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3C"
+    },
+    "Jogo2": {
+      "Home": "1I",
+      "Away": "3F"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3H"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3J"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3L"
+    }
+  },
+  "A,B,C,F,H,I,K,L": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3C"
+    },
+    "Jogo2": {
+      "Home": "1I",
+      "Away": "3F"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3H"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -24812,17 +24944,17 @@
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3L"
     }
   },
-  "A,B,C,F,H,J,K": {
+  "A,B,C,F,H,I,J,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -24842,11 +24974,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3J"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -24858,78 +24990,12 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3H"
-    },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3F"
-    }
-  },
-  "A,B,C,F,H,I,K": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
-    },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
       "Away": "3I"
     },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3L"
-    },
     "Jogo13": {
       "Home": "1J",
       "Away": "2H"
@@ -24940,87 +25006,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
-    },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3F"
-    }
-  },
-  "A,B,C,F,H,I,J": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
-    },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
       "Away": "3J"
     },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3H"
-    },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3L"
     }
   },
   "A,B,C,F,H,I,J,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -25040,11 +25040,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3J"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -25056,103 +25056,37 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3I"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
       "Away": "3H"
     },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3F"
-    }
-  },
-  "A,B,C,F,G,J,K": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
     },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
     },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
     },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
+    "Jogo15": {
+      "Home": "1B",
       "Away": "3J"
     },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3F"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3C"
-    },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3G"
+      "Away": "3I"
     }
   },
-  "A,B,C,F,G,I,K": {
+  "A,B,C,F,G,J,K,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3F"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3G"
     },
     "Jogo3": {
       "Home": "2A",
@@ -25172,11 +25106,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -25188,11 +25122,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3C"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -25204,21 +25138,87 @@
     },
     "Jogo15": {
       "Home": "1B",
+      "Away": "3J"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3L"
+    }
+  },
+  "A,B,C,F,G,I,K,L": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3C"
+    },
+    "Jogo2": {
+      "Home": "1I",
+      "Away": "3F"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
       "Away": "3I"
     },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3G"
+    },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3L"
     }
   },
-  "A,B,C,F,G,I,J": {
+  "A,B,C,F,G,I,J,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3F"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3G"
     },
     "Jogo3": {
       "Home": "2A",
@@ -25238,11 +25238,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3J"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3F"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -25254,11 +25254,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3C"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3I"
     },
     "Jogo13": {
       "Home": "1J",
@@ -25270,21 +25270,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3C"
+      "Away": "3J"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3G"
+      "Away": "3L"
     }
   },
   "A,B,C,F,G,I,J,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3F"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3G"
     },
     "Jogo3": {
       "Home": "2A",
@@ -25304,53 +25304,53 @@
     },
     "Jogo7": {
       "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3C"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
       "Away": "3J"
     },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3F"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": ""
-    },
-    "Jogo12": {
-      "Home": "1L",
+    "Jogo16": {
+      "Home": "1K",
       "Away": "3I"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3C"
-    },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3G"
     }
   },
-  "A,B,C,F,G,H,K": {
+  "A,B,C,F,G,H,K,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -25370,11 +25370,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -25386,11 +25386,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -25402,21 +25402,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3L"
     }
   },
-  "A,B,C,F,G,H,J": {
+  "A,B,C,F,G,H,J,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -25436,11 +25436,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -25452,11 +25452,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3J"
     },
     "Jogo13": {
       "Home": "1J",
@@ -25468,21 +25468,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3L"
     }
   },
   "A,B,C,F,G,H,J,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -25502,11 +25502,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -25518,11 +25518,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3J"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -25534,21 +25534,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3J"
     }
   },
-  "A,B,C,F,G,H,I": {
+  "A,B,C,F,G,H,I,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -25568,11 +25568,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -25584,11 +25584,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3I"
     },
     "Jogo13": {
       "Home": "1J",
@@ -25600,21 +25600,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3L"
     }
   },
   "A,B,C,F,G,H,I,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -25634,11 +25634,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -25650,11 +25650,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3I"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -25666,21 +25666,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3I"
     }
   },
   "A,B,C,F,G,H,I,J": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -25700,11 +25700,77 @@
     },
     "Jogo7": {
       "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3H"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3J"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
       "Away": "3G"
     },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3I"
+    }
+  },
+  "A,B,C,E,I,J,K,L": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3A"
+    },
+    "Jogo2": {
+      "Home": "1I",
+      "Away": "3C"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3I"
     },
     "Jogo9": {
       "Home": "1C",
@@ -25716,7 +25782,205 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3E"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3J"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3L"
+    }
+  },
+  "A,B,C,E,H,J,K,L": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3C"
+    },
+    "Jogo2": {
+      "Home": "1I",
+      "Away": "3H"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3E"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3J"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3L"
+    }
+  },
+  "A,B,C,E,H,I,K,L": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3C"
+    },
+    "Jogo2": {
+      "Home": "1I",
+      "Away": "3H"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3E"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3I"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3L"
+    }
+  },
+  "A,B,C,E,H,I,J,L": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3C"
+    },
+    "Jogo2": {
+      "Home": "1I",
+      "Away": "3H"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3E"
     },
     "Jogo12": {
       "Home": "1L",
@@ -25732,351 +25996,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
-    },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3F"
-    }
-  },
-  "A,B,C,E,I,J,K": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
-    },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3I"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
       "Away": "3J"
     },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3A"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3E"
-    },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3C"
-    }
-  },
-  "A,B,C,E,H,J,K": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
-    },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
-      "Away": "3J"
-    },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
       "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3E"
-    },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3H"
-    }
-  },
-  "A,B,C,E,H,I,K": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
-    },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
-      "Away": "3I"
-    },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3E"
-    },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3H"
-    }
-  },
-  "A,B,C,E,H,I,J": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
-    },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
-      "Away": "3J"
-    },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3E"
-    },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3H"
     }
   },
   "A,B,C,E,H,I,J,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
-      "Away": "3J"
-    },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": ""
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3I"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3E"
-    },
-    "Jogo16": {
-      "Home": "1K",
       "Away": "3H"
-    }
-  },
-  "A,B,C,E,G,J,K": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
-    },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
     },
     "Jogo3": {
       "Home": "2A",
@@ -26096,11 +26030,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3J"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -26112,11 +26046,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3E"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -26128,46 +26062,112 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3E"
+      "Away": "3J"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3G"
+      "Away": "3I"
     }
   },
-  "A,B,C,E,G,I,K": {
+  "A,B,C,E,G,J,K,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
+      "Away": "3G"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3E"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3J"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3L"
+    }
+  },
+  "A,B,C,E,G,I,K,L": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3A"
+    },
+    "Jogo2": {
+      "Home": "1I",
+      "Away": "3C"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
       "Away": "3I"
     },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
-      "Away": "3G"
-    },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3A"
-    },
     "Jogo9": {
       "Home": "1C",
       "Away": "2F"
@@ -26178,11 +26178,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3E"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -26194,21 +26194,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3E"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3C"
+      "Away": "3L"
     }
   },
-  "A,B,C,E,G,I,J": {
+  "A,B,C,E,G,I,J,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3G"
     },
     "Jogo3": {
       "Home": "2A",
@@ -26228,11 +26228,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3J"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -26244,11 +26244,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3E"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3I"
     },
     "Jogo13": {
       "Home": "1J",
@@ -26260,21 +26260,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3E"
+      "Away": "3J"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3G"
+      "Away": "3L"
     }
   },
   "A,B,C,E,G,I,J,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3G"
     },
     "Jogo3": {
       "Home": "2A",
@@ -26294,11 +26294,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3J"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -26310,37 +26310,37 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3E"
     },
     "Jogo12": {
       "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3J"
+    },
+    "Jogo16": {
+      "Home": "1K",
       "Away": "3I"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3E"
-    },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3G"
     }
   },
-  "A,B,C,E,G,H,K": {
+  "A,B,C,E,G,H,K,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3H"
     },
     "Jogo3": {
       "Home": "2A",
@@ -26360,11 +26360,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -26376,11 +26376,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3E"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -26392,21 +26392,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3E"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3H"
+      "Away": "3L"
     }
   },
-  "A,B,C,E,G,H,J": {
+  "A,B,C,E,G,H,J,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3G"
     },
     "Jogo3": {
       "Home": "2A",
@@ -26426,53 +26426,53 @@
     },
     "Jogo7": {
       "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3H"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3E"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
       "Away": "3J"
     },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3H"
-    },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3G"
+      "Away": "3L"
     }
   },
   "A,B,C,E,G,H,J,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3G"
     },
     "Jogo3": {
       "Home": "2A",
@@ -26492,53 +26492,53 @@
     },
     "Jogo7": {
       "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3H"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
       "Away": "3J"
     },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": ""
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3E"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3H"
-    },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3G"
+      "Away": "3E"
     }
   },
-  "A,B,C,E,G,H,I": {
+  "A,B,C,E,G,H,I,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3H"
     },
     "Jogo3": {
       "Home": "2A",
@@ -26558,11 +26558,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -26574,11 +26574,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3E"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3I"
     },
     "Jogo13": {
       "Home": "1J",
@@ -26590,21 +26590,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3E"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3H"
+      "Away": "3L"
     }
   },
   "A,B,C,E,G,H,I,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3H"
     },
     "Jogo3": {
       "Home": "2A",
@@ -26624,11 +26624,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -26640,11 +26640,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3E"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3I"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -26656,21 +26656,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3E"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3H"
+      "Away": "3I"
     }
   },
   "A,B,C,E,G,H,I,J": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3G"
     },
     "Jogo3": {
       "Home": "2A",
@@ -26690,11 +26690,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3J"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -26706,144 +26706,12 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3E"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
       "Away": "3H"
     },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3G"
-    }
-  },
-  "A,B,C,E,F,J,K": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
-    },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
-      "Away": "3J"
-    },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": "L"
-    },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3E"
-    },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3F"
-    }
-  },
-  "A,B,C,E,F,I,K": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
-    },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
       "Away": "3I"
     },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3L"
-    },
     "Jogo13": {
       "Home": "1J",
       "Away": "2H"
@@ -26854,21 +26722,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3E"
+      "Away": "3J"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3E"
     }
   },
-  "A,B,C,E,F,I,J": {
+  "A,B,C,E,F,J,K,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -26888,11 +26756,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3J"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -26904,11 +26772,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3E"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -26920,21 +26788,153 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3E"
+      "Away": "3J"
     },
     "Jogo16": {
       "Home": "1K",
+      "Away": "3L"
+    }
+  },
+  "A,B,C,E,F,I,K,L": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3C"
+    },
+    "Jogo2": {
+      "Home": "1I",
       "Away": "3F"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3E"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3I"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3L"
+    }
+  },
+  "A,B,C,E,F,I,J,L": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3C"
+    },
+    "Jogo2": {
+      "Home": "1I",
+      "Away": "3F"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3E"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3I"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3J"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3L"
     }
   },
   "A,B,C,E,F,I,J,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -26954,11 +26954,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3J"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -26970,37 +26970,37 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3E"
     },
     "Jogo12": {
       "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3J"
+    },
+    "Jogo16": {
+      "Home": "1K",
       "Away": "3I"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3E"
-    },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3F"
     }
   },
-  "A,B,C,E,F,H,K": {
+  "A,B,C,E,F,H,K,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -27020,11 +27020,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3E"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -27036,11 +27036,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -27052,21 +27052,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3E"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3L"
     }
   },
-  "A,B,C,E,F,H,J": {
+  "A,B,C,E,F,H,J,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -27086,53 +27086,53 @@
     },
     "Jogo7": {
       "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3H"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3E"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
       "Away": "3J"
     },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3H"
-    },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3L"
     }
   },
   "A,B,C,E,F,H,J,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -27152,53 +27152,53 @@
     },
     "Jogo7": {
       "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3H"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
       "Away": "3J"
     },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": ""
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3E"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3H"
-    },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3E"
     }
   },
-  "A,B,C,E,F,H,I": {
+  "A,B,C,E,F,H,I,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -27218,11 +27218,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3E"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -27234,11 +27234,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3I"
     },
     "Jogo13": {
       "Home": "1J",
@@ -27250,21 +27250,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3E"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3L"
     }
   },
   "A,B,C,E,F,H,I,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -27284,11 +27284,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3E"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -27300,11 +27300,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3I"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -27316,21 +27316,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3E"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3I"
     }
   },
   "A,B,C,E,F,H,I,J": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -27350,11 +27350,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3J"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -27366,37 +27366,37 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3E"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
       "Away": "3H"
     },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3I"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3J"
+    },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3E"
     }
   },
-  "A,B,C,E,F,G,K": {
+  "A,B,C,E,F,G,K,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -27416,11 +27416,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -27432,11 +27432,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3E"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -27448,21 +27448,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3E"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3L"
     }
   },
-  "A,B,C,E,F,G,J": {
+  "A,B,C,E,F,G,J,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -27482,11 +27482,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -27498,11 +27498,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3E"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3J"
     },
     "Jogo13": {
       "Home": "1J",
@@ -27514,21 +27514,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3E"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3L"
     }
   },
   "A,B,C,E,F,G,J,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -27548,11 +27548,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -27564,7 +27564,205 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3E"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3G"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3J"
+    }
+  },
+  "A,B,C,E,F,G,I,L": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3C"
+    },
+    "Jogo2": {
+      "Home": "1I",
+      "Away": "3F"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3E"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3I"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3G"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3L"
+    }
+  },
+  "A,B,C,E,F,G,I,K": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3C"
+    },
+    "Jogo2": {
+      "Home": "1I",
+      "Away": "3F"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3E"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3G"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3I"
+    }
+  },
+  "A,B,C,E,F,G,I,J": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3C"
+    },
+    "Jogo2": {
+      "Home": "1I",
+      "Away": "3F"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3E"
     },
     "Jogo12": {
       "Home": "1L",
@@ -27580,153 +27778,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3E"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
-    }
-  },
-  "A,B,C,E,F,G,I": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
-    },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
-      "Away": "3G"
-    },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3E"
-    },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3F"
-    }
-  },
-  "A,B,C,E,F,G,I,K": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
-    },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
-      "Away": "3G"
-    },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": ""
-    },
-    "Jogo12": {
-      "Home": "1L",
       "Away": "3I"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3E"
-    },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3F"
     }
   },
-  "A,B,C,E,F,G,I,J": {
+  "A,B,C,E,F,G,H,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -27746,77 +27812,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
-    },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": ""
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3I"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3E"
-    },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3F"
-    }
-  },
-  "A,B,C,E,F,G,H": {
-    "Jogo1": {
-      "Home": "1E",
       "Away": "3B"
     },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
-      "Away": "3G"
-    },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -27828,37 +27828,37 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
       "Away": "3H"
     },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3E"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3G"
+    },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3L"
     }
   },
   "A,B,C,E,F,G,H,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -27878,11 +27878,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -27894,11 +27894,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3E"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -27910,21 +27910,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3E"
     }
   },
   "A,B,C,E,F,G,H,J": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -27944,11 +27944,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -27960,11 +27960,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3E"
+      "Away": "3J"
     },
     "Jogo13": {
       "Home": "1J",
@@ -27976,21 +27976,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3E"
     }
   },
   "A,B,C,E,F,G,H,I": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -28010,11 +28010,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -28026,11 +28026,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3E"
+      "Away": "3I"
     },
     "Jogo13": {
       "Home": "1J",
@@ -28042,11 +28042,11 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3E"
     }
   },
   "A,B,C,D,I,J,K,L": {
@@ -28379,14 +28379,14 @@
       "Away": "3I"
     }
   },
-  "A,B,C,D,G,J,K": {
+  "A,B,C,D,G,J,K,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3D"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3G"
     },
     "Jogo3": {
       "Home": "2A",
@@ -28406,11 +28406,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3J"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3D"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -28422,11 +28422,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3C"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -28438,21 +28438,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3C"
+      "Away": "3J"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3G"
+      "Away": "3L"
     }
   },
-  "A,B,C,D,G,I,K": {
+  "A,B,C,D,G,I,K,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3D"
     },
     "Jogo3": {
       "Home": "2A",
@@ -28472,11 +28472,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -28488,37 +28488,37 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
       "Away": "3I"
     },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3G"
+    },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3D"
+      "Away": "3L"
     }
   },
-  "A,B,C,D,G,I,J": {
+  "A,B,C,D,G,I,J,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3D"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3G"
     },
     "Jogo3": {
       "Home": "2A",
@@ -28538,11 +28538,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3J"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3D"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -28554,11 +28554,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3C"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3I"
     },
     "Jogo13": {
       "Home": "1J",
@@ -28570,21 +28570,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3C"
+      "Away": "3J"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3G"
+      "Away": "3L"
     }
   },
   "A,B,C,D,G,I,J,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3D"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3G"
     },
     "Jogo3": {
       "Home": "2A",
@@ -28604,53 +28604,53 @@
     },
     "Jogo7": {
       "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3C"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
       "Away": "3J"
     },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3D"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": ""
-    },
-    "Jogo12": {
-      "Home": "1L",
+    "Jogo16": {
+      "Home": "1K",
       "Away": "3I"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3C"
-    },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3G"
     }
   },
-  "A,B,C,D,G,H,K": {
+  "A,B,C,D,G,H,K,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3D"
     },
     "Jogo3": {
       "Home": "2A",
@@ -28670,11 +28670,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -28686,11 +28686,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -28702,21 +28702,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3D"
+      "Away": "3L"
     }
   },
-  "A,B,C,D,G,H,J": {
+  "A,B,C,D,G,H,J,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3D"
     },
     "Jogo3": {
       "Home": "2A",
@@ -28736,11 +28736,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -28752,11 +28752,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3J"
     },
     "Jogo13": {
       "Home": "1J",
@@ -28768,21 +28768,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3D"
+      "Away": "3L"
     }
   },
   "A,B,C,D,G,H,J,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3D"
     },
     "Jogo3": {
       "Home": "2A",
@@ -28802,11 +28802,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -28818,11 +28818,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3J"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -28834,21 +28834,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3D"
+      "Away": "3J"
     }
   },
-  "A,B,C,D,G,H,I": {
+  "A,B,C,D,G,H,I,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3D"
     },
     "Jogo3": {
       "Home": "2A",
@@ -28868,11 +28868,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -28884,11 +28884,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3I"
     },
     "Jogo13": {
       "Home": "1J",
@@ -28900,21 +28900,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3D"
+      "Away": "3L"
     }
   },
   "A,B,C,D,G,H,I,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3D"
     },
     "Jogo3": {
       "Home": "2A",
@@ -28934,11 +28934,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -28950,11 +28950,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3I"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -28966,21 +28966,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3D"
+      "Away": "3I"
     }
   },
   "A,B,C,D,G,H,I,J": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3D"
     },
     "Jogo3": {
       "Home": "2A",
@@ -29000,11 +29000,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -29016,77 +29016,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3I"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
       "Away": "3H"
     },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3D"
-    }
-  },
-  "A,B,C,D,F,J,K": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
-    },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
-      "Away": "3J"
-    },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3D"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": "L"
-    },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3J"
     },
     "Jogo13": {
       "Home": "1J",
@@ -29098,21 +29032,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3C"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3I"
     }
   },
-  "A,B,C,D,F,I,K": {
+  "A,B,C,D,F,J,K,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3D"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -29132,53 +29066,119 @@
     },
     "Jogo7": {
       "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3C"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3J"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3L"
+    }
+  },
+  "A,B,C,D,F,I,K,L": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3D"
+    },
+    "Jogo2": {
+      "Home": "1I",
+      "Away": "3F"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3C"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
       "Away": "3I"
     },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3D"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3C"
-    },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3L"
     }
   },
-  "A,B,C,D,F,I,J": {
+  "A,B,C,D,F,I,J,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3D"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -29198,11 +29198,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3J"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3D"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -29214,11 +29214,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3C"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3I"
     },
     "Jogo13": {
       "Home": "1J",
@@ -29230,21 +29230,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3C"
+      "Away": "3J"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3L"
     }
   },
   "A,B,C,D,F,I,J,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3D"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -29264,11 +29264,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3J"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3D"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -29280,11 +29280,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3C"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3I"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -29296,21 +29296,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3C"
+      "Away": "3J"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3I"
     }
   },
-  "A,B,C,D,F,H,K": {
+  "A,B,C,D,F,H,K,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3D"
     },
     "Jogo3": {
       "Home": "2A",
@@ -29330,11 +29330,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3F"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -29346,37 +29346,37 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
       "Away": "3H"
     },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3F"
+    },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3D"
+      "Away": "3L"
     }
   },
-  "A,B,C,D,F,H,J": {
+  "A,B,C,D,F,H,J,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3D"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -29396,11 +29396,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3J"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3D"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -29412,11 +29412,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3C"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3H"
     },
     "Jogo13": {
       "Home": "1J",
@@ -29428,21 +29428,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3C"
+      "Away": "3J"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3L"
     }
   },
   "A,B,C,D,F,H,J,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -29462,53 +29462,53 @@
     },
     "Jogo7": {
       "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3H"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
       "Away": "3J"
     },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": ""
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3D"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3H"
-    },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3D"
     }
   },
-  "A,B,C,D,F,H,I": {
+  "A,B,C,D,F,H,I,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3D"
     },
     "Jogo3": {
       "Home": "2A",
@@ -29528,11 +29528,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3F"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -29544,11 +29544,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3I"
     },
     "Jogo13": {
       "Home": "1J",
@@ -29560,21 +29560,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3F"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3D"
+      "Away": "3L"
     }
   },
   "A,B,C,D,F,H,I,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3D"
     },
     "Jogo3": {
       "Home": "2A",
@@ -29594,11 +29594,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3F"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -29610,11 +29610,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3I"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -29626,21 +29626,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3F"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3D"
+      "Away": "3I"
     }
   },
   "A,B,C,D,F,H,I,J": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -29660,11 +29660,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3J"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -29676,37 +29676,37 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3D"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
       "Away": "3H"
     },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3I"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3J"
+    },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3D"
     }
   },
-  "A,B,C,D,F,G,K": {
+  "A,B,C,D,F,G,K,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3D"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -29726,11 +29726,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3D"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -29742,11 +29742,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3C"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -29758,21 +29758,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3C"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3L"
     }
   },
-  "A,B,C,D,F,G,J": {
+  "A,B,C,D,F,G,J,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3D"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -29792,11 +29792,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3D"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -29808,11 +29808,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3C"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3J"
     },
     "Jogo13": {
       "Home": "1J",
@@ -29824,21 +29824,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3C"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3L"
     }
   },
   "A,B,C,D,F,G,J,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3D"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -29858,11 +29858,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3D"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -29874,7 +29874,205 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3C"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3G"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3J"
+    }
+  },
+  "A,B,C,D,F,G,I,L": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3D"
+    },
+    "Jogo2": {
+      "Home": "1I",
+      "Away": "3F"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3C"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3I"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3G"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3L"
+    }
+  },
+  "A,B,C,D,F,G,I,K": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3D"
+    },
+    "Jogo2": {
+      "Home": "1I",
+      "Away": "3F"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3C"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3G"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3I"
+    }
+  },
+  "A,B,C,D,F,G,I,J": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3D"
+    },
+    "Jogo2": {
+      "Home": "1I",
+      "Away": "3F"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3C"
     },
     "Jogo12": {
       "Home": "1L",
@@ -29890,153 +30088,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3C"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
-    }
-  },
-  "A,B,C,D,F,G,I": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
-    },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
-      "Away": "3G"
-    },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3D"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3C"
-    },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3F"
-    }
-  },
-  "A,B,C,D,F,G,I,K": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
-    },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
-      "Away": "3G"
-    },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3D"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": ""
-    },
-    "Jogo12": {
-      "Home": "1L",
       "Away": "3I"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3C"
-    },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3F"
     }
   },
-  "A,B,C,D,F,G,I,J": {
+  "A,B,C,D,F,G,H,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3D"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -30056,11 +30122,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3D"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -30072,11 +30138,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3C"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3I"
+      "Away": "3H"
     },
     "Jogo13": {
       "Home": "1J",
@@ -30088,87 +30154,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3C"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
-    }
-  },
-  "A,B,C,D,F,G,H": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
-    },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
-      "Away": "3G"
-    },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3D"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
       "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3C"
-    },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3F"
     }
   },
   "A,B,C,D,F,G,H,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -30188,11 +30188,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -30204,11 +30204,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3D"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -30220,21 +30220,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3D"
     }
   },
   "A,B,C,D,F,G,H,J": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -30254,11 +30254,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -30270,11 +30270,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3D"
+      "Away": "3J"
     },
     "Jogo13": {
       "Home": "1J",
@@ -30286,21 +30286,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3D"
     }
   },
   "A,B,C,D,F,G,H,I": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -30320,11 +30320,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -30336,11 +30336,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3D"
+      "Away": "3I"
     },
     "Jogo13": {
       "Home": "1J",
@@ -30352,11 +30352,11 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3D"
     }
   },
   "A,B,C,D,E,J,K,L": {
@@ -31019,14 +31019,14 @@
       "Away": "3E"
     }
   },
-  "A,B,C,D,E,G,K": {
+  "A,B,C,D,E,G,K,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3D"
     },
     "Jogo3": {
       "Home": "2A",
@@ -31046,11 +31046,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -31062,11 +31062,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3E"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -31078,87 +31078,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3E"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3D"
-    }
-  },
-  "A,B,C,D,E,G,J": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
-    },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
-      "Away": "3G"
-    },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
       "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3E"
-    },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3D"
     }
   },
-  "A,B,C,D,E,G,J,K": {
+  "A,B,C,D,E,G,J,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3D"
     },
     "Jogo3": {
       "Home": "2A",
@@ -31178,11 +31112,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -31194,7 +31128,7 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3E"
     },
     "Jogo12": {
       "Home": "1L",
@@ -31210,21 +31144,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3E"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3D"
+      "Away": "3L"
     }
   },
-  "A,B,C,D,E,G,I": {
+  "A,B,C,D,E,G,J,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3D"
     },
     "Jogo3": {
       "Home": "2A",
@@ -31244,11 +31178,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -31260,11 +31194,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": "L"
+      "Away": "3E"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3L"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -31276,21 +31210,87 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3E"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
+      "Away": "3J"
+    }
+  },
+  "A,B,C,D,E,G,I,L": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3C"
+    },
+    "Jogo2": {
+      "Home": "1I",
       "Away": "3D"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3E"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3I"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3G"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3L"
     }
   },
   "A,B,C,D,E,G,I,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3D"
     },
     "Jogo3": {
       "Home": "2A",
@@ -31310,11 +31310,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -31326,11 +31326,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3E"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3I"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -31342,21 +31342,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3E"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3D"
+      "Away": "3I"
     }
   },
   "A,B,C,D,E,G,I,J": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3D"
     },
     "Jogo3": {
       "Home": "2A",
@@ -31376,11 +31376,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -31392,7 +31392,271 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3E"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3J"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3G"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3I"
+    }
+  },
+  "A,B,C,D,E,G,H,L": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3C"
+    },
+    "Jogo2": {
+      "Home": "1I",
+      "Away": "3D"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3H"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3E"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3G"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3L"
+    }
+  },
+  "A,B,C,D,E,G,H,K": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3C"
+    },
+    "Jogo2": {
+      "Home": "1I",
+      "Away": "3D"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3H"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3G"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3E"
+    }
+  },
+  "A,B,C,D,E,G,H,J": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3C"
+    },
+    "Jogo2": {
+      "Home": "1I",
+      "Away": "3D"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3H"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3J"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3G"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3E"
+    }
+  },
+  "A,B,C,D,E,G,H,I": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3C"
+    },
+    "Jogo2": {
+      "Home": "1I",
+      "Away": "3D"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
@@ -31408,275 +31672,11 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3E"
-    },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3D"
-    }
-  },
-  "A,B,C,D,E,G,H": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
-    },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
       "Away": "3G"
     },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3H"
-    },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3D"
-    }
-  },
-  "A,B,C,D,E,G,H,K": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
-    },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
-      "Away": "3G"
-    },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": ""
-    },
-    "Jogo12": {
-      "Home": "1L",
       "Away": "3E"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3H"
-    },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3D"
-    }
-  },
-  "A,B,C,D,E,G,H,J": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
-    },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
-      "Away": "3G"
-    },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": ""
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3E"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3H"
-    },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3D"
-    }
-  },
-  "A,B,C,D,E,G,H,I": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
-    },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
-      "Away": "3G"
-    },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": ""
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3E"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3H"
-    },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3D"
     }
   },
   "A,B,C,D,E,F,K,L": {
@@ -31877,80 +31877,14 @@
       "Away": "3E"
     }
   },
-  "A,B,C,D,E,F,I": {
+  "A,B,C,D,E,F,I,L": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3D"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
-      "Away": "3E"
-    },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3D"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
-      "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3C"
-    },
-    "Jogo16": {
-      "Home": "1K",
       "Away": "3F"
-    }
-  },
-  "A,B,C,D,E,F,I,K": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
-    },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
     },
     "Jogo3": {
       "Home": "2A",
@@ -31970,11 +31904,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3E"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3D"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -31986,7 +31920,7 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3C"
     },
     "Jogo12": {
       "Home": "1L",
@@ -32002,21 +31936,87 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3C"
+      "Away": "3E"
     },
     "Jogo16": {
       "Home": "1K",
+      "Away": "3L"
+    }
+  },
+  "A,B,C,D,E,F,I,K": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3D"
+    },
+    "Jogo2": {
+      "Home": "1I",
       "Away": "3F"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3C"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3K"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3E"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3I"
     }
   },
   "A,B,C,D,E,F,I,J": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3D"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -32036,11 +32036,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3J"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3D"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -32052,7 +32052,73 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3C"
+    },
+    "Jogo12": {
+      "Home": "1L",
+      "Away": "3I"
+    },
+    "Jogo13": {
+      "Home": "1J",
+      "Away": "2H"
+    },
+    "Jogo14": {
+      "Home": "2D",
+      "Away": "2G"
+    },
+    "Jogo15": {
+      "Home": "1B",
+      "Away": "3J"
+    },
+    "Jogo16": {
+      "Home": "1K",
+      "Away": "3E"
+    }
+  },
+  "A,B,C,D,E,F,H,L": {
+    "Jogo1": {
+      "Home": "1E",
+      "Away": "3C"
+    },
+    "Jogo2": {
+      "Home": "1I",
+      "Away": "3D"
+    },
+    "Jogo3": {
+      "Home": "2A",
+      "Away": "2B"
+    },
+    "Jogo4": {
+      "Home": "1F",
+      "Away": "2C"
+    },
+    "Jogo5": {
+      "Home": "2K",
+      "Away": "2L"
+    },
+    "Jogo6": {
+      "Home": "1H",
+      "Away": "2J"
+    },
+    "Jogo7": {
+      "Home": "1D",
+      "Away": "3B"
+    },
+    "Jogo8": {
+      "Home": "1G",
+      "Away": "3A"
+    },
+    "Jogo9": {
+      "Home": "1C",
+      "Away": "2F"
+    },
+    "Jogo10": {
+      "Home": "2E",
+      "Away": "2I"
+    },
+    "Jogo11": {
+      "Home": "1A",
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
@@ -32068,87 +32134,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3C"
+      "Away": "3F"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
-    }
-  },
-  "A,B,C,D,E,F,H": {
-    "Jogo1": {
-      "Home": "1E",
-      "Away": "3B"
-    },
-    "Jogo2": {
-      "Home": "1I",
-      "Away": "3A"
-    },
-    "Jogo3": {
-      "Home": "2A",
-      "Away": "2B"
-    },
-    "Jogo4": {
-      "Home": "1F",
-      "Away": "2C"
-    },
-    "Jogo5": {
-      "Home": "2K",
-      "Away": "2L"
-    },
-    "Jogo6": {
-      "Home": "1H",
-      "Away": "2J"
-    },
-    "Jogo7": {
-      "Home": "1D",
-      "Away": "3F"
-    },
-    "Jogo8": {
-      "Home": "1G",
-      "Away": "3C"
-    },
-    "Jogo9": {
-      "Home": "1C",
-      "Away": "2F"
-    },
-    "Jogo10": {
-      "Home": "2E",
-      "Away": "2I"
-    },
-    "Jogo11": {
-      "Home": "1A",
-      "Away": "L"
-    },
-    "Jogo12": {
-      "Home": "1L",
       "Away": "3L"
-    },
-    "Jogo13": {
-      "Home": "1J",
-      "Away": "2H"
-    },
-    "Jogo14": {
-      "Home": "2D",
-      "Away": "2G"
-    },
-    "Jogo15": {
-      "Home": "1B",
-      "Away": "3H"
-    },
-    "Jogo16": {
-      "Home": "1K",
-      "Away": "3D"
     }
   },
   "A,B,C,D,E,F,H,K": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -32168,11 +32168,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3E"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -32184,11 +32184,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3D"
+      "Away": "3K"
     },
     "Jogo13": {
       "Home": "1J",
@@ -32200,21 +32200,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3E"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3D"
     }
   },
   "A,B,C,D,E,F,H,J": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -32234,11 +32234,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3J"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -32250,11 +32250,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3D"
+      "Away": "3E"
     },
     "Jogo13": {
       "Home": "1J",
@@ -32266,21 +32266,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3J"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3D"
     }
   },
   "A,B,C,D,E,F,H,I": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3C"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -32300,11 +32300,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3E"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3C"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -32316,11 +32316,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3H"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3D"
+      "Away": "3I"
     },
     "Jogo13": {
       "Home": "1J",
@@ -32332,11 +32332,11 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3H"
+      "Away": "3E"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3D"
     }
   },
   "A,B,C,D,E,F,G,L": {
@@ -32474,11 +32474,11 @@
   "A,B,C,D,E,F,G,J": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3D"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -32498,11 +32498,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3D"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -32514,11 +32514,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3C"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3E"
+      "Away": "3J"
     },
     "Jogo13": {
       "Home": "1J",
@@ -32530,21 +32530,21 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3C"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3E"
     }
   },
   "A,B,C,D,E,F,G,I": {
     "Jogo1": {
       "Home": "1E",
-      "Away": "3B"
+      "Away": "3D"
     },
     "Jogo2": {
       "Home": "1I",
-      "Away": "3A"
+      "Away": "3F"
     },
     "Jogo3": {
       "Home": "2A",
@@ -32564,11 +32564,11 @@
     },
     "Jogo7": {
       "Home": "1D",
-      "Away": "3G"
+      "Away": "3B"
     },
     "Jogo8": {
       "Home": "1G",
-      "Away": "3D"
+      "Away": "3A"
     },
     "Jogo9": {
       "Home": "1C",
@@ -32580,11 +32580,11 @@
     },
     "Jogo11": {
       "Home": "1A",
-      "Away": ""
+      "Away": "3C"
     },
     "Jogo12": {
       "Home": "1L",
-      "Away": "3E"
+      "Away": "3I"
     },
     "Jogo13": {
       "Home": "1J",
@@ -32596,11 +32596,11 @@
     },
     "Jogo15": {
       "Home": "1B",
-      "Away": "3C"
+      "Away": "3G"
     },
     "Jogo16": {
       "Home": "1K",
-      "Away": "3F"
+      "Away": "3E"
     }
   },
   "A,B,C,D,E,F,G,H": {
