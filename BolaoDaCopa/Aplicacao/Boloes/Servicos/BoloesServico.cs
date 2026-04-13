@@ -23,8 +23,8 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
         private readonly ISession session;
-    private readonly IBoloesRepositorio boloesRepositorio;
-    private readonly BolaoDaCopa.Infra.Repositorios.ModosJogos.Interfaces.IModosJogosRepositorios modosJogosRepositorios;
+        private readonly IBoloesRepositorio boloesRepositorio;
+        private readonly BolaoDaCopa.Infra.Repositorios.ModosJogos.Interfaces.IModosJogosRepositorios modosJogosRepositorios;
         private readonly IUsuariosRepositorio usuariosRepositorio;
         private readonly IBoloesUsuariosRepositorio boloesUsuariosRepositorio;
 
@@ -38,6 +38,8 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
             this.boloesUsuariosRepositorio = boloesUsuariosRepositorio;
             this.modosJogosRepositorios = modosJogosRepositorios;
         }
+
+        private static readonly DateTime DataLimitePalpites = new DateTime(2026, 6, 11);
 
         public BolaoResponse CriarBolao(CriarBolaoRequest inserirRequest)
         {
@@ -105,6 +107,11 @@ namespace BolaoDaCopa.Aplicacao.Boloes.Servicos
         {
             try
             {
+                if (DateTime.Now >= DataLimitePalpites)
+                {
+                    throw new Exception("Não é possível editar o bolão após o início da competição.");
+                }
+
                 var query = boloesRepositorio.Query()
                     .Where(x => x.TokenAcesso != editarRequest.HashBolao)
                     .Where(x => x.Nome == editarRequest.Nome);
