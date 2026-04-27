@@ -212,7 +212,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapMethods("/health", ["GET", "HEAD"], () => Results.Ok(new { status = "ok" }))
+app.MapMethods("/health", new[] { "GET", "HEAD" }, () => Results.Ok(new { status = "ok" }))
    .AllowAnonymous();
 
 app.Run();
