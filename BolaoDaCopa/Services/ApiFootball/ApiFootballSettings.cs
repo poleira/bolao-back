@@ -8,5 +8,7 @@ namespace BolaoDaCopa.Services.ApiFootball
         public string JobCronUtc { get; set; } = "0 6 * * *";
         public DateTime DataInicioJobs { get; set; }
         public DateTime DataFimJobs { get; set; }
+        public DateTime DataInicioJobsEliminatorias { get; set; }
+        public DateTime DataFimJobsEliminatorias { get; set; }
     }
 }

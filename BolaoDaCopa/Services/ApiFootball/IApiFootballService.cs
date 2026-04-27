@@ -5,5 +5,6 @@ namespace BolaoDaCopa.Services.ApiFootball
     public interface IApiFootballService
     {
         Task<IList<SelecaoStandingDto>> ObterStandings();
+        Task<IList<SportsDbEventDto>> ObterEventosEliminatorias();
     }
 }

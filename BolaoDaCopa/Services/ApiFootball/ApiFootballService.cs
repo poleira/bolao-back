@@ -61,5 +61,47 @@ namespace BolaoDaCopa.Services.ApiFootball
             logger.LogInformation("Standings obtidos: {Count} seleções.", result.Count);
             return result;
         }
+
+        public async Task<IList<SportsDbEventDto>> ObterEventosEliminatorias()
+        {
+            var url = $"{settings.ApiKey}/eventsseason.php?id={settings.LeagueId}&s={settings.Season}";
+
+            logger.LogInformation("Consultando eventos da temporada no TheSportsDB: {Url}", url);
+
+            var response = await httpClient.GetAsync(url);
+            response.EnsureSuccessStatusCode();
+
+            var content = await response.Content.ReadAsStringAsync();
+
+            var root = JsonSerializer.Deserialize<SportsDbEventsRoot>(content, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+
+            var result = new List<SportsDbEventDto>();
+
+            if (root?.Events == null || root.Events.Count == 0)
+            {
+                logger.LogWarning("Resposta do TheSportsDB não contém eventos.");
+                return result;
+            }
+
+            foreach (var ev in root.Events)
+            {
+                if (ev.IdHomeTeamInt == null || ev.IdAwayTeamInt == null) continue;
+
+                result.Add(new SportsDbEventDto
+                {
+                    StrRound = ev.StrRound,
+                    IdHomeTeam = ev.IdHomeTeamInt.Value,
+                    IdAwayTeam = ev.IdAwayTeamInt.Value,
+                    TemResultado = ev.TemResultado,
+                    SportsDbIdVencedor = ev.SportsDbIdVencedor()
+                });
+            }
+
+            logger.LogInformation("Eventos obtidos: {Count} partidas.", result.Count);
+            return result;
+        }
     }
 }

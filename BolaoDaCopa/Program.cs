@@ -145,6 +145,8 @@ builder.Services.AddHttpClient("SportsDb", client =>
 builder.Services.AddScoped<IApiFootballService, ApiFootballService>();
 builder.Services.AddScoped<ISelecaoAtualizacaoServico, SelecaoAtualizacaoServico>();
 builder.Services.AddHostedService<SelecaoAtualizacaoJob>();
+builder.Services.AddScoped<IFaseSelecaoAtualizacaoServico, FaseSelecaoAtualizacaoServico>();
+builder.Services.AddHostedService<FaseSelecaoAtualizacaoJob>();
 
 builder.Services.AddSwaggerGen(options =>
 {

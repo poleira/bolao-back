@@ -7,5 +7,9 @@
 
         protected FaseSelecao() { }
 
+        public FaseSelecao(Selecao selecao)
+        {
+            Selecao = selecao;
+        }
     }
 }
