@@ -9,5 +9,6 @@ namespace BolaoDaCopa.Infra.Repositorios.Selecoes.Interfaces
         Selecao Recuperar(int id);
         Task<Grupo> RecuperarGrupo(int id);
         IQueryable<Fase> RecuperarQueryFasePorId(int idFase);
+        void Atualizar(Selecao selecao);
     }
 }

@@ -49,6 +49,9 @@ using BolaoDaCopa.Aplicacao.ModosJogos.Servicos;
 using BolaoDaCopa.Aplicacao.ModosJogos.Servicos.Interfaces;
 using BolaoDaCopa.Infra.Repositorios.JogosGrupo;
 using BolaoDaCopa.Infra.Repositorios.JogosGrupo.Interfaces;
+using BolaoDaCopa.Aplicacao.Selecoes.Servicos;
+using BolaoDaCopa.Services.ApiFootball;
+using BolaoDaCopa.Services.Jobs;
 using AspNetCoreRateLimit;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
@@ -133,6 +136,16 @@ builder.Services.AddScoped<IJogosGrupoServico, JogosGrupoServico>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+// SportsDb (TheSportsDB)
+builder.Services.Configure<ApiFootballSettings>(builder.Configuration.GetSection("SportsDb"));
+builder.Services.AddHttpClient("SportsDb", client =>
+{
+    client.BaseAddress = new Uri("https://www.thesportsdb.com/api/v1/json/");
+});
+builder.Services.AddScoped<IApiFootballService, ApiFootballService>();
+builder.Services.AddScoped<ISelecaoAtualizacaoServico, SelecaoAtualizacaoServico>();
+builder.Services.AddHostedService<SelecaoAtualizacaoJob>();
+
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo { Title = "Bolao Api", Version = "v1" });
@@ -196,5 +209,8 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapGet("/health", () => Results.Ok(new { status = "ok" }))
+   .AllowAnonymous();
 
 app.Run();

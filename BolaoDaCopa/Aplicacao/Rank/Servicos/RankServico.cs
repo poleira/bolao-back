@@ -618,7 +618,7 @@ namespace BolaoDaCopa.Aplicacao.Rank.Servicos
                 return 7;
             }
 
-            if (normalizado.Contains("terceir"))
+            if (normalizado.Contains("terceiro colocado geral"))
             {
                 return 8;
             }

@@ -8,6 +8,7 @@
         public virtual string Abreviacao { get; set; }
         public virtual int? PontuacaoSelecao { get; set; }
         public virtual int? PosicaoFaseDeGrupos { get; set; }
+        public virtual int? SportsDbId { get; set; }
         public virtual Grupo Grupo { get; set; }
         protected Selecao() { }
     }

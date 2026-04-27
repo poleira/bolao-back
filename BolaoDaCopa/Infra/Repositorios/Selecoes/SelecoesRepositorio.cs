@@ -45,6 +45,11 @@ namespace BolaoDaCopa.Infra.Repositorios.Selecoes
             return await session.GetAsync<Grupo>(id);
         }
 
+        public void Atualizar(Selecao selecao)
+        {
+            session.Update(selecao);
+        }
+
         //public void EditarGa(GaEditarRequest request, string Idg, string g, string primeiro, string segundo)
         //{
 
