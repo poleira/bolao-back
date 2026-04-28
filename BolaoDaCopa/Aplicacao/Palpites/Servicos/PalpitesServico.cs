@@ -847,7 +847,7 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
                         var selecoes = grupo.OrderBy(s => s.PosicaoSelecao).Select(s => 
                             $"{s.Selecao.Nome} {s.PosicaoSelecao}º {s.PontuacaoSelecao ?? 0}pts"
                         );
-                        return $"Grupo {grupo.Key}: {string.Join(", ", selecoes)}";
+                        return $"<b>Grupo {grupo.Key}</b>: {string.Join(", ", selecoes)}";
                     }));
                     response.PalpiteFaseGrupos = $"{textoGrupos}";
                 }
@@ -856,11 +856,11 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
                 var palpitesFases = await RecuperarPalpiteFaseSelecaoAsync(hashBolao, usuarioSolicitado.Id);
                 if (palpitesFases != null && palpitesFases.Any())
                 {
-                    var fasesAgrupadas = palpitesFases.GroupBy(p => p.Fase.Nome).OrderBy(f => f.Key);
+                    var fasesAgrupadas = palpitesFases.GroupBy(p => new { p.Fase.Id, p.Fase.Nome }).OrderBy(f => f.Key.Id);
                     var textoFases = string.Join(", ", fasesAgrupadas.Select(fase =>
                     {
                         var selecoes = string.Join(", ", fase.Select(s => s.Selecao.Nome));
-                        return $"{fase.Key}: {selecoes}";
+                        return $"<b>{fase.Key.Nome}</b>: {selecoes}";
                     }));
                     response.PalpiteEliminatorias = $"{textoFases}";
                 }
