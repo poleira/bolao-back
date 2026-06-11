@@ -42,11 +42,17 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
         //private static readonly DateTime DataLimitePalpites = new DateTime(2026, 6, 11, 16, 0, 0);
         private static readonly DateTimeOffset DataLimitePalpites =
             new DateTimeOffset(2026, 6, 11, 16, 0, 0, TimeSpan.FromHours(-3));
-            
+
+        // private static void ValidarPrazoParaPalpite()
+        // {
+        //     if (DateTime.UtcNow.Date >= DataLimitePalpites.Date)
+        //         throw new InvalidOperationException("O prazo para realizar palpites encerrou. Os palpites só são permitidos até o dia 10 de junho de 2026.");
+        // }
         private static void ValidarPrazoParaPalpite()
         {
-            if (DateTime.UtcNow.Date >= DataLimitePalpites.Date)
-                throw new InvalidOperationException("O prazo para realizar palpites encerrou. Os palpites só são permitidos até o dia 10 de junho de 2026.");
+            if (DateTimeOffset.UtcNow >= DataLimitePalpites)
+                throw new InvalidOperationException(
+                    "O prazo para realizar palpites encerrou. Os palpites só são permitidos até 11 de junho de 2026 às 16h (horário de Brasília).");
         }
 
         public async Task CriarPalpiteArtilheiro(CriarPalpiteArtilheiroRequest request)
