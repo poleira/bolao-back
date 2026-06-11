@@ -39,8 +39,10 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
             this.selecoesRepositorio = selecoesRepositorio;
         }
 
-        private static readonly DateTime DataLimitePalpites = new DateTime(2026, 6, 11);
-
+        //private static readonly DateTime DataLimitePalpites = new DateTime(2026, 6, 11, 16, 0, 0);
+        private static readonly DateTimeOffset DataLimitePalpites =
+            new DateTimeOffset(2026, 6, 11, 16, 0, 0, TimeSpan.FromHours(-3));
+            
         private static void ValidarPrazoParaPalpite()
         {
             if (DateTime.UtcNow.Date >= DataLimitePalpites.Date)
