@@ -21,6 +21,9 @@ namespace BolaoDaCopa.Dto.ApiFootball
 
         [JsonPropertyName("intPoints")]
         public string IntPoints { get; set; } = "0";
+
+        [JsonPropertyName("intPlayed")]
+        public string IntPlayed { get; set; } = "0";
     }
 
     public class SelecaoStandingDto
@@ -28,5 +31,6 @@ namespace BolaoDaCopa.Dto.ApiFootball
         public int TeamId { get; set; }
         public int Rank { get; set; }
         public int Points { get; set; }
+        public int Played { get; set; }
     }
 }

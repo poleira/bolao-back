@@ -49,12 +49,14 @@ namespace BolaoDaCopa.Services.ApiFootball
                 if (!int.TryParse(standing.IdTeam, out var teamId)) continue;
                 int.TryParse(standing.IntRank, out var rank);
                 int.TryParse(standing.IntPoints, out var points);
+                int.TryParse(standing.IntPlayed, out var played);
 
                 result.Add(new SelecaoStandingDto
                 {
                     TeamId = teamId,
                     Rank = rank,
-                    Points = points
+                    Points = points,
+                    Played = played
                 });
             }
 

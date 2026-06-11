@@ -12,5 +12,6 @@ namespace BolaoDaCopa.Aplicacao.Notificacoes.Servicos.Interfaces
         IEnumerable<NotificacaoResponse> ListarNotificacoesPorUsuario(int idUsuario);
         void MarcarNotificacaoComoLida(int idNotificacao);
         bool ValidarSeUsuarioPossuiAlgumaNotificacaoNaoLida(int idUsuario);
+        void ValidarECriarNotificacoesPalpitesFaltantes();
     }
 }

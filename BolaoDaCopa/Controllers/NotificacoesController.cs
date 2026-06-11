@@ -136,5 +136,18 @@ namespace BolaoDaCopa.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Verifica palpites faltantes em todos os bolões e cria notificações para os usuários incompletos
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("validar-palpites-faltantes")]
+        public ActionResult ValidarECriarNotificacoesPalpitesFaltantes()
+        {
+            notificacoesServico.ValidarECriarNotificacoesPalpitesFaltantes();
+            return Ok();
+        }
+
     }
 }

@@ -48,6 +48,7 @@ namespace BolaoDaCopa.Aplicacao.Selecoes.Servicos
                 {
                     var standing = standings.FirstOrDefault(s => s.TeamId == selecao.SportsDbId);
                     if (standing == null) continue;
+                    if (standing.Played == 0) continue;
 
                     selecao.PosicaoFaseDeGrupos = standing.Rank;
                     selecao.PontuacaoSelecao = standing.Points;
