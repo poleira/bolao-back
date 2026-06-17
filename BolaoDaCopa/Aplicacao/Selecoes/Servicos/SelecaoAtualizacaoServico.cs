@@ -26,8 +26,10 @@ namespace BolaoDaCopa.Aplicacao.Selecoes.Servicos
 
         public async Task AtualizarStandings()
         {
+            logger.LogInformation("Iniciando AtualizarStandings...");
             var standings = await apiFootballService.ObterStandings();
 
+            logger.LogInformation("Standings retornados: {Count}", standings.Count);
             if (standings.Count == 0)
             {
                 logger.LogWarning("Nenhum standing retornado pela api-football. Atualização ignorada.");
@@ -47,9 +49,18 @@ namespace BolaoDaCopa.Aplicacao.Selecoes.Servicos
                 foreach (var selecao in selecoes)
                 {
                     var standing = standings.FirstOrDefault(s => s.TeamId == selecao.SportsDbId);
-                    if (standing == null) continue;
-                    if (standing.Played == 0) continue;
+                    if (standing == null)
+                    {
+                        logger.LogDebug("Standing não encontrado para seleção {SeleId} (SportsDbId: {SportsDbId})", selecao.Id, selecao.SportsDbId);
+                        continue;
+                    }
+                    if (standing.Played == 0)
+                    {
+                        logger.LogDebug("Standing com 0 jogos para seleção {SeleId} (SportsDbId: {SportsDbId})", selecao.Id, selecao.SportsDbId);
+                        continue;
+                    }
 
+                    logger.LogDebug("Atualizando seleção {SeleId}: Posição={Rank}, Pontos={Points}", selecao.Id, standing.Rank, standing.Points);
                     selecao.PosicaoFaseDeGrupos = standing.Rank;
                     selecao.PontuacaoSelecao = standing.Points;
                     selecoesRepositorio.Atualizar(selecao);

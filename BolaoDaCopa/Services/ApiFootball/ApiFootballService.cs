@@ -26,42 +26,54 @@ namespace BolaoDaCopa.Services.ApiFootball
 
             logger.LogInformation("Consultando standings no TheSportsDB: {Url}", url);
 
-            var response = await httpClient.GetAsync(url);
-            response.EnsureSuccessStatusCode();
-
-            var content = await response.Content.ReadAsStringAsync();
-
-            var root = JsonSerializer.Deserialize<SportsDbTableRoot>(content, new JsonSerializerOptions
+            try
             {
-                PropertyNameCaseInsensitive = true
-            });
+                var response = await httpClient.GetAsync(url);
+                logger.LogInformation("Resposta da API: StatusCode={StatusCode}", response.StatusCode);
+                response.EnsureSuccessStatusCode();
 
-            var result = new List<SelecaoStandingDto>();
+                var content = await response.Content.ReadAsStringAsync();
+                logger.LogInformation("Conteúdo retornado (primeiros 500 chars): {Content}", 
+                    content.Length > 500 ? content.Substring(0, 500) : content);
 
-            if (root?.Table == null || root.Table.Count == 0)
-            {
-                logger.LogWarning("Resposta do TheSportsDB não contém dados de standings.");
+                var root = JsonSerializer.Deserialize<SportsDbTableRoot>(content, new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+
+                var result = new List<SelecaoStandingDto>();
+
+                if (root?.Table == null || root.Table.Count == 0)
+                {
+                    logger.LogWarning("Resposta do TheSportsDB não contém dados de standings. Root é null? {RootNull}, Table é null? {TableNull}", 
+                        root == null, root?.Table == null);
+                    return result;
+                }
+
+                foreach (var standing in root.Table)
+                {
+                    if (!int.TryParse(standing.IdTeam, out var teamId)) continue;
+                    int.TryParse(standing.IntRank, out var rank);
+                    int.TryParse(standing.IntPoints, out var points);
+                    int.TryParse(standing.IntPlayed, out var played);
+
+                    result.Add(new SelecaoStandingDto
+                    {
+                        TeamId = teamId,
+                        Rank = rank,
+                        Points = points,
+                        Played = played
+                    });
+                }
+
+                logger.LogInformation("Standings obtidos com sucesso: {Count} seleções.", result.Count);
                 return result;
             }
-
-            foreach (var standing in root.Table)
+            catch (Exception ex)
             {
-                if (!int.TryParse(standing.IdTeam, out var teamId)) continue;
-                int.TryParse(standing.IntRank, out var rank);
-                int.TryParse(standing.IntPoints, out var points);
-                int.TryParse(standing.IntPlayed, out var played);
-
-                result.Add(new SelecaoStandingDto
-                {
-                    TeamId = teamId,
-                    Rank = rank,
-                    Points = points,
-                    Played = played
-                });
+                logger.LogError(ex, "Erro ao consultar standings no TheSportsDB.");
+                throw;
             }
-
-            logger.LogInformation("Standings obtidos: {Count} seleções.", result.Count);
-            return result;
         }
 
         public async Task<IList<SportsDbEventDto>> ObterEventosEliminatorias()

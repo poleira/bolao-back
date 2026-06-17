@@ -79,6 +79,7 @@ namespace BolaoDaCopa.Services.Jobs
             {
                 using var scope = scopeFactory.CreateScope();
                 var servico = scope.ServiceProvider.GetRequiredService<ISelecaoAtualizacaoServico>();
+                logger.LogInformation("Serviço obtido com sucesso, chamando AtualizarStandings...");
                 await servico.AtualizarStandings();
                 logger.LogInformation("Atualização de standings concluída com sucesso.");
             }
