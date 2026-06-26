@@ -23,7 +23,7 @@ namespace BolaoDaCopa.Aplicacao.JogosGrupo.Servicos
                 query = query.Where(x => x.Grupo.Nome == request.Grupo.ToUpper());
             }
 
-            var projecao = query.Select(x => new JogoGrupoResponse
+            var projecao = query.OrderBy(x => x.Id).Select(x => new JogoGrupoResponse
             {
                 Id = x.Id,
                 Grupo = new GrupoJogoResponse
@@ -57,7 +57,7 @@ namespace BolaoDaCopa.Aplicacao.JogosGrupo.Servicos
             var query = jogosGrupoRepositorio.Query()
                 .Where(x => x.Selecao1.Abreviacao == "BRA" || x.Selecao2.Abreviacao == "BRA");
 
-            var projecao = query.Select(x => new JogoGrupoResponse
+            var projecao = query.OrderBy(x => x.Id).Select(x => new JogoGrupoResponse
             {
                 Id = x.Id,
                 Grupo = new GrupoJogoResponse
