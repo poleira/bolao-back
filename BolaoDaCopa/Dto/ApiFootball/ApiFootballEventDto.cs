@@ -16,6 +16,21 @@ namespace BolaoDaCopa.Dto.ApiFootball
         [JsonPropertyName("strRound")]
         public string StrRound { get; set; } = string.Empty;
 
+        [JsonPropertyName("strStage")]
+        public string StrStage { get; set; } = string.Empty;
+
+        [JsonPropertyName("strFilename")]
+        public string StrFilename { get; set; } = string.Empty;
+
+        [JsonPropertyName("strEvent")]
+        public string StrEvent { get; set; } = string.Empty;
+
+        [JsonPropertyName("dateEvent")]
+        public string DateEvent { get; set; } = string.Empty;
+
+        [JsonPropertyName("intRound")]
+        public string IntRound { get; set; } = string.Empty;
+
         [JsonPropertyName("idHomeTeam")]
         public string IdHomeTeam { get; set; } = string.Empty;
 
@@ -75,6 +90,11 @@ namespace BolaoDaCopa.Dto.ApiFootball
     public class SportsDbEventDto
     {
         public string StrRound { get; set; } = string.Empty;
+        public string StrStage { get; set; } = string.Empty;
+        public string StrFilename { get; set; } = string.Empty;
+        public string StrEvent { get; set; } = string.Empty;
+        public string DateEvent { get; set; } = string.Empty;
+        public int? IntRound { get; set; }
         public int IdHomeTeam { get; set; }
         public int IdAwayTeam { get; set; }
         public bool TemResultado { get; set; }

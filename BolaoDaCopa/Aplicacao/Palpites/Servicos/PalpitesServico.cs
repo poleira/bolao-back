@@ -165,7 +165,7 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
         public async Task CriarPalpiteJogoGrupo(CriarPalpiteJogoGrupoRequest[] request, int idUsuario)
         {
             ValidarPrazoParaPalpiteJogoGrupo();
-            var transacao = session.BeginTransaction();
+            var transacao = session.BeginTransaction(); 
             try
             {
                 int idBolao = int.Parse(CryptoHelper.Decrypt(request.First().HashBolao));

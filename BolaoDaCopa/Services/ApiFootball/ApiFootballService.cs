@@ -100,13 +100,34 @@ namespace BolaoDaCopa.Services.ApiFootball
                 return result;
             }
 
+            // Log temporário: exibe o JSON bruto dos primeiros 3 eventos para diagnóstico dos campos disponíveis
+            var primeiros = root.Events.Where(e => e.IdHomeTeamInt != null && e.IdAwayTeamInt != null).Take(3);
+            foreach (var ev in primeiros)
+            {
+                logger.LogWarning(
+                    "[RAW EVENT] idEvent={IdEvent} | strRound='{StrRound}' | strStage='{StrStage}' | strFilename='{StrFilename}' | strEvent='{StrEvent}'",
+                    ev.IdEvent, ev.StrRound, ev.StrStage, ev.StrFilename, ev.StrEvent);
+            }
+
             foreach (var ev in root.Events)
             {
                 if (ev.IdHomeTeamInt == null || ev.IdAwayTeamInt == null) continue;
 
+                if (string.IsNullOrWhiteSpace(ev.StrRound))
+                {
+                    logger.LogDebug(
+                        "[DEBUG] idEvent={IdEvent} strRound='{StrRound}' strStage='{StrStage}' strFilename='{StrFilename}' strEvent='{StrEvent}'",
+                        ev.IdEvent, ev.StrRound, ev.StrStage, ev.StrFilename, ev.StrEvent);
+                }
+
                 result.Add(new SportsDbEventDto
                 {
                     StrRound = ev.StrRound,
+                    StrStage = ev.StrStage,
+                    StrFilename = ev.StrFilename,
+                    StrEvent = ev.StrEvent,
+                    DateEvent = ev.DateEvent,
+                    IntRound = int.TryParse(ev.IntRound, out var intRound) ? intRound : null,
                     IdHomeTeam = ev.IdHomeTeamInt.Value,
                     IdAwayTeam = ev.IdAwayTeamInt.Value,
                     TemResultado = ev.TemResultado,
