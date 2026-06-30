@@ -168,7 +168,7 @@ namespace BolaoDaCopa.Aplicacao.Selecoes.Servicos
         private static readonly Dictionary<int, int> IntRoundParaFaseId = new()
         {
             [32] = 1,  // Round of 32
-            // [16] = 2, // Oitavas  — adicionar quando confirmado
+            [16] = 2, // Oitavas  — adicionar quando confirmado
             // [8]  = 3, // Quartas  — adicionar quando confirmado
             // [4]  = 4, // Semis    — adicionar quando confirmado
         };
@@ -178,9 +178,8 @@ namespace BolaoDaCopa.Aplicacao.Selecoes.Servicos
         // faseId: 2=Oitavas, 3=Quartas, 4=Semis, 6=Disputa3°, 5=Final
         private static readonly (DateOnly Inicio, DateOnly Fim, int FaseId)[] RoundPorData = new[]
         {
-            (new DateOnly(2026, 7,  5), new DateOnly(2026, 7,  8), 2),
-            (new DateOnly(2026, 7, 11), new DateOnly(2026, 7, 12), 3),
-            (new DateOnly(2026, 7, 15), new DateOnly(2026, 7, 16), 4),
+            (new DateOnly(2026, 7, 9), new DateOnly(2026, 7, 11), 3),
+            (new DateOnly(2026, 7, 14), new DateOnly(2026, 7, 15), 4),
             (new DateOnly(2026, 7, 18), new DateOnly(2026, 7, 18), 6),
             (new DateOnly(2026, 7, 19), new DateOnly(2026, 7, 19), 5),
         };
