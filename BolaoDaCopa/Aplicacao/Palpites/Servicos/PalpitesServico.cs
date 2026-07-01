@@ -44,7 +44,7 @@ namespace BolaoDaCopa.Aplicacao.Palpites.Servicos
             new DateTimeOffset(2026, 6, 11, 16, 0, 0, TimeSpan.FromHours(-3));
 
         private static readonly DateTimeOffset DataLimitePalpitesJogosGrupos =
-            new DateTimeOffset(2026, 6, 29, 14, 0, 0, TimeSpan.FromHours(-3));
+            new DateTimeOffset(2026, 7, 5, 17, 0, 0, TimeSpan.FromHours(-3));
 
         // private static void ValidarPrazoParaPalpite()
         // {
